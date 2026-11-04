@@ -1,28 +1,188 @@
-const SPELLS = {
-  ember: {
-    name: "Ember",
-    hint: "Twin lances",
+const GRIMOIRES = {
+  basic: {
+    name: "Basic Grimoire",
+    hint: "A blank spellbook",
+    color: "#b9a7ce",
+    attack: "basic",
+    cooldown: 0.3,
+    damage: 1,
+    projectileSpeed: 480,
+  },
+  ashen: {
+    name: "Grimoire of the Ashen Crown",
+    hint: "Twin lances of fire",
     color: "#ff6a2a",
+    attack: "ember",
     cooldown: 0.16,
     damage: 2,
+    projectileSpeed: 620,
+    evolution: "infernal",
   },
-  rime: {
-    name: "Rime",
+  hollowWinter: {
+    name: "Codex of the Hollow Winter",
     hint: "A freezing fan",
     color: "#8eebff",
+    attack: "rime",
     cooldown: 0.24,
     damage: 1,
+    projectileSpeed: 480,
+    evolution: "glacial",
   },
-  tempest: {
-    name: "Tempest",
-    hint: "Piercing needles",
+  stormbound: {
+    name: "Tome of the Stormbound",
+    hint: "Piercing lightning",
     color: "#d2b6ff",
+    attack: "tempest",
     cooldown: 0.08,
     damage: 1,
+    projectileSpeed: 740,
+    evolution: "thunderous",
+  },
+  infernal: {
+    name: "Infernal Testament",
+    hint: "A devastating crown of fire",
+    color: "#ff9b42",
+    attack: "ember",
+    cooldown: 0.13,
+    damage: 5,
+    projectileSpeed: 760,
+  },
+  glacial: {
+    name: "Glacial Sovereign",
+    hint: "A blizzard that binds the veil",
+    color: "#b7f3ff",
+    attack: "rime",
+    cooldown: 0.18,
+    damage: 3,
+    projectileSpeed: 560,
+  },
+  thunderous: {
+    name: "Tempest Ascendant",
+    hint: "Lightning that pierces the storm",
+    color: "#ead7ff",
+    attack: "tempest",
+    cooldown: 0.055,
+    damage: 2,
+    projectileSpeed: 900,
   },
 };
 
-const SPELL_ORDER = ["ember", "rime", "tempest"];
+const GRIMOIRE_OPTIONS = [
+  {
+    id: "ashen",
+    name: GRIMOIRES.ashen.name,
+    description: "Bursting twin fire lances with heavy damage.",
+  },
+  {
+    id: "hollowWinter",
+    name: GRIMOIRES.hollowWinter.name,
+    description: "A slowing fan of ice bolts.",
+  },
+  {
+    id: "stormbound",
+    name: GRIMOIRES.stormbound.name,
+    description: "Rapid lightning needles that pierce enemies.",
+  },
+];
+
+const GRIMOIRE_UPGRADES = {
+  ashen: [
+    { id: "ashen-cinders", name: "Crown of Cinders", description: "+2 fire damage.", maxStacks: 3, apply: (player) => { player.grimoireDamage += 2; } },
+    { id: "ashen-furnace", name: "Furnace Heart", description: "Fire attacks recover 12% faster.", maxStacks: 3, apply: (player) => { player.grimoireCooldownMultiplier *= 0.88; } },
+    { id: "ashen-flare", name: "Crownflare", description: "Fire lances travel 18% faster.", maxStacks: 3, apply: (player) => { player.grimoireSpeedMultiplier *= 1.18; } },
+  ],
+  hollowWinter: [
+    { id: "winter-rime", name: "Deep Rime", description: "+2 ice damage.", maxStacks: 3, apply: (player) => { player.grimoireDamage += 2; } },
+    { id: "winter-thaw", name: "Long Winter", description: "Ice attacks recover 12% faster.", maxStacks: 3, apply: (player) => { player.grimoireCooldownMultiplier *= 0.88; } },
+    { id: "winter-bite", name: "Biting Cold", description: "Ice bolts travel 18% faster.", maxStacks: 3, apply: (player) => { player.grimoireSpeedMultiplier *= 1.18; } },
+  ],
+  stormbound: [
+    { id: "storm-voltage", name: "High Voltage", description: "+2 lightning damage.", maxStacks: 3, apply: (player) => { player.grimoireDamage += 2; } },
+    { id: "storm-current", name: "Live Current", description: "Lightning attacks recover 12% faster.", maxStacks: 3, apply: (player) => { player.grimoireCooldownMultiplier *= 0.88; } },
+    { id: "storm-conduit", name: "Storm Conduit", description: "Lightning needles travel 18% faster.", maxStacks: 3, apply: (player) => { player.grimoireSpeedMultiplier *= 1.18; } },
+  ],
+};
+
+const GRIMOIRE_EVOLUTIONS = {
+  infernal: {
+    id: "evolve-infernal",
+    name: GRIMOIRES.infernal.name,
+    description: "Evolve the Ashen Crown into a devastating fire grimoire.",
+    grimoire: "infernal",
+  },
+  glacial: {
+    id: "evolve-glacial",
+    name: GRIMOIRES.glacial.name,
+    description: "Evolve Hollow Winter into a powerful freezing codex.",
+    grimoire: "glacial",
+  },
+  thunderous: {
+    id: "evolve-thunderous",
+    name: GRIMOIRES.thunderous.name,
+    description: "Evolve Stormbound into a faster, stronger lightning tome.",
+    grimoire: "thunderous",
+  },
+};
+
+const UPGRADE_OPTIONS = [
+  {
+    id: "arcane-edge",
+    name: "Arcane Edge",
+    description: "+1 damage from every grimoire attack.",
+    apply(player) {
+      player.spellDamage += 1;
+    },
+  },
+  {
+    id: "quickcast",
+    name: "Quickcast",
+    description: "Reduce grimoire cooldowns by 10%.",
+    apply(player) {
+      player.cooldownMultiplier *= 0.9;
+    },
+  },
+  {
+    id: "swiftstep",
+    name: "Swiftstep",
+    description: "Move 15% faster.",
+    apply(player) {
+      player.moveSpeed *= 1.15;
+    },
+  },
+  {
+    id: "ward-resonance",
+    name: "Ward Resonance",
+    description: "Ward Pulse lasts 0.75 seconds longer.",
+    apply(player) {
+      player.wardDuration += 0.75;
+    },
+  },
+  {
+    id: "expanding-ward",
+    name: "Expanding Ward",
+    description: "Ward Pulse reaches 24 pixels farther.",
+    apply(player) {
+      player.wardRadius += 24;
+    },
+  },
+  {
+    id: "vitality",
+    name: "Vitality",
+    description: "Gain a maximum life and restore one life.",
+    apply(player) {
+      player.maxLives += 1;
+      player.lives = Math.min(player.maxLives, player.lives + 1);
+    },
+  },
+  {
+    id: "stormshot",
+    name: "Stormshot",
+    description: "Your grimoire projectiles travel 15% faster.",
+    apply(player) {
+      player.projectileSpeedMultiplier *= 1.15;
+    },
+  },
+];
 
 const ENEMIES = {
   bat: { hp: 2, speed: 150, score: 70, radius: 14 },
@@ -31,6 +191,14 @@ const ENEMIES = {
   cultist: { hp: 10, speed: 36, score: 260, radius: 18 },
   archon: { hp: 120, speed: 28, score: 2800, radius: 46 },
 };
+
+const ARCHONS = [
+  { name: "Vaelith, Crown of Dusk", color: "#f0c56a", accent: "#8f4e9c", model: "crown" },
+  { name: "Mordrath, the Ashen Warden", color: "#ff8a4c", accent: "#7d2c2c", model: "horns" },
+  { name: "Elyndra, Veil of Winter", color: "#b7f3ff", accent: "#477ea0", model: "halo" },
+  { name: "Tharos, Storm-Eyed", color: "#d2b6ff", accent: "#4b3b91", model: "wings" },
+  { name: "Aurex, the Last Spire", color: "#ffe6a1", accent: "#9b6b32", model: "crown" },
+];
 
 const LINES = [
   "The bats stir under the moon",
@@ -56,16 +224,45 @@ const wardFill = document.getElementById("ward-fill");
 const bestMenu = document.getElementById("best-menu");
 const bestOver = document.getElementById("best-over");
 const finalScore = document.getElementById("final-score");
+const overTitle = document.getElementById("over-title");
+const bossHud = document.getElementById("boss-hud");
+const bossName = document.getElementById("boss-name");
+const bossHealthFill = document.getElementById("boss-health-fill");
+const upgrades = document.getElementById("upgrades");
+const upgradeChoices = document.getElementById("upgrade-choices");
+const touchPad = document.getElementById("touch-pad");
+const touchKnob = touchPad.querySelector("span");
+const wardButton = document.getElementById("ward-button");
+const mobileControls = document.getElementById("mobile-controls");
 
+const LOGICAL_WIDTH = 540;
+const LOGICAL_HEIGHT = 960;
+const PLAYER_SCALE = 1.3;
+const ENEMY_SCALE = 1.5;
+const ENEMY_PROJECTILE_SCALE = 1.5;
+const ENEMY_PROJECTILE_SPEED = 0.9;
+const ENEMY_MAX_PACE = 1.75;
+const ENEMY_MAX_PROJECTILE_SPEED = 1.45;
+const ENEMY_MAX_STAT_TIER = 4;
+const PLAYER_BOUND_X = 28 * PLAYER_SCALE;
+const PLAYER_BOUND_TOP = 36 * PLAYER_SCALE;
+const PLAYER_HIT_RADIUS = 12 * PLAYER_SCALE;
 const keys = new Set();
 const pressed = new Set();
 let rightClick = false;
+let touchMove = null;
 
 const audio = { ctx: null, drone: [] };
 
 const game = {
-  w: 960,
-  h: 640,
+  w: LOGICAL_WIDTH,
+  h: LOGICAL_HEIGHT,
+  viewportW: 0,
+  viewportH: 0,
+  offsetX: 0,
+  offsetY: 0,
+  scale: 1,
+  dpr: 1,
   state: "menu",
   time: 0,
   scroll: 0,
@@ -83,6 +280,8 @@ const game = {
   spawnCd: 0,
   between: 0,
   wave: 1,
+  completedLevels: 0,
+  upgradeCounts: {},
   score: 0,
   combo: 0,
   comboTimer: 0,
@@ -91,6 +290,7 @@ const game = {
   dying: 0,
   hint: 0,
   best: 0,
+  won: false,
 };
 
 function loadBest() {
@@ -113,14 +313,73 @@ function saveBest() {
 }
 
 function resize() {
+  const viewport = window.visualViewport;
+  const viewportW = viewport ? viewport.width : window.innerWidth;
+  const viewportH = viewport ? viewport.height : window.innerHeight;
+  const scale = Math.min(viewportW / LOGICAL_WIDTH, viewportH / LOGICAL_HEIGHT);
+  const playW = LOGICAL_WIDTH * scale;
+  const playH = LOGICAL_HEIGHT * scale;
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
-  game.w = window.innerWidth;
-  game.h = window.innerHeight;
-  canvas.width = Math.floor(game.w * dpr);
-  canvas.height = Math.floor(game.h * dpr);
-  canvas.style.width = `${game.w}px`;
-  canvas.style.height = `${game.h}px`;
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  game.viewportW = viewportW;
+  game.viewportH = viewportH;
+  game.w = LOGICAL_WIDTH;
+  game.h = LOGICAL_HEIGHT;
+  game.offsetX = (viewportW - playW) / 2;
+  game.offsetY = (viewportH - playH) / 2;
+  game.scale = scale;
+  game.dpr = dpr;
+  canvas.width = Math.floor(viewportW * dpr);
+  canvas.height = Math.floor(viewportH * dpr);
+  canvas.style.width = `${viewportW}px`;
+  canvas.style.height = `${viewportH}px`;
+  mobileControls.style.left = `${game.offsetX}px`;
+  mobileControls.style.top = `${game.offsetY}px`;
+  mobileControls.style.width = `${playW}px`;
+  mobileControls.style.height = `${playH}px`;
+  mobileControls.style.setProperty("--control-scale", scale);
+
+  if (game.player) {
+    game.player.x = Math.max(PLAYER_BOUND_X, Math.min(game.w - PLAYER_BOUND_X, game.player.x));
+    game.player.y = Math.max(PLAYER_BOUND_TOP, Math.min(game.h - PLAYER_BOUND_X, game.player.y));
+  }
+}
+
+function drawSidePanels() {
+  const { viewportW, viewportH, offsetX, offsetY } = game;
+  ctx.fillStyle = "#07040f";
+  ctx.fillRect(0, 0, viewportW, viewportH);
+  if (offsetX < 1 && offsetY < 1) return;
+
+  const panelGradient = ctx.createLinearGradient(0, 0, viewportW, viewportH);
+  panelGradient.addColorStop(0, "rgba(36, 18, 66, 0.18)");
+  panelGradient.addColorStop(0.5, "rgba(7, 4, 15, 0.8)");
+  panelGradient.addColorStop(1, "rgba(58, 26, 56, 0.18)");
+  ctx.fillStyle = panelGradient;
+  ctx.fillRect(0, 0, viewportW, viewportH);
+
+  const panelWidth = Math.max(offsetX, offsetY);
+  const count = Math.ceil(Math.max(viewportW, viewportH) / 90);
+  ctx.strokeStyle = "rgba(143, 214, 255, 0.08)";
+  ctx.lineWidth = 1;
+  for (let i = 0; i < count; i++) {
+    const progress = (i + 1) / (count + 1);
+    if (offsetX > 0) {
+      ctx.beginPath();
+      ctx.moveTo(progress * panelWidth, 0);
+      ctx.lineTo(progress * panelWidth - panelWidth * 0.35, viewportH);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(viewportW - progress * panelWidth, 0);
+      ctx.lineTo(viewportW - progress * panelWidth + panelWidth * 0.35, viewportH);
+      ctx.stroke();
+    } else {
+      ctx.beginPath();
+      ctx.moveTo(0, progress * panelWidth);
+      ctx.lineTo(viewportW, progress * panelWidth - panelWidth * 0.35);
+      ctx.stroke();
+    }
+  }
 }
 
 function seedField() {
@@ -213,14 +472,27 @@ function makePlayer() {
   return {
     x: game.w / 2,
     y: game.h * 0.78,
-    spell: "ember",
+    grimoire: "basic",
+    grimoireDamage: 0,
+    grimoireCooldownMultiplier: 1,
+    grimoireSpeedMultiplier: 1,
+    grimoireUpgradeCount: 0,
+    grimoireEvolved: false,
     cool: 0,
     ward: 0,
     lives: 3,
+    maxLives: 5,
+    moveSpeed: 340,
+    spellDamage: 0,
+    cooldownMultiplier: 1,
+    projectileSpeedMultiplier: 1,
+    wardDuration: 3.1,
+    wardRadius: 168,
     invuln: 0,
     surge: 0,
     aegis: false,
     hurtFlash: 0,
+    touchTarget: null,
   };
 }
 
@@ -233,6 +505,8 @@ function resetRun() {
   game.particles = [];
   game.floaters = [];
   game.wave = 1;
+  game.completedLevels = 0;
+  game.upgradeCounts = {};
   game.score = 0;
   game.combo = 0;
   game.comboTimer = 0;
@@ -247,7 +521,7 @@ function resetRun() {
 }
 
 function buildQueue(wave) {
-  if (wave % 5 === 0) return ["archon"];
+  if (wave % 10 === 0) return ["archon"];
   const count = 6 + wave * 2;
   const queue = [];
   for (let i = 0; i < count; i++) {
@@ -260,16 +534,83 @@ function buildQueue(wave) {
   return queue;
 }
 
+function getAvailableUpgrades() {
+  const player = game.player;
+  const options = [
+    ...(GRIMOIRE_UPGRADES[player.grimoire] || []).filter(
+      (upgrade) => (game.upgradeCounts[upgrade.id] || 0) < upgrade.maxStacks
+    ),
+    ...UPGRADE_OPTIONS,
+  ];
+  if (!player.grimoireEvolved && GRIMOIRES[player.grimoire].evolution && player.grimoireUpgradeCount >= 2) {
+    options.push(GRIMOIRE_EVOLUTIONS[GRIMOIRES[player.grimoire].evolution]);
+  }
+  return options;
+}
+
+function showUpgradePhase() {
+  const available = game.player.grimoire === "basic" ? GRIMOIRE_OPTIONS : getAvailableUpgrades();
+  const choices = [...available].sort(() => Math.random() - 0.5).slice(0, 3);
+  upgradeChoices.replaceChildren(
+    ...choices.map((upgrade, index) => {
+      const button = document.createElement("button");
+      button.className = "upgrade-choice";
+      button.type = "button";
+      button.dataset.upgradeId = upgrade.id;
+      button.innerHTML = `<strong>${index + 1}. ${upgrade.name}</strong><small>${upgrade.description}</small>`;
+      return button;
+    })
+  );
+  upgrades.hidden = false;
+  hud.hidden = true;
+  mobileControls.hidden = true;
+  game.state = "upgrade";
+}
+
+function chooseUpgrade(id) {
+  if (game.state !== "upgrade") return;
+  if (game.player.grimoire === "basic") {
+    const grimoireChoice = GRIMOIRE_OPTIONS.find((option) => option.id === id);
+    if (!grimoireChoice) return;
+    game.player.grimoire = grimoireChoice.id;
+    game.player.grimoireUpgradeCount = 0;
+  } else {
+    const upgrade = [...getAvailableUpgrades(), ...Object.values(GRIMOIRE_EVOLUTIONS)].find(
+      (option) => option.id === id
+    );
+    if (!upgrade) return;
+    if (upgrade.grimoire) {
+      game.player.grimoire = upgrade.grimoire;
+      game.player.grimoireEvolved = true;
+    } else {
+      upgrade.apply(game.player);
+      if (GRIMOIRE_UPGRADES[game.player.grimoire]?.some((option) => option.id === id)) {
+        game.player.grimoireUpgradeCount += 1;
+      }
+    }
+  }
+  game.upgradeCounts[id] = (game.upgradeCounts[id] || 0) + 1;
+  upgrades.hidden = true;
+  hud.hidden = false;
+  mobileControls.hidden = false;
+  game.state = "play";
+  syncHud();
+}
+
 function spawn(kind) {
   const spec = ENEMIES[kind];
+  const archon = kind === "archon" ? ARCHONS[(Math.floor(game.wave / 10) - 1) % ARCHONS.length] : null;
+  const healthMultiplier = enemyHealthMultiplier();
+  const baseHealth = kind === "archon" ? 90 + game.wave * 12 : spec.hp;
   const margin = kind === "archon" ? 80 : 36;
   const foe = {
     kind,
+    archon,
     x: kind === "archon" ? game.w / 2 : margin + Math.random() * (game.w - margin * 2),
     y: kind === "archon" ? -60 : -28,
-    hp: kind === "archon" ? 90 + game.wave * 12 : spec.hp,
-    maxHp: kind === "archon" ? 90 + game.wave * 12 : spec.hp,
-    r: spec.radius,
+    hp: Math.round(baseHealth * healthMultiplier),
+    maxHp: Math.round(baseHealth * healthMultiplier),
+    r: spec.radius * ENEMY_SCALE,
     age: 0,
     seed: Math.random() * 10,
     originX: 0,
@@ -278,9 +619,25 @@ function spawn(kind) {
     touch: 0,
     shot: 0.6 + Math.random() * 0.6,
     dive: 0,
+    wanderX: null,
+    wanderY: null,
+    wanderTimer: 0,
   };
   foe.originX = foe.x;
   game.foes.push(foe);
+}
+
+function syncBossHud() {
+  const boss = game.foes.find((foe) => foe.kind === "archon" && foe.hp > 0);
+  if (!boss || game.state !== "play") {
+    bossHud.hidden = true;
+    return;
+  }
+  bossHud.hidden = false;
+  bossName.textContent = boss.archon.name;
+  bossName.style.color = boss.archon.color;
+  bossHealthFill.style.width = `${Math.max(0, boss.hp / boss.maxHp) * 100}%`;
+  bossHealthFill.style.background = `linear-gradient(90deg, ${boss.archon.accent}, ${boss.archon.color})`;
 }
 
 function maybeDrop(x, y, generous) {
@@ -289,7 +646,7 @@ function maybeDrop(x, y, generous) {
   const surgeCut = heartCut + (generous ? 0.4 : 0.12);
   const aegisCut = surgeCut + (generous ? 0.26 : 0.1);
   let kind = null;
-  if (roll < heartCut && game.player.lives < 5) kind = "heart";
+  if (roll < heartCut && game.player.lives < game.player.maxLives) kind = "heart";
   else if (roll < surgeCut) kind = "surge";
   else if (roll < aegisCut) kind = "aegis";
   if (!kind) return;
@@ -334,11 +691,11 @@ function hurtPlayer() {
 function castWard() {
   const player = game.player;
   if (player.ward > 0 || game.state !== "play") return;
-  player.ward = 3.1;
+  player.ward = player.wardDuration;
   game.shake = 6;
   tone(180, 0.35, "sawtooth", 0.04, 80);
   tone(440, 0.22, "triangle", 0.04, 880);
-  const radius = 168;
+  const radius = player.wardRadius;
   game.shots = game.shots.filter((shot) => Math.hypot(shot.x - player.x, shot.y - player.y) > radius);
   for (const foe of game.foes) {
     if (Math.hypot(foe.x - player.x, foe.y - player.y) <= radius + foe.r) {
@@ -374,50 +731,102 @@ function damageFoe(foe, amount) {
 
 function fireSpell(dt) {
   const player = game.player;
+  const grimoire = GRIMOIRES[player.grimoire];
   player.cool -= dt;
   if (player.cool > 0) return;
-  const spell = SPELLS[player.spell];
+  const attack = grimoire.attack;
   const rate = player.surge > 0 ? 0.62 : 1;
-  player.cool = spell.cooldown * rate;
-  const originY = player.y - 36;
+  player.cool = grimoire.cooldown * rate * player.cooldownMultiplier * player.grimoireCooldownMultiplier;
+  const originY = player.y - 36 * PLAYER_SCALE;
   const make = (angle, speed, damage, extra) => {
     const bolt = {
-      x: player.x + 18,
+      x: player.x + 18 * PLAYER_SCALE,
       y: originY,
-      vx: Math.sin(angle) * speed,
-      vy: -Math.cos(angle) * speed,
-      damage,
-      color: spell.color,
-      spell: player.spell,
+      vx: Math.sin(angle) * speed * player.projectileSpeedMultiplier * player.grimoireSpeedMultiplier,
+      vy: -Math.cos(angle) * speed * player.projectileSpeedMultiplier * player.grimoireSpeedMultiplier,
+      damage: damage + player.spellDamage + player.grimoireDamage,
+      color: grimoire.color,
+      spell: attack,
       life: 1.3,
-      r: player.spell === "tempest" ? 4 : 6,
+      r: attack === "tempest" ? 4 : 6,
       hit: new Set(),
-      pierce: player.spell === "tempest",
+      pierce: attack === "tempest",
     };
     Object.assign(bolt, extra);
     game.bullets.push(bolt);
   };
-  if (player.spell === "ember") {
-    make(-0.08, 620, spell.damage);
-    make(0.08, 620, spell.damage);
-  } else if (player.spell === "rime") {
-    make(-0.28, 460, spell.damage);
-    make(0, 480, spell.damage);
-    make(0.28, 460, spell.damage);
+  if (attack === "basic") {
+    make(0, grimoire.projectileSpeed, grimoire.damage);
+  } else if (attack === "ember") {
+    make(-0.08, grimoire.projectileSpeed, grimoire.damage);
+    make(0.08, grimoire.projectileSpeed, grimoire.damage);
+  } else if (attack === "rime") {
+    make(-0.28, grimoire.projectileSpeed - 20, grimoire.damage);
+    make(0, grimoire.projectileSpeed, grimoire.damage);
+    make(0.28, grimoire.projectileSpeed - 20, grimoire.damage);
   } else {
-    make((Math.random() - 0.5) * 0.12, 740, spell.damage);
+    make((Math.random() - 0.5) * 0.12, grimoire.projectileSpeed, grimoire.damage);
   }
-  if (game.time % 0.16 < dt) tone(player.spell === "rime" ? 680 : 520, 0.04, "square", 0.012);
+  if (game.time % 0.16 < dt) tone(attack === "rime" ? 680 : 520, 0.04, "square", 0.012);
 }
 
 function slowOf(foe) {
   return foe.slow > 0 ? 0.42 : 1;
 }
 
+function enemyPace() {
+  return Math.min(ENEMY_MAX_PACE, (1.08 + Math.max(0, game.wave - 1) * 0.035) * enemyMoveMultiplier());
+}
+
+function enemyProjectileSpeed() {
+  return Math.min(
+    ENEMY_MAX_PROJECTILE_SPEED,
+    (ENEMY_PROJECTILE_SPEED + Math.max(0, game.wave - 1) * 0.02) * enemyProjectileMultiplier()
+  );
+}
+
+function enemyStatTier() {
+  return Math.min(ENEMY_MAX_STAT_TIER, Math.max(0, Math.floor((game.wave - 5) / 5)));
+}
+
+function enemyHealthMultiplier() {
+  return 1 + enemyStatTier() * 0.12;
+}
+
+function enemyMoveMultiplier() {
+  return 1 + enemyStatTier() * 0.045;
+}
+
+function enemyProjectileMultiplier() {
+  return 1 + enemyStatTier() * 0.06;
+}
+
+function roamShooter(foe, dt, bounds, speed) {
+  foe.wanderTimer -= dt;
+  if (
+    foe.wanderTimer <= 0 ||
+    foe.wanderX === null ||
+    Math.hypot(foe.wanderX - foe.x, foe.wanderY - foe.y) < 12
+  ) {
+    foe.wanderX = bounds.left + Math.random() * (bounds.right - bounds.left);
+    foe.wanderY = bounds.top + Math.random() * (bounds.bottom - bounds.top);
+    foe.wanderTimer = 1.4 + Math.random() * 1.8;
+  }
+  const dx = foe.wanderX - foe.x;
+  const dy = foe.wanderY - foe.y;
+  const distance = Math.hypot(dx, dy) || 1;
+  foe.x += (dx / distance) * speed * dt;
+  foe.y += (dy / distance) * speed * dt;
+  foe.x = Math.max(bounds.left, Math.min(bounds.right, foe.x));
+  foe.y = Math.max(bounds.top, Math.min(bounds.bottom, foe.y));
+}
+
 function updateFoe(foe, dt) {
   const player = game.player;
   const spec = ENEMIES[foe.kind];
   const slow = slowOf(foe);
+  const pace = enemyPace();
+  const projectileSpeed = enemyProjectileSpeed();
   foe.age += dt;
   foe.slow = Math.max(0, foe.slow - dt);
   foe.flash = Math.max(0, foe.flash - dt);
@@ -425,45 +834,56 @@ function updateFoe(foe, dt) {
   foe.shot -= dt;
 
   if (foe.kind === "bat") {
-    foe.y += spec.speed * slow * dt;
-    foe.x = foe.originX + Math.sin(foe.age * 3.2 + foe.seed) * 78;
+    foe.y += spec.speed * pace * slow * dt;
+    foe.x = foe.originX + Math.sin(foe.age * 3.2 * pace + foe.seed) * 78;
   } else if (foe.kind === "imp") {
     if (foe.age < 0.9) {
-      foe.y += 50 * slow * dt;
-      foe.x += Math.sign(player.x - foe.x) * 110 * slow * dt;
+      foe.y += 50 * pace * slow * dt;
+      foe.x += Math.sign(player.x - foe.x) * 110 * pace * slow * dt;
     } else {
       if (!foe.dive) foe.dive = Math.max(-220, Math.min(220, (player.x - foe.x) * 1.4));
-      foe.y += 280 * slow * dt;
-      foe.x += foe.dive * slow * dt;
+      foe.y += 280 * pace * slow * dt;
+      foe.x += foe.dive * pace * slow * dt;
     }
   } else if (foe.kind === "wraith") {
-    const hover = game.h * 0.42;
-    foe.y += (foe.y < hover ? spec.speed : 8) * slow * dt;
-    foe.x += Math.sin(foe.age * 1.3 + foe.seed) * 40 * dt;
-    if (foe.shot <= 0 && foe.y > 20) {
+    const bounds = {
+      left: foe.r + 24,
+      right: game.w - foe.r - 24,
+      top: game.h * 0.16,
+      bottom: game.h * 0.43,
+    };
+    roamShooter(foe, dt, bounds, spec.speed * pace * 1.8 * slow);
+    if (foe.shot <= 0) {
       foe.shot = 1.55;
-      shootAt(foe, player.x, player.y, 230, 0);
+      shootAt(foe, player.x, player.y, 230 * projectileSpeed, 0);
     }
   } else if (foe.kind === "cultist") {
-    const station = 120 + (foe.seed % 1) * 70;
-    if (foe.y < station) foe.y += spec.speed * slow * dt;
-    foe.x += Math.sin(foe.age * 0.9 + foe.seed) * 70 * dt;
-    if (foe.shot <= 0 && foe.y >= station - 4) {
+    const bounds = {
+      left: foe.r + 24,
+      right: game.w - foe.r - 24,
+      top: game.h * 0.18,
+      bottom: game.h * 0.48,
+    };
+    roamShooter(foe, dt, bounds, spec.speed * pace * 1.8 * slow);
+    if (foe.shot <= 0) {
       foe.shot = 1.35;
-      shootAt(foe, player.x, player.y, 250, -0.22);
-      shootAt(foe, player.x, player.y, 250, 0);
-      shootAt(foe, player.x, player.y, 250, 0.22);
+      shootAt(foe, player.x, player.y, 250 * projectileSpeed, -0.22);
+      shootAt(foe, player.x, player.y, 250 * projectileSpeed, 0);
+      shootAt(foe, player.x, player.y, 250 * projectileSpeed, 0.22);
     }
   } else {
-    const top = 118;
-    if (foe.y < top) foe.y += 70 * dt;
-    else foe.x += Math.sin(foe.age * 0.7) * 120 * dt;
-    foe.x = Math.max(70, Math.min(game.w - 70, foe.x));
+    const bounds = {
+      left: foe.r + 24,
+      right: game.w - foe.r - 24,
+      top: game.h * 0.18,
+      bottom: game.h * 0.7,
+    };
+    roamShooter(foe, dt, bounds, 70 * pace * 1.6);
     const pattern = Math.floor(foe.age / 3.2) % 3;
-    if (foe.y >= top - 2 && foe.shot <= 0) {
+    if (foe.shot <= 0) {
       if (pattern === 0) {
         foe.shot = 0.32;
-        shootAt(foe, player.x, player.y, 260, 0);
+        shootAt(foe, player.x, player.y, 260 * projectileSpeed, 0);
       } else if (pattern === 1) {
         foe.shot = 0.9;
         for (let i = 0; i < 12; i++) {
@@ -471,9 +891,9 @@ function updateFoe(foe, dt) {
           game.shots.push({
             x: foe.x,
             y: foe.y,
-            vx: Math.cos(angle) * 150,
-            vy: Math.sin(angle) * 150,
-            r: 6,
+            vx: Math.cos(angle) * 150 * projectileSpeed,
+            vy: Math.sin(angle) * 150 * projectileSpeed,
+            r: 6 * ENEMY_PROJECTILE_SCALE,
           });
         }
       } else {
@@ -482,15 +902,15 @@ function updateFoe(foe, dt) {
         game.shots.push({
           x: foe.x,
           y: foe.y,
-          vx: Math.cos(angle) * 190,
-          vy: Math.sin(angle) * 190,
-          r: 5,
+          vx: Math.cos(angle) * 190 * projectileSpeed,
+          vy: Math.sin(angle) * 190 * projectileSpeed,
+          r: 5 * ENEMY_PROJECTILE_SCALE,
         });
       }
     }
   }
 
-  if (foe.hp > 0 && foe.touch <= 0 && Math.hypot(foe.x - player.x, foe.y - player.y) < foe.r + 12) {
+  if (foe.hp > 0 && foe.touch <= 0 && Math.hypot(foe.x - player.x, foe.y - player.y) < foe.r + PLAYER_HIT_RADIUS) {
     foe.touch = 0.8;
     hurtPlayer();
     if (foe.kind === "bat" || foe.kind === "imp") damageFoe(foe, foe.hp);
@@ -504,7 +924,7 @@ function shootAt(foe, tx, ty, speed, spread) {
     y: foe.y + 8,
     vx: Math.cos(angle) * speed,
     vy: Math.sin(angle) * speed,
-    r: 6,
+    r: 6 * ENEMY_PROJECTILE_SCALE,
   });
 }
 
@@ -522,29 +942,22 @@ function updatePlay(dt) {
   if (keys.has("KeyD") || keys.has("ArrowRight")) dx += 1;
   if (keys.has("KeyW") || keys.has("ArrowUp")) dy -= 1;
   if (keys.has("KeyS") || keys.has("ArrowDown")) dy += 1;
+  if (touchMove) {
+    dx += touchMove.x;
+    dy += touchMove.y;
+  }
   if (dx || dy) {
     const len = Math.hypot(dx, dy) || 1;
-    player.x += (dx / len) * 340 * dt;
-    player.y += (dy / len) * 340 * dt;
+    player.x += (dx / len) * player.moveSpeed * dt;
+    player.y += (dy / len) * player.moveSpeed * dt;
   }
-  player.x = Math.max(28, Math.min(game.w - 28, player.x));
-  player.y = Math.max(36, Math.min(game.h - 28, player.y));
+  player.x = Math.max(PLAYER_BOUND_X, Math.min(game.w - PLAYER_BOUND_X, player.x));
+  player.y = Math.max(PLAYER_BOUND_TOP, Math.min(game.h - PLAYER_BOUND_X, player.y));
   player.invuln = Math.max(0, player.invuln - dt);
   player.ward = Math.max(0, player.ward - dt);
   player.surge = Math.max(0, player.surge - dt);
   player.hurtFlash = Math.max(0, player.hurtFlash - dt);
 
-  if (pressed.has("Digit1")) player.spell = "ember";
-  if (pressed.has("Digit2")) player.spell = "rime";
-  if (pressed.has("Digit3")) player.spell = "tempest";
-  if (pressed.has("KeyQ")) {
-    const index = SPELL_ORDER.indexOf(player.spell);
-    player.spell = SPELL_ORDER[(index + SPELL_ORDER.length - 1) % SPELL_ORDER.length];
-  }
-  if (pressed.has("KeyE")) {
-    const index = SPELL_ORDER.indexOf(player.spell);
-    player.spell = SPELL_ORDER[(index + 1) % SPELL_ORDER.length];
-  }
   if (pressed.has("Space") || rightClick) castWard();
 
   fireSpell(dt);
@@ -567,7 +980,11 @@ function updatePlay(dt) {
     (bolt) => bolt.life > 0 && bolt.y > -40 && bolt.x > -40 && bolt.x < game.w + 40
   );
 
-  for (const foe of game.foes) updateFoe(foe, dt);
+  for (const foe of game.foes) {
+    updateFoe(foe, dt);
+    const margin = foe.r + 4;
+    foe.x = Math.max(margin, Math.min(game.w - margin, foe.x));
+  }
 
   for (const bolt of game.bullets) {
     for (const foe of game.foes) {
@@ -587,7 +1004,7 @@ function updatePlay(dt) {
   for (const shot of game.shots) {
     shot.x += shot.vx * dt;
     shot.y += shot.vy * dt;
-    if (Math.hypot(shot.x - player.x, shot.y - player.y) < shot.r + 12) {
+    if (Math.hypot(shot.x - player.x, shot.y - player.y) < shot.r + PLAYER_HIT_RADIUS) {
       shot.dead = true;
       hurtPlayer();
     }
@@ -613,24 +1030,47 @@ function updatePlay(dt) {
   game.gifts = game.gifts.filter((gift) => gift.life > 0 && gift.y < game.h + 40);
 
   if (game.queue.length === 0 && game.foes.length === 0 && game.between <= 0) {
+    if (game.wave >= 50) {
+      finish(true);
+      return;
+    }
     game.wave += 1;
+    game.completedLevels += 1;
     game.queue = buildQueue(game.wave);
     game.between = 1.6;
     game.spawnCd = 0.3;
-    const boss = game.wave % 5 === 0;
+    const boss = game.wave % 10 === 0;
     game.banner = {
       text: boss ? "An Archon descends" : `Circle ${game.wave}`,
       sub: boss ? "Break the crown" : LINES[(game.wave - 1) % LINES.length],
       life: 2.3,
     };
+    if (game.completedLevels % 5 === 0) showUpgradePhase();
   }
+}
+
+function updateTouchMove(event) {
+  const rect = touchPad.getBoundingClientRect();
+  const radius = rect.width * 0.5;
+  const x = event.clientX - (rect.left + radius);
+  const y = event.clientY - (rect.top + radius);
+  const distance = Math.min(radius, Math.hypot(x, y));
+  const length = Math.hypot(x, y) || 1;
+  const strength = distance / radius;
+  touchMove = { x: (x / length) * strength, y: (y / length) * strength };
+  touchKnob.style.transform = `translate(calc(-50% + ${(x / length) * distance}px), calc(-50% + ${(y / length) * distance}px))`;
+}
+
+function clearTouchMove() {
+  touchMove = null;
+  touchKnob.style.transform = "translate(-50%, -50%)";
 }
 
 function takeGift(gift) {
   const player = game.player;
   tone(660, 0.12, "triangle", 0.04, 990);
   if (gift.kind === "heart") {
-    player.lives = Math.min(5, player.lives + 1);
+    player.lives = Math.min(player.maxLives, player.lives + 1);
     floatText(player.x, player.y - 30, "Vitality", "#ff8aa0");
   } else if (gift.kind === "surge") {
     player.surge = 6.5;
@@ -659,7 +1099,7 @@ function update(dt) {
   game.time += dt;
   game.scroll += dt;
   game.shake = Math.max(0, game.shake - dt * 22);
-  if (game.state === "menu" || game.state === "pause" || game.state === "over") return;
+  if (game.state === "menu" || game.state === "pause" || game.state === "upgrade" || game.state === "over") return;
   if (game.state === "dying") {
     game.dying -= dt;
     updateParticles(dt);
@@ -670,27 +1110,34 @@ function update(dt) {
   updateParticles(dt);
 }
 
-function finish() {
+function finish(won = false) {
   game.state = "over";
+  game.won = won;
   saveBest();
-  finalScore.textContent = String(game.score);
+  overTitle.textContent = won ? "The storm is broken" : "The spire falls";
+  finalScore.textContent = won ? `Level 50 · ${game.score}` : String(game.score);
   bestOver.textContent = `Best vigil: ${game.best}`;
   over.hidden = false;
   hud.hidden = true;
+  mobileControls.hidden = true;
+  bossHud.hidden = true;
 }
 
 function syncHud() {
   if (game.state === "menu" || game.state === "over") return;
-  const spell = SPELLS[game.player.spell];
+  const grimoire = GRIMOIRES[game.player.grimoire];
+  syncBossHud();
   scoreEl.textContent = String(game.score);
-  circleEl.textContent = game.wave % 5 === 0 ? `Circle ${game.wave} · Archon` : `Circle ${game.wave}`;
+  circleEl.textContent = game.wave % 10 === 0 ? `Circle ${game.wave} · Archon` : `Circle ${game.wave}`;
   comboEl.textContent = game.combo >= 2 ? `Chain ×${(1 + Math.min(game.combo, 8) * 0.25).toFixed(2)}` : "";
   livesEl.textContent = "♥ ".repeat(Math.max(0, game.player.lives)).trim();
-  spellNameEl.textContent = game.player.surge > 0 ? `${spell.name} surge` : spell.name;
-  spellNameEl.style.color = spell.color;
-  spellHintEl.textContent = spell.hint;
+  spellNameEl.textContent = game.player.surge > 0 ? `${grimoire.name} surge` : grimoire.name;
+  spellNameEl.style.color = grimoire.color;
+  spellHintEl.textContent = grimoire.hint;
   const ready = game.player.ward <= 0;
-  wardFill.style.width = ready ? "100%" : `${(1 - game.player.ward / 3.1) * 100}%`;
+  wardFill.style.width = ready ? "100%" : `${(1 - game.player.ward / game.player.wardDuration) * 100}%`;
+  wardButton.classList.toggle("cooling", !ready);
+  wardButton.textContent = ready ? "WARD" : `${game.player.ward.toFixed(1)}s`;
 }
 
 function showPause(on) {
@@ -705,16 +1152,20 @@ function startGame() {
   menu.hidden = true;
   over.hidden = true;
   paused.hidden = true;
+  upgrades.hidden = true;
   hud.hidden = false;
+  mobileControls.hidden = false;
 }
 
 function togglePause() {
   if (game.state === "play") {
     game.state = "pause";
     showPause(true);
+    mobileControls.hidden = true;
   } else if (game.state === "pause") {
     game.state = "play";
     showPause(false);
+    mobileControls.hidden = false;
   }
 }
 
@@ -786,6 +1237,7 @@ function drawMage(x, y, color, hidden) {
   if (hidden) return;
   ctx.save();
   ctx.translate(x, y);
+  ctx.scale(PLAYER_SCALE, PLAYER_SCALE);
   if (game.player.invuln > 0) ctx.globalAlpha = 0.45 + Math.sin(game.time * 28) * 0.25;
   ctx.fillStyle = "rgba(0,0,0,0.35)";
   ctx.beginPath();
@@ -851,9 +1303,10 @@ function drawMage(x, y, color, hidden) {
 function drawFoe(foe) {
   ctx.save();
   ctx.translate(foe.x, foe.y);
+  ctx.scale(ENEMY_SCALE, ENEMY_SCALE);
   ctx.fillStyle = "rgba(255, 196, 140, 0.16)";
   ctx.beginPath();
-  ctx.arc(0, 0, foe.r + 10, 0, Math.PI * 2);
+  ctx.arc(0, 0, foe.r / ENEMY_SCALE + 10, 0, Math.PI * 2);
   ctx.fill();
   if (foe.flash > 0) ctx.filter = "brightness(2.4)";
   if (foe.kind === "bat") {
@@ -921,33 +1374,58 @@ function drawFoe(foe) {
     ctx.lineTo(0, -11);
     ctx.stroke();
   } else {
-    ctx.strokeStyle = "rgba(240, 197, 106, 0.7)";
+    const archon = foe.archon;
+    ctx.strokeStyle = archon.color;
     ctx.lineWidth = 2;
     for (let i = 0; i < 3; i++) {
       ctx.beginPath();
       ctx.arc(0, 0, 34 + i * 8, game.time * (0.6 + i * 0.2), game.time * (0.6 + i * 0.2) + 1.4);
       ctx.stroke();
     }
-    ctx.fillStyle = "#241030";
+    ctx.fillStyle = archon.accent;
     ctx.beginPath();
-    ctx.moveTo(-26, 20);
-    ctx.lineTo(-16, -16);
-    ctx.lineTo(0, -28);
-    ctx.lineTo(16, -16);
-    ctx.lineTo(26, 20);
+    if (archon.model === "wings") {
+      ctx.moveTo(-38, 22);
+      ctx.lineTo(-18, -16);
+      ctx.lineTo(0, -28);
+      ctx.lineTo(18, -16);
+      ctx.lineTo(38, 22);
+    } else if (archon.model === "horns") {
+      ctx.moveTo(-27, 20);
+      ctx.lineTo(-25, -24);
+      ctx.lineTo(-12, -14);
+      ctx.lineTo(0, -30);
+      ctx.lineTo(12, -14);
+      ctx.lineTo(25, -24);
+      ctx.lineTo(27, 20);
+    } else {
+      ctx.moveTo(-26, 20);
+      ctx.lineTo(-16, -16);
+      ctx.lineTo(0, -28);
+      ctx.lineTo(16, -16);
+      ctx.lineTo(26, 20);
+    }
     ctx.closePath();
     ctx.fill();
-    ctx.fillStyle = "#f0c56a";
+    ctx.fillStyle = archon.color;
     ctx.beginPath();
-    ctx.moveTo(-10, -26);
-    ctx.lineTo(0, -44);
-    ctx.lineTo(10, -26);
+    if (archon.model === "halo") {
+      ctx.arc(0, -22, 14 + Math.sin(game.time * 2) * 2, 0, Math.PI * 2);
+      ctx.strokeStyle = archon.color;
+      ctx.stroke();
+    } else {
+      ctx.moveTo(-10, -26);
+      ctx.lineTo(0, -44);
+      ctx.lineTo(10, -26);
+    }
     ctx.fill();
+  }
+  if (foe.kind !== "archon") {
     const ratio = foe.hp / foe.maxHp;
-    ctx.fillStyle = "rgba(0,0,0,0.45)";
-    ctx.fillRect(-24, 28, 48, 5);
-    ctx.fillStyle = "#f0c56a";
-    ctx.fillRect(-24, 28, 48 * Math.max(0, ratio), 5);
+    ctx.fillStyle = "rgba(0,0,0,0.4)";
+    ctx.fillRect(-18, 24, 36, 3);
+    ctx.fillStyle = "rgba(217, 106, 106, 0.8)";
+    ctx.fillRect(-18, 24, 36 * Math.max(0, ratio), 3);
   }
   ctx.restore();
 }
@@ -957,7 +1435,15 @@ function draw() {
   const mag = game.shake;
   const sx = mag ? (Math.random() - 0.5) * mag : 0;
   const sy = mag ? (Math.random() - 0.5) * mag : 0;
+  ctx.setTransform(game.dpr, 0, 0, game.dpr, 0, 0);
+  ctx.clearRect(0, 0, game.viewportW, game.viewportH);
+  drawSidePanels();
   ctx.save();
+  ctx.translate(game.offsetX, game.offsetY);
+  ctx.scale(game.scale, game.scale);
+  ctx.beginPath();
+  ctx.rect(0, 0, w, h);
+  ctx.clip();
   ctx.translate(sx, sy);
   drawBackground();
 
@@ -1023,7 +1509,7 @@ function draw() {
 
   if (game.player && game.state !== "menu") {
     const hidden = game.state === "dying" || game.state === "over";
-    drawMage(game.player.x, game.player.y, SPELLS[game.player.spell].color, hidden && game.dying < 0.8);
+    drawMage(game.player.x, game.player.y, GRIMOIRES[game.player.grimoire].color, hidden && game.dying < 0.8);
   }
 
   ctx.textAlign = "center";
@@ -1078,6 +1564,11 @@ function frame(now) {
 window.addEventListener("keydown", (event) => {
   const block = ["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
   if (game.state === "play" && block.includes(event.code)) event.preventDefault();
+  if (game.state === "upgrade" && ["Digit1", "Digit2", "Digit3"].includes(event.code)) {
+    const choice = upgradeChoices.children[Number(event.code.slice(-1)) - 1];
+    if (choice) chooseUpgrade(choice.dataset.upgradeId);
+    return;
+  }
   if (!keys.has(event.code)) pressed.add(event.code);
   keys.add(event.code);
   if (event.code === "Enter" && (game.state === "menu" || game.state === "over")) startGame();
@@ -1094,6 +1585,31 @@ window.addEventListener("mousedown", (event) => {
 window.addEventListener("contextmenu", (event) => event.preventDefault());
 window.addEventListener("blur", () => keys.clear());
 window.addEventListener("resize", resize);
+window.addEventListener("orientationchange", resize);
+document.addEventListener("fullscreenchange", resize);
+if (window.visualViewport) window.visualViewport.addEventListener("resize", resize);
+touchPad.addEventListener("pointerdown", (event) => {
+  if (game.state !== "play") return;
+  touchPad.setPointerCapture(event.pointerId);
+  updateTouchMove(event);
+  event.preventDefault();
+});
+touchPad.addEventListener("pointermove", (event) => {
+  if (touchPad.hasPointerCapture(event.pointerId)) updateTouchMove(event);
+});
+touchPad.addEventListener("pointerup", clearTouchMove);
+touchPad.addEventListener("pointercancel", clearTouchMove);
+touchPad.addEventListener("lostpointercapture", clearTouchMove);
+wardButton.addEventListener("pointerdown", (event) => {
+  if (game.state === "play") {
+    castWard();
+    event.preventDefault();
+  }
+});
+upgradeChoices.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-upgrade-id]");
+  if (button) chooseUpgrade(button.dataset.upgradeId);
+});
 document.getElementById("start").addEventListener("click", startGame);
 document.getElementById("again").addEventListener("click", startGame);
 document.getElementById("resume").addEventListener("click", togglePause);

@@ -2,12 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Spellstorm</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <canvas id="game" aria-label="Spellstorm playfield"></canvas>
+  <div id="mobile-controls" aria-label="Touch controls" hidden>
+    <div id="touch-pad" aria-label="Move">
+      <span></span>
+    </div>
+    <button id="ward-button" type="button" aria-label="Cast Ward Pulse">Ward</button>
+  </div>
 
   <header id="hud" hidden>
     <div class="stat">
@@ -28,13 +34,18 @@
     </div>
   </header>
 
+  <section id="boss-hud" hidden aria-live="polite">
+    <strong id="boss-name"></strong>
+    <div id="boss-health"><b id="boss-health-fill"></b></div>
+  </section>
+
   <section id="menu" class="overlay">
     <div class="card">
       <h1>Spellstorm</h1>
       <p class="lede">Hold the last spire. The dark is climbing.</p>
       <ul class="controls">
         <li><kbd>WASD / arrows</kbd><span>Move</span></li>
-        <li><kbd>1 2 3 · Q E</kbd><span>Change spell</span></li>
+        <li><kbd>1 2 3</kbd><span>Choose a grimoire boon</span></li>
         <li><kbd>Space / right click</kbd><span>Ward Pulse</span></li>
         <li><kbd>Esc</kbd><span>Pause</span></li>
       </ul>
@@ -51,9 +62,18 @@
     </div>
   </section>
 
+  <section id="upgrades" class="overlay" hidden>
+    <div class="card upgrade-card">
+      <p class="eyebrow">A quiet moment between circles</p>
+      <h2>Choose an aspect</h2>
+      <p>Select one boon for this vigil.</p>
+      <div id="upgrade-choices" class="upgrade-choices"></div>
+    </div>
+  </section>
+
   <section id="over" class="overlay" hidden>
     <div class="card">
-      <h2>The spire falls</h2>
+      <h2 id="over-title">The spire falls</h2>
       <p class="final-score" id="final-score">0</p>
       <p id="best-over"></p>
       <button id="again" type="button">Rise again</button>
