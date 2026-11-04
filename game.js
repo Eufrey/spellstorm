@@ -234,6 +234,8 @@ const touchPad = document.getElementById("touch-pad");
 const touchKnob = touchPad.querySelector("span");
 const wardButton = document.getElementById("ward-button");
 const mobileControls = document.getElementById("mobile-controls");
+const xpBar = document.getElementById("xp-bar");
+const xpFill = document.getElementById("xp-fill");
 
 const LOGICAL_WIDTH = 540;
 const LOGICAL_HEIGHT = 960;
@@ -244,6 +246,7 @@ const ENEMY_PROJECTILE_SPEED = 0.9;
 const ENEMY_MAX_PACE = 1.75;
 const ENEMY_MAX_PROJECTILE_SPEED = 1.45;
 const ENEMY_MAX_STAT_TIER = 4;
+const ENEMY_MAX_SCORE_MULTIPLIER = 2.1;
 const PLAYER_BOUND_X = 28 * PLAYER_SCALE;
 const PLAYER_BOUND_TOP = 36 * PLAYER_SCALE;
 const PLAYER_HIT_RADIUS = 12 * PLAYER_SCALE;
@@ -281,6 +284,8 @@ const game = {
   between: 0,
   wave: 1,
   completedLevels: 0,
+  xpStart: 0,
+  xpTarget: 1080,
   upgradeCounts: {},
   score: 0,
   combo: 0,
@@ -338,6 +343,10 @@ function resize() {
   mobileControls.style.width = `${playW}px`;
   mobileControls.style.height = `${playH}px`;
   mobileControls.style.setProperty("--control-scale", scale);
+  xpBar.style.left = `${game.offsetX + 18 * scale}px`;
+  xpBar.style.width = `${Math.max(0, playW - 36 * scale)}px`;
+  xpBar.style.right = "auto";
+  xpBar.style.bottom = `${viewportH - (game.offsetY + playH - 14 * scale)}px`;
 
   if (game.player) {
     game.player.x = Math.max(PLAYER_BOUND_X, Math.min(game.w - PLAYER_BOUND_X, game.player.x));
@@ -506,6 +515,8 @@ function resetRun() {
   game.floaters = [];
   game.wave = 1;
   game.completedLevels = 0;
+  game.xpStart = 0;
+  game.xpTarget = xpTargetForWave(1);
   game.upgradeCounts = {};
   game.score = 0;
   game.combo = 0;
@@ -534,6 +545,71 @@ function buildQueue(wave) {
   return queue;
 }
 
+function xpTargetForWave(wave) {
+  return Math.round((2400 + wave * 300) * enemyScoreMultiplier(wave));
+}
+
+function enemyScoreMultiplier(wave = game.wave) {
+  const circleScale = 1 + Math.max(0, wave - 1) * 0.015;
+  const tier = Math.min(ENEMY_MAX_STAT_TIER, Math.max(0, Math.floor((wave - 5) / 5)));
+  const tierScale = 1 + tier * 0.08;
+  return Math.min(ENEMY_MAX_SCORE_MULTIPLIER, circleScale * tierScale);
+}
+
+function enemyScore(foe) {
+  return Math.round(ENEMIES[foe.kind].score * enemyScoreMultiplier());
+}
+
+function resetXpCycle() {
+  game.xpStart = game.score;
+  game.xpTarget = xpTargetForWave(game.wave);
+}
+
+function updateXpBar() {
+  const progress = Math.max(0, game.score - game.xpStart);
+  const ratio = Math.min(1, progress / game.xpTarget);
+  xpFill.style.width = `${ratio * 100}%`;
+  xpBar.setAttribute("aria-valuenow", String(Math.round(ratio * 100)));
+}
+
+function checkXpUpgrade() {
+  if (game.state !== "play") return;
+  if (game.score - game.xpStart < game.xpTarget) return;
+  resetXpCycle();
+  showUpgradePhase();
+}
+
+function hasActiveProjectileEnemies() {
+  return game.foes.some((foe) => foe.kind === "wraith" || foe.kind === "cultist");
+}
+
+function activeFodderCount() {
+  return game.foes.filter((foe) => foe.kind === "bat" || foe.kind === "imp").length;
+}
+
+function reinforcementCap() {
+  return Math.min(6, 3 + Math.floor(Math.max(0, game.wave - 3) / 5));
+}
+
+function queueFodderReinforcement(dt) {
+  if (
+    game.wave <= 2 ||
+    game.wave % 10 === 0 ||
+    game.between > 0 ||
+    game.queue.length ||
+    !hasActiveProjectileEnemies() ||
+    activeFodderCount() >= reinforcementCap()
+  ) {
+    return;
+  }
+
+  game.spawnCd -= dt;
+  if (game.spawnCd > 0) return;
+
+  spawn(Math.random() < 0.58 ? "bat" : "imp");
+  game.spawnCd = Math.max(0.72, 1.15 - game.wave * 0.012);
+}
+
 function getAvailableUpgrades() {
   const player = game.player;
   const options = [
@@ -548,8 +624,8 @@ function getAvailableUpgrades() {
   return options;
 }
 
-function showUpgradePhase() {
-  const available = game.player.grimoire === "basic" ? GRIMOIRE_OPTIONS : getAvailableUpgrades();
+function showUpgradePhase(grimoireChoice = false) {
+  const available = grimoireChoice ? GRIMOIRE_OPTIONS : getAvailableUpgrades();
   const choices = [...available].sort(() => Math.random() - 0.5).slice(0, 3);
   upgradeChoices.replaceChildren(
     ...choices.map((upgrade, index) => {
@@ -564,6 +640,7 @@ function showUpgradePhase() {
   upgrades.hidden = false;
   hud.hidden = true;
   mobileControls.hidden = true;
+  xpBar.hidden = true;
   game.state = "upgrade";
 }
 
@@ -571,9 +648,14 @@ function chooseUpgrade(id) {
   if (game.state !== "upgrade") return;
   if (game.player.grimoire === "basic") {
     const grimoireChoice = GRIMOIRE_OPTIONS.find((option) => option.id === id);
-    if (!grimoireChoice) return;
-    game.player.grimoire = grimoireChoice.id;
-    game.player.grimoireUpgradeCount = 0;
+    if (grimoireChoice) {
+      game.player.grimoire = grimoireChoice.id;
+      game.player.grimoireUpgradeCount = 0;
+    } else {
+      const upgrade = UPGRADE_OPTIONS.find((option) => option.id === id);
+      if (!upgrade) return;
+      upgrade.apply(game.player);
+    }
   } else {
     const upgrade = [...getAvailableUpgrades(), ...Object.values(GRIMOIRE_EVOLUTIONS)].find(
       (option) => option.id === id
@@ -593,6 +675,8 @@ function chooseUpgrade(id) {
   upgrades.hidden = true;
   hud.hidden = false;
   mobileControls.hidden = false;
+  xpBar.hidden = false;
+  resetXpCycle();
   game.state = "play";
   syncHud();
 }
@@ -660,6 +744,8 @@ function addScore(base, x, y) {
   const gained = Math.round(base * mult);
   game.score += gained;
   floatText(x, y - 16, `+${gained}`, "#f0c56a");
+  updateXpBar();
+  checkXpUpgrade();
 }
 
 function hurtPlayer() {
@@ -721,10 +807,9 @@ function damageFoe(foe, amount) {
   foe.hp -= amount;
   foe.flash = 0.08;
   if (foe.hp > 0) return;
-  const spec = ENEMIES[foe.kind];
   burst(foe.x, foe.y, foe.kind === "archon" ? "#f0c56a" : "#e7d4ff", foe.kind === "archon" ? 48 : 14, 160);
   tone(foe.kind === "archon" ? 90 : 320, foe.kind === "archon" ? 0.4 : 0.08, "square", 0.03, 180);
-  addScore(spec.score, foe.x, foe.y);
+  addScore(enemyScore(foe), foe.x, foe.y);
   if (foe.kind === "archon") game.shake = 16;
   maybeDrop(foe.x, foe.y, foe.kind === "archon" || foe.kind === "cultist");
 }
@@ -970,6 +1055,7 @@ function updatePlay(dt) {
       game.spawnCd = kind === "archon" ? 1 : Math.max(0.28, 0.82 - game.wave * 0.03);
     }
   }
+  queueFodderReinforcement(dt);
 
   for (const bolt of game.bullets) {
     bolt.x += bolt.vx * dt;
@@ -1045,7 +1131,7 @@ function updatePlay(dt) {
       sub: boss ? "Break the crown" : LINES[(game.wave - 1) % LINES.length],
       life: 2.3,
     };
-    if (game.completedLevels % 5 === 0) showUpgradePhase();
+    if (game.completedLevels % 5 === 0) showUpgradePhase(game.completedLevels === 5);
   }
 }
 
@@ -1120,6 +1206,7 @@ function finish(won = false) {
   over.hidden = false;
   hud.hidden = true;
   mobileControls.hidden = true;
+  xpBar.hidden = true;
   bossHud.hidden = true;
 }
 
@@ -1138,6 +1225,7 @@ function syncHud() {
   wardFill.style.width = ready ? "100%" : `${(1 - game.player.ward / game.player.wardDuration) * 100}%`;
   wardButton.classList.toggle("cooling", !ready);
   wardButton.textContent = ready ? "WARD" : `${game.player.ward.toFixed(1)}s`;
+  updateXpBar();
 }
 
 function showPause(on) {
@@ -1155,6 +1243,7 @@ function startGame() {
   upgrades.hidden = true;
   hud.hidden = false;
   mobileControls.hidden = false;
+  xpBar.hidden = false;
 }
 
 function togglePause() {
@@ -1537,7 +1626,6 @@ function draw() {
     ctx.globalAlpha = Math.min(1, game.hint);
     ctx.fillStyle = "rgba(244, 231, 200, 0.8)";
     ctx.font = "14px Segoe UI, sans-serif";
-    ctx.fillText("Spells loose themselves   ·   Space casts a ward", w / 2, h - 28);
     ctx.globalAlpha = 1;
   }
 
