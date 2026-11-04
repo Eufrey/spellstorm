@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spellstorm</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="game" aria-label="Spellstorm playfield"></canvas>
+
+  <header id="hud" hidden>
+    <div class="stat">
+      <span id="score">0</span>
+      <small>Score</small>
+    </div>
+    <div class="center-stat">
+      <div id="circle">Circle 1</div>
+      <div id="combo"></div>
+    </div>
+    <div class="right-stat">
+      <div id="lives" aria-label="Lives">♥ ♥ ♥</div>
+      <div class="spell">
+        <strong id="spell-name">Ember</strong><br>
+        <small id="spell-hint">Twin lances</small>
+      </div>
+      <div id="ward" title="Ward Pulse"><b id="ward-fill"></b></div>
+    </div>
+  </header>
+
+  <section id="menu" class="overlay">
+    <div class="card">
+      <h1>Spellstorm</h1>
+      <p class="lede">Hold the last spire. The dark is climbing.</p>
+      <ul class="controls">
+        <li><kbd>WASD / arrows</kbd><span>Move</span></li>
+        <li><kbd>1 2 3 · Q E</kbd><span>Change spell</span></li>
+        <li><kbd>Space / right click</kbd><span>Ward Pulse</span></li>
+        <li><kbd>Esc</kbd><span>Pause</span></li>
+      </ul>
+      <button id="start" type="button">Begin the vigil</button>
+      <p class="hint" id="best-menu"></p>
+    </div>
+  </section>
+
+  <section id="paused" class="overlay" hidden>
+    <div class="card">
+      <h2>Held</h2>
+      <p>The storm waits.</p>
+      <button id="resume" type="button">Return</button>
+    </div>
+  </section>
+
+  <section id="over" class="overlay" hidden>
+    <div class="card">
+      <h2>The spire falls</h2>
+      <p class="final-score" id="final-score">0</p>
+      <p id="best-over"></p>
+      <button id="again" type="button">Rise again</button>
+    </div>
+  </section>
+
+  <script src="game.js"></script>
+</body>
+</html>
