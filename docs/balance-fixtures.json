@@ -1,0 +1,4321 @@
+[
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 1,
+      "tier": "base"
+    },
+    "seconds": 6,
+    "circle": 2,
+    "won": false,
+    "kills": 8,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 0,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 3,
+    "peakShots": 0,
+    "damageDelivered": 16,
+    "damageCalls": 8,
+    "score": 1192,
+    "circles": [
+      {
+        "circle": 1,
+        "seconds": 6
+      }
+    ],
+    "bosses": [],
+    "xp": 1192,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 1,
+      "tier": "evolved"
+    },
+    "seconds": 6.17,
+    "circle": 2,
+    "won": false,
+    "kills": 8,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 0,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 2,
+    "peakShots": 0,
+    "damageDelivered": 16,
+    "damageCalls": 8,
+    "score": 1192,
+    "circles": [
+      {
+        "circle": 1,
+        "seconds": 6.17
+      }
+    ],
+    "bosses": [],
+    "xp": 1192,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 1,
+      "tier": "maximum"
+    },
+    "seconds": 5.67,
+    "circle": 2,
+    "won": false,
+    "kills": 8,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 0,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 2,
+    "peakShots": 0,
+    "damageDelivered": 16,
+    "damageCalls": 8,
+    "score": 1192,
+    "circles": [
+      {
+        "circle": 1,
+        "seconds": 5.67
+      }
+    ],
+    "bosses": [],
+    "xp": 1192,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 5,
+      "tier": "base"
+    },
+    "seconds": 10.53,
+    "circle": 6,
+    "won": false,
+    "kills": 12,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 0,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 4,
+    "peakShots": 11,
+    "damageDelivered": 64,
+    "damageCalls": 33,
+    "score": 2835,
+    "circles": [
+      {
+        "circle": 5,
+        "seconds": 10.53
+      }
+    ],
+    "bosses": [],
+    "xp": 2835,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 5,
+      "tier": "evolved"
+    },
+    "seconds": 8.7,
+    "circle": 6,
+    "won": false,
+    "kills": 11,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 3,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 2,
+    "peakShots": 4,
+    "damageDelivered": 62,
+    "damageCalls": 19,
+    "score": 4202,
+    "circles": [
+      {
+        "circle": 5,
+        "seconds": 8.7
+      }
+    ],
+    "bosses": [],
+    "xp": 4202,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 5,
+      "tier": "maximum"
+    },
+    "seconds": 8.4,
+    "circle": 6,
+    "won": false,
+    "kills": 11,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 3,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 2,
+    "peakShots": 3,
+    "damageDelivered": 62,
+    "damageCalls": 15,
+    "score": 4202,
+    "circles": [
+      {
+        "circle": 5,
+        "seconds": 8.4
+      }
+    ],
+    "bosses": [],
+    "xp": 4202,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 9,
+      "tier": "base"
+    },
+    "seconds": 13.2,
+    "circle": 10,
+    "won": false,
+    "kills": 15,
+    "escapes": 1,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 2,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 5,
+    "peakShots": 12,
+    "damageDelivered": 74,
+    "damageCalls": 38,
+    "score": 5741,
+    "circles": [
+      {
+        "circle": 9,
+        "seconds": 13.2
+      }
+    ],
+    "bosses": [],
+    "xp": 5741,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 9,
+      "tier": "evolved"
+    },
+    "seconds": 10.17,
+    "circle": 10,
+    "won": false,
+    "kills": 14,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 3,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 2,
+    "peakShots": 1,
+    "damageDelivered": 70,
+    "damageCalls": 22,
+    "score": 5339,
+    "circles": [
+      {
+        "circle": 9,
+        "seconds": 10.17
+      }
+    ],
+    "bosses": [],
+    "xp": 5339,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 9,
+      "tier": "maximum"
+    },
+    "seconds": 9.53,
+    "circle": 10,
+    "won": false,
+    "kills": 14,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 2,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 2,
+    "peakShots": 3,
+    "damageDelivered": 70,
+    "damageCalls": 18,
+    "score": 5303,
+    "circles": [
+      {
+        "circle": 9,
+        "seconds": 9.53
+      }
+    ],
+    "bosses": [],
+    "xp": 5303,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 19,
+      "tier": "base"
+    },
+    "seconds": 20.57,
+    "circle": 20,
+    "won": false,
+    "kills": 21,
+    "escapes": 5,
+    "damageTaken": 2,
+    "rescues": 0,
+    "giftsSpawned": 3,
+    "giftsCollected": 2,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 9,
+    "peakShots": 14,
+    "damageDelivered": 139,
+    "damageCalls": 75,
+    "score": 6601,
+    "circles": [
+      {
+        "circle": 19,
+        "seconds": 20.57
+      }
+    ],
+    "bosses": [],
+    "xp": 6601,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 19,
+      "tier": "evolved"
+    },
+    "seconds": 13.2,
+    "circle": 20,
+    "won": false,
+    "kills": 22,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 4,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 3,
+    "peakShots": 10,
+    "damageDelivered": 138,
+    "damageCalls": 41,
+    "score": 10864,
+    "circles": [
+      {
+        "circle": 19,
+        "seconds": 13.2
+      }
+    ],
+    "bosses": [],
+    "xp": 10864,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 19,
+      "tier": "maximum"
+    },
+    "seconds": 13.03,
+    "circle": 20,
+    "won": false,
+    "kills": 22,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 2,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 2,
+    "peakShots": 0,
+    "damageDelivered": 138,
+    "damageCalls": 30,
+    "score": 10798,
+    "circles": [
+      {
+        "circle": 19,
+        "seconds": 13.03
+      }
+    ],
+    "bosses": [],
+    "xp": 10798,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 29,
+      "tier": "base"
+    },
+    "seconds": 25.47,
+    "circle": 30,
+    "won": false,
+    "kills": 27,
+    "escapes": 7,
+    "damageTaken": 1,
+    "rescues": 0,
+    "giftsSpawned": 2,
+    "giftsCollected": 2,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 11,
+    "peakShots": 26,
+    "damageDelivered": 256,
+    "damageCalls": 138,
+    "score": 14500,
+    "circles": [
+      {
+        "circle": 29,
+        "seconds": 25.47
+      }
+    ],
+    "bosses": [],
+    "xp": 14500,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 29,
+      "tier": "evolved"
+    },
+    "seconds": 14.9,
+    "circle": 30,
+    "won": false,
+    "kills": 29,
+    "escapes": 1,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 3,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 1,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 6,
+    "peakShots": 10,
+    "damageDelivered": 248,
+    "damageCalls": 68,
+    "score": 20333,
+    "circles": [
+      {
+        "circle": 29,
+        "seconds": 14.9
+      }
+    ],
+    "bosses": [],
+    "xp": 20333,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 29,
+      "tier": "maximum"
+    },
+    "seconds": 14.8,
+    "circle": 30,
+    "won": false,
+    "kills": 30,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 4,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 2,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 3,
+    "peakShots": 3,
+    "damageDelivered": 251,
+    "damageCalls": 60,
+    "score": 20665,
+    "circles": [
+      {
+        "circle": 29,
+        "seconds": 14.8
+      }
+    ],
+    "bosses": [],
+    "xp": 20665,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 39,
+      "tier": "base"
+    },
+    "seconds": 38.6,
+    "circle": 40,
+    "won": false,
+    "kills": 32,
+    "escapes": 8,
+    "damageTaken": 3,
+    "rescues": 0,
+    "giftsSpawned": 5,
+    "giftsCollected": 4,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 11,
+    "peakShots": 27,
+    "damageDelivered": 357,
+    "damageCalls": 185,
+    "score": 16816,
+    "circles": [
+      {
+        "circle": 39,
+        "seconds": 38.6
+      }
+    ],
+    "bosses": [],
+    "xp": 16816,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 39,
+      "tier": "evolved"
+    },
+    "seconds": 17.77,
+    "circle": 40,
+    "won": false,
+    "kills": 34,
+    "escapes": 4,
+    "damageTaken": 1,
+    "rescues": 0,
+    "giftsSpawned": 2,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 1,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 7,
+    "peakShots": 15,
+    "damageDelivered": 357.05,
+    "damageCalls": 97,
+    "score": 27208,
+    "circles": [
+      {
+        "circle": 39,
+        "seconds": 17.77
+      }
+    ],
+    "bosses": [],
+    "xp": 27208,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 39,
+      "tier": "maximum"
+    },
+    "seconds": 14.8,
+    "circle": 40,
+    "won": false,
+    "kills": 36,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 6,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 3,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 3,
+    "peakShots": 7,
+    "damageDelivered": 361,
+    "damageCalls": 77,
+    "score": 29834,
+    "circles": [
+      {
+        "circle": 39,
+        "seconds": 14.8
+      }
+    ],
+    "bosses": [],
+    "xp": 29834,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 49,
+      "tier": "base"
+    },
+    "seconds": 41.6,
+    "circle": 50,
+    "won": false,
+    "kills": 30,
+    "escapes": 10,
+    "damageTaken": 1,
+    "rescues": 0,
+    "giftsSpawned": 6,
+    "giftsCollected": 4,
+    "giftsConverted": 0,
+    "giftsExpired": 1,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 11,
+    "peakShots": 24,
+    "damageDelivered": 383,
+    "damageCalls": 198,
+    "score": 17223,
+    "circles": [
+      {
+        "circle": 49,
+        "seconds": 41.6
+      }
+    ],
+    "bosses": [],
+    "xp": 17223,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 49,
+      "tier": "evolved"
+    },
+    "seconds": 19.17,
+    "circle": 50,
+    "won": false,
+    "kills": 37,
+    "escapes": 2,
+    "damageTaken": 1,
+    "rescues": 0,
+    "giftsSpawned": 5,
+    "giftsCollected": 1,
+    "giftsConverted": 0,
+    "giftsExpired": 2,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 7,
+    "peakShots": 18,
+    "damageDelivered": 405.05,
+    "damageCalls": 107,
+    "score": 29265,
+    "circles": [
+      {
+        "circle": 49,
+        "seconds": 19.17
+      }
+    ],
+    "bosses": [],
+    "xp": 29265,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 49,
+      "tier": "maximum"
+    },
+    "seconds": 14.8,
+    "circle": 50,
+    "won": false,
+    "kills": 36,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 6,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 3,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 3,
+    "peakShots": 7,
+    "damageDelivered": 389,
+    "damageCalls": 77,
+    "score": 30230,
+    "circles": [
+      {
+        "circle": 49,
+        "seconds": 14.8
+      }
+    ],
+    "bosses": [],
+    "xp": 30230,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 10,
+      "tier": "base"
+    },
+    "seconds": 23.17,
+    "circle": 11,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 36,
+    "damageDelivered": 240,
+    "damageCalls": 118,
+    "score": 4290,
+    "circles": [
+      {
+        "circle": 10,
+        "seconds": 23.17
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 10,
+        "seconds": 23.13
+      }
+    ],
+    "xp": 4290,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 10,
+      "tier": "evolved"
+    },
+    "seconds": 9.3,
+    "circle": 11,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 34,
+    "damageDelivered": 240,
+    "damageCalls": 60,
+    "score": 4290,
+    "circles": [
+      {
+        "circle": 10,
+        "seconds": 9.3
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 10,
+        "seconds": 9.27
+      }
+    ],
+    "xp": 4290,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 10,
+      "tier": "maximum"
+    },
+    "seconds": 3.13,
+    "circle": 11,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 5,
+    "damageDelivered": 240,
+    "damageCalls": 40,
+    "score": 4290,
+    "circles": [
+      {
+        "circle": 10,
+        "seconds": 3.13
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 10,
+        "seconds": 3.1
+      }
+    ],
+    "xp": 4290,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 20,
+      "tier": "base"
+    },
+    "seconds": 41.77,
+    "circle": 21,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 1,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 33,
+    "damageDelivered": 420,
+    "damageCalls": 200,
+    "score": 5578,
+    "circles": [
+      {
+        "circle": 20,
+        "seconds": 41.77
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 20,
+        "seconds": 41.73
+      }
+    ],
+    "xp": 5578,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 20,
+      "tier": "evolved"
+    },
+    "seconds": 16,
+    "circle": 21,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 33,
+    "damageDelivered": 420,
+    "damageCalls": 103,
+    "score": 5578,
+    "circles": [
+      {
+        "circle": 20,
+        "seconds": 16
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 20,
+        "seconds": 15.97
+      }
+    ],
+    "xp": 5578,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 20,
+      "tier": "maximum"
+    },
+    "seconds": 7.93,
+    "circle": 21,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 32,
+    "damageDelivered": 420,
+    "damageCalls": 69,
+    "score": 5578,
+    "circles": [
+      {
+        "circle": 20,
+        "seconds": 7.93
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 20,
+        "seconds": 7.9
+      }
+    ],
+    "xp": 5578,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 30,
+      "tier": "base"
+    },
+    "seconds": 62.37,
+    "circle": 31,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 2,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 33,
+    "damageDelivered": 650,
+    "damageCalls": 311,
+    "score": 6630,
+    "circles": [
+      {
+        "circle": 30,
+        "seconds": 62.37
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 30,
+        "seconds": 62.33
+      }
+    ],
+    "xp": 6630,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 30,
+      "tier": "evolved"
+    },
+    "seconds": 22.97,
+    "circle": 31,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 33,
+    "damageDelivered": 650,
+    "damageCalls": 160,
+    "score": 6630,
+    "circles": [
+      {
+        "circle": 30,
+        "seconds": 22.97
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 30,
+        "seconds": 22.93
+      }
+    ],
+    "xp": 6630,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 30,
+      "tier": "maximum"
+    },
+    "seconds": 11.93,
+    "circle": 31,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 32,
+    "damageDelivered": 650,
+    "damageCalls": 106,
+    "score": 6630,
+    "circles": [
+      {
+        "circle": 30,
+        "seconds": 11.93
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 30,
+        "seconds": 11.9
+      }
+    ],
+    "xp": 6630,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 40,
+      "tier": "base"
+    },
+    "seconds": 87.53,
+    "circle": 41,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 2,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 33,
+    "damageDelivered": 900,
+    "damageCalls": 436,
+    "score": 7323,
+    "circles": [
+      {
+        "circle": 40,
+        "seconds": 87.53
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 40,
+        "seconds": 87.5
+      }
+    ],
+    "xp": 7323,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 40,
+      "tier": "evolved"
+    },
+    "seconds": 30.87,
+    "circle": 41,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 33,
+    "damageDelivered": 900,
+    "damageCalls": 220,
+    "score": 7323,
+    "circles": [
+      {
+        "circle": 40,
+        "seconds": 30.87
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 40,
+        "seconds": 30.83
+      }
+    ],
+    "xp": 7323,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 40,
+      "tier": "maximum"
+    },
+    "seconds": 16.57,
+    "circle": 41,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 33,
+    "damageDelivered": 900,
+    "damageCalls": 147,
+    "score": 7323,
+    "circles": [
+      {
+        "circle": 40,
+        "seconds": 16.57
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 40,
+        "seconds": 16.53
+      }
+    ],
+    "xp": 7323,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 50,
+      "tier": "base"
+    },
+    "seconds": 117.53,
+    "circle": 50,
+    "won": true,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 2,
+    "rescues": 0,
+    "giftsSpawned": 0,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 33,
+    "damageDelivered": 1200,
+    "damageCalls": 586,
+    "score": 7350,
+    "circles": [
+      {
+        "circle": 50,
+        "seconds": 117.53
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 50,
+        "seconds": 117.5
+      }
+    ],
+    "xp": 7350,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 50,
+      "tier": "evolved"
+    },
+    "seconds": 40.8,
+    "circle": 50,
+    "won": true,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 1,
+    "rescues": 0,
+    "giftsSpawned": 0,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 33,
+    "damageDelivered": 1200,
+    "damageCalls": 294,
+    "score": 7350,
+    "circles": [
+      {
+        "circle": 50,
+        "seconds": 40.8
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 50,
+        "seconds": 40.77
+      }
+    ],
+    "xp": 7350,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 50,
+      "tier": "maximum"
+    },
+    "seconds": 22.5,
+    "circle": 50,
+    "won": true,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 0,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 33,
+    "damageDelivered": 1200,
+    "damageCalls": 196,
+    "score": 7350,
+    "circles": [
+      {
+        "circle": 50,
+        "seconds": 22.5
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 50,
+        "seconds": 22.47
+      }
+    ],
+    "xp": 7350,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 1,
+      "tier": "base"
+    },
+    "seconds": 8.8,
+    "circle": 2,
+    "won": false,
+    "kills": 8,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 0,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 3,
+    "peakShots": 0,
+    "damageDelivered": 16,
+    "damageCalls": 16,
+    "score": 1192,
+    "circles": [
+      {
+        "circle": 1,
+        "seconds": 8.8
+      }
+    ],
+    "bosses": [],
+    "xp": 1192,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 1,
+      "tier": "evolved"
+    },
+    "seconds": 6.17,
+    "circle": 2,
+    "won": false,
+    "kills": 8,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 0,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 2,
+    "peakShots": 0,
+    "damageDelivered": 16,
+    "damageCalls": 8,
+    "score": 1192,
+    "circles": [
+      {
+        "circle": 1,
+        "seconds": 6.17
+      }
+    ],
+    "bosses": [],
+    "xp": 1192,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 1,
+      "tier": "maximum"
+    },
+    "seconds": 6.13,
+    "circle": 2,
+    "won": false,
+    "kills": 8,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 2,
+    "peakShots": 0,
+    "damageDelivered": 16,
+    "damageCalls": 8,
+    "score": 1192,
+    "circles": [
+      {
+        "circle": 1,
+        "seconds": 6.13
+      }
+    ],
+    "bosses": [],
+    "xp": 1192,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 5,
+      "tier": "base"
+    },
+    "seconds": 13.8,
+    "circle": 6,
+    "won": false,
+    "kills": 11,
+    "escapes": 2,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 2,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 5,
+    "peakShots": 14,
+    "damageDelivered": 66.8,
+    "damageCalls": 52,
+    "score": 3093,
+    "circles": [
+      {
+        "circle": 5,
+        "seconds": 13.8
+      }
+    ],
+    "bosses": [],
+    "xp": 3093,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 5,
+      "tier": "evolved"
+    },
+    "seconds": 9.13,
+    "circle": 6,
+    "won": false,
+    "kills": 11,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 2,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 3,
+    "peakShots": 10,
+    "damageDelivered": 62,
+    "damageCalls": 28,
+    "score": 4236,
+    "circles": [
+      {
+        "circle": 5,
+        "seconds": 9.13
+      }
+    ],
+    "bosses": [],
+    "xp": 4236,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 5,
+      "tier": "maximum"
+    },
+    "seconds": 8.3,
+    "circle": 6,
+    "won": false,
+    "kills": 11,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 3,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 2,
+    "peakShots": 3,
+    "damageDelivered": 62,
+    "damageCalls": 17,
+    "score": 4202,
+    "circles": [
+      {
+        "circle": 5,
+        "seconds": 8.3
+      }
+    ],
+    "bosses": [],
+    "xp": 4202,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 9,
+      "tier": "base"
+    },
+    "seconds": 14.3,
+    "circle": 10,
+    "won": false,
+    "kills": 15,
+    "escapes": 0,
+    "damageTaken": 1,
+    "rescues": 0,
+    "giftsSpawned": 2,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 6,
+    "peakShots": 15,
+    "damageDelivered": 72,
+    "damageCalls": 57,
+    "score": 4196,
+    "circles": [
+      {
+        "circle": 9,
+        "seconds": 14.3
+      }
+    ],
+    "bosses": [],
+    "xp": 4196,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 9,
+      "tier": "evolved"
+    },
+    "seconds": 9.33,
+    "circle": 10,
+    "won": false,
+    "kills": 14,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 3,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 3,
+    "peakShots": 6,
+    "damageDelivered": 70,
+    "damageCalls": 32,
+    "score": 5339,
+    "circles": [
+      {
+        "circle": 9,
+        "seconds": 9.33
+      }
+    ],
+    "bosses": [],
+    "xp": 5339,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 9,
+      "tier": "maximum"
+    },
+    "seconds": 9.33,
+    "circle": 10,
+    "won": false,
+    "kills": 14,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 3,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 2,
+    "peakShots": 0,
+    "damageDelivered": 70,
+    "damageCalls": 20,
+    "score": 5303,
+    "circles": [
+      {
+        "circle": 9,
+        "seconds": 9.33
+      }
+    ],
+    "bosses": [],
+    "xp": 5303,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 19,
+      "tier": "base"
+    },
+    "seconds": 17.3,
+    "circle": 20,
+    "won": false,
+    "kills": 21,
+    "escapes": 3,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 5,
+    "giftsCollected": 2,
+    "giftsConverted": 0,
+    "giftsExpired": 1,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 9,
+    "peakShots": 13,
+    "damageDelivered": 136.4,
+    "damageCalls": 111,
+    "score": 9038,
+    "circles": [
+      {
+        "circle": 19,
+        "seconds": 17.3
+      }
+    ],
+    "bosses": [],
+    "xp": 9038,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 19,
+      "tier": "evolved"
+    },
+    "seconds": 13.7,
+    "circle": 20,
+    "won": false,
+    "kills": 22,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 5,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 3,
+    "peakShots": 6,
+    "damageDelivered": 138,
+    "damageCalls": 64,
+    "score": 10799,
+    "circles": [
+      {
+        "circle": 19,
+        "seconds": 13.7
+      }
+    ],
+    "bosses": [],
+    "xp": 10799,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 19,
+      "tier": "maximum"
+    },
+    "seconds": 12.87,
+    "circle": 20,
+    "won": false,
+    "kills": 22,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 2,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 3,
+    "peakShots": 3,
+    "damageDelivered": 138,
+    "damageCalls": 41,
+    "score": 10765,
+    "circles": [
+      {
+        "circle": 19,
+        "seconds": 12.87
+      }
+    ],
+    "bosses": [],
+    "xp": 10765,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 29,
+      "tier": "base"
+    },
+    "seconds": 23.67,
+    "circle": 30,
+    "won": false,
+    "kills": 31,
+    "escapes": 3,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 7,
+    "giftsCollected": 3,
+    "giftsConverted": 0,
+    "giftsExpired": 1,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 11,
+    "peakShots": 19,
+    "damageDelivered": 261,
+    "damageCalls": 204,
+    "score": 21237,
+    "circles": [
+      {
+        "circle": 29,
+        "seconds": 23.67
+      }
+    ],
+    "bosses": [],
+    "xp": 21237,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 29,
+      "tier": "evolved"
+    },
+    "seconds": 16.43,
+    "circle": 30,
+    "won": false,
+    "kills": 29,
+    "escapes": 2,
+    "damageTaken": 1,
+    "rescues": 0,
+    "giftsSpawned": 6,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 4,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 5,
+    "peakShots": 9,
+    "damageDelivered": 252,
+    "damageCalls": 107,
+    "score": 18880,
+    "circles": [
+      {
+        "circle": 29,
+        "seconds": 16.43
+      }
+    ],
+    "bosses": [],
+    "xp": 18880,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 29,
+      "tier": "maximum"
+    },
+    "seconds": 14.7,
+    "circle": 30,
+    "won": false,
+    "kills": 30,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 6,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 1,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 3,
+    "peakShots": 4,
+    "damageDelivered": 251,
+    "damageCalls": 69,
+    "score": 20712,
+    "circles": [
+      {
+        "circle": 29,
+        "seconds": 14.7
+      }
+    ],
+    "bosses": [],
+    "xp": 20712,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 39,
+      "tier": "base"
+    },
+    "seconds": 33.43,
+    "circle": 40,
+    "won": false,
+    "kills": 27,
+    "escapes": 13,
+    "damageTaken": 2,
+    "rescues": 0,
+    "giftsSpawned": 2,
+    "giftsCollected": 2,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 13,
+    "peakShots": 26,
+    "damageDelivered": 333.2,
+    "damageCalls": 249,
+    "score": 15513,
+    "circles": [
+      {
+        "circle": 39,
+        "seconds": 33.43
+      }
+    ],
+    "bosses": [],
+    "xp": 15513,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 39,
+      "tier": "evolved"
+    },
+    "seconds": 17.3,
+    "circle": 40,
+    "won": false,
+    "kills": 36,
+    "escapes": 2,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 2,
+    "giftsCollected": 1,
+    "giftsConverted": 0,
+    "giftsExpired": 1,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 7,
+    "peakShots": 19,
+    "damageDelivered": 361,
+    "damageCalls": 147,
+    "score": 29942,
+    "circles": [
+      {
+        "circle": 39,
+        "seconds": 17.3
+      }
+    ],
+    "bosses": [],
+    "xp": 29942,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 39,
+      "tier": "maximum"
+    },
+    "seconds": 14.5,
+    "circle": 40,
+    "won": false,
+    "kills": 34,
+    "escapes": 2,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 7,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 1,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 4,
+    "peakShots": 6,
+    "damageDelivered": 353,
+    "damageCalls": 88,
+    "score": 29046,
+    "circles": [
+      {
+        "circle": 39,
+        "seconds": 14.5
+      }
+    ],
+    "bosses": [],
+    "xp": 29046,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 49,
+      "tier": "base"
+    },
+    "seconds": 34.87,
+    "circle": 50,
+    "won": false,
+    "kills": 30,
+    "escapes": 10,
+    "damageTaken": 2,
+    "rescues": 0,
+    "giftsSpawned": 3,
+    "giftsCollected": 1,
+    "giftsConverted": 0,
+    "giftsExpired": 1,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 12,
+    "peakShots": 26,
+    "damageDelivered": 375,
+    "damageCalls": 280,
+    "score": 18967,
+    "circles": [
+      {
+        "circle": 49,
+        "seconds": 34.87
+      }
+    ],
+    "bosses": [],
+    "xp": 18967,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 49,
+      "tier": "evolved"
+    },
+    "seconds": 17.3,
+    "circle": 50,
+    "won": false,
+    "kills": 36,
+    "escapes": 2,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 2,
+    "giftsCollected": 1,
+    "giftsConverted": 0,
+    "giftsExpired": 1,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 7,
+    "peakShots": 19,
+    "damageDelivered": 389,
+    "damageCalls": 147,
+    "score": 30341,
+    "circles": [
+      {
+        "circle": 49,
+        "seconds": 17.3
+      }
+    ],
+    "bosses": [],
+    "xp": 30341,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 49,
+      "tier": "maximum"
+    },
+    "seconds": 16.4,
+    "circle": 50,
+    "won": false,
+    "kills": 37,
+    "escapes": 0,
+    "damageTaken": 1,
+    "rescues": 0,
+    "giftsSpawned": 6,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 2,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 4,
+    "peakShots": 13,
+    "damageDelivered": 397,
+    "damageCalls": 100,
+    "score": 29737,
+    "circles": [
+      {
+        "circle": 49,
+        "seconds": 16.4
+      }
+    ],
+    "bosses": [],
+    "xp": 29737,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 10,
+      "tier": "base"
+    },
+    "seconds": 29.77,
+    "circle": 11,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 1,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 37,
+    "damageDelivered": 240,
+    "damageCalls": 169,
+    "score": 4290,
+    "circles": [
+      {
+        "circle": 10,
+        "seconds": 29.77
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 10,
+        "seconds": 29.73
+      }
+    ],
+    "xp": 4290,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 10,
+      "tier": "evolved"
+    },
+    "seconds": 10.2,
+    "circle": 11,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 37,
+    "damageDelivered": 240,
+    "damageCalls": 81,
+    "score": 4290,
+    "circles": [
+      {
+        "circle": 10,
+        "seconds": 10.2
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 10,
+        "seconds": 10.17
+      }
+    ],
+    "xp": 4290,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 10,
+      "tier": "maximum"
+    },
+    "seconds": 3.77,
+    "circle": 11,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 17,
+    "damageDelivered": 240,
+    "damageCalls": 54,
+    "score": 4290,
+    "circles": [
+      {
+        "circle": 10,
+        "seconds": 3.77
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 10,
+        "seconds": 3.73
+      }
+    ],
+    "xp": 4290,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 20,
+      "tier": "base"
+    },
+    "seconds": 45.67,
+    "circle": 21,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 31,
+    "damageDelivered": 420,
+    "damageCalls": 297,
+    "score": 5578,
+    "circles": [
+      {
+        "circle": 20,
+        "seconds": 45.67
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 20,
+        "seconds": 45.63
+      }
+    ],
+    "xp": 5578,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 20,
+      "tier": "evolved"
+    },
+    "seconds": 15.83,
+    "circle": 21,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 31,
+    "damageDelivered": 420,
+    "damageCalls": 141,
+    "score": 5578,
+    "circles": [
+      {
+        "circle": 20,
+        "seconds": 15.83
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 20,
+        "seconds": 15.8
+      }
+    ],
+    "xp": 5578,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 20,
+      "tier": "maximum"
+    },
+    "seconds": 7.8,
+    "circle": 21,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 30,
+    "damageDelivered": 420,
+    "damageCalls": 93,
+    "score": 5578,
+    "circles": [
+      {
+        "circle": 20,
+        "seconds": 7.8
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 20,
+        "seconds": 7.77
+      }
+    ],
+    "xp": 5578,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 30,
+      "tier": "base"
+    },
+    "seconds": 67.53,
+    "circle": 31,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 1,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 32,
+    "damageDelivered": 650,
+    "damageCalls": 462,
+    "score": 6630,
+    "circles": [
+      {
+        "circle": 30,
+        "seconds": 67.53
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 30,
+        "seconds": 67.5
+      }
+    ],
+    "xp": 6630,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 30,
+      "tier": "evolved"
+    },
+    "seconds": 23.77,
+    "circle": 31,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 31,
+    "damageDelivered": 650,
+    "damageCalls": 217,
+    "score": 6630,
+    "circles": [
+      {
+        "circle": 30,
+        "seconds": 23.77
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 30,
+        "seconds": 23.73
+      }
+    ],
+    "xp": 6630,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 30,
+      "tier": "maximum"
+    },
+    "seconds": 10.67,
+    "circle": 31,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 30,
+    "damageDelivered": 650,
+    "damageCalls": 144,
+    "score": 6630,
+    "circles": [
+      {
+        "circle": 30,
+        "seconds": 10.67
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 30,
+        "seconds": 10.63
+      }
+    ],
+    "xp": 6630,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 40,
+      "tier": "base"
+    },
+    "seconds": 94.53,
+    "circle": 41,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 2,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 33,
+    "damageDelivered": 900,
+    "damageCalls": 637,
+    "score": 7323,
+    "circles": [
+      {
+        "circle": 40,
+        "seconds": 94.53
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 40,
+        "seconds": 94.5
+      }
+    ],
+    "xp": 7323,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 40,
+      "tier": "evolved"
+    },
+    "seconds": 35.33,
+    "circle": 41,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 31,
+    "damageDelivered": 900,
+    "damageCalls": 301,
+    "score": 7323,
+    "circles": [
+      {
+        "circle": 40,
+        "seconds": 35.33
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 40,
+        "seconds": 35.3
+      }
+    ],
+    "xp": 7323,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 40,
+      "tier": "maximum"
+    },
+    "seconds": 18,
+    "circle": 41,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 30,
+    "damageDelivered": 900,
+    "damageCalls": 199,
+    "score": 7323,
+    "circles": [
+      {
+        "circle": 40,
+        "seconds": 18
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 40,
+        "seconds": 17.97
+      }
+    ],
+    "xp": 7323,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 50,
+      "tier": "base"
+    },
+    "seconds": 121.73,
+    "circle": 50,
+    "won": true,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 2,
+    "rescues": 0,
+    "giftsSpawned": 0,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 33,
+    "damageDelivered": 1200,
+    "damageCalls": 851,
+    "score": 7350,
+    "circles": [
+      {
+        "circle": 50,
+        "seconds": 121.73
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 50,
+        "seconds": 121.7
+      }
+    ],
+    "xp": 7350,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 50,
+      "tier": "evolved"
+    },
+    "seconds": 45.53,
+    "circle": 50,
+    "won": true,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 0,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 31,
+    "damageDelivered": 1200,
+    "damageCalls": 402,
+    "score": 7350,
+    "circles": [
+      {
+        "circle": 50,
+        "seconds": 45.53
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 50,
+        "seconds": 45.5
+      }
+    ],
+    "xp": 7350,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 50,
+      "tier": "maximum"
+    },
+    "seconds": 21.7,
+    "circle": 50,
+    "won": true,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 0,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 30,
+    "damageDelivered": 1200,
+    "damageCalls": 266,
+    "score": 7350,
+    "circles": [
+      {
+        "circle": 50,
+        "seconds": 21.7
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 50,
+        "seconds": 21.67
+      }
+    ],
+    "xp": 7350,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 1,
+      "tier": "base"
+    },
+    "seconds": 8.23,
+    "circle": 2,
+    "won": false,
+    "kills": 8,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 3,
+    "peakShots": 0,
+    "damageDelivered": 16,
+    "damageCalls": 16,
+    "score": 1070,
+    "circles": [
+      {
+        "circle": 1,
+        "seconds": 8.23
+      }
+    ],
+    "bosses": [],
+    "xp": 1070,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 1,
+      "tier": "evolved"
+    },
+    "seconds": 6.9,
+    "circle": 2,
+    "won": false,
+    "kills": 8,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 0,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 2,
+    "peakShots": 0,
+    "damageDelivered": 16,
+    "damageCalls": 8,
+    "score": 1192,
+    "circles": [
+      {
+        "circle": 1,
+        "seconds": 6.9
+      }
+    ],
+    "bosses": [],
+    "xp": 1192,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 1,
+      "tier": "maximum"
+    },
+    "seconds": 6.77,
+    "circle": 2,
+    "won": false,
+    "kills": 8,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 2,
+    "peakShots": 0,
+    "damageDelivered": 16,
+    "damageCalls": 8,
+    "score": 1192,
+    "circles": [
+      {
+        "circle": 1,
+        "seconds": 6.77
+      }
+    ],
+    "bosses": [],
+    "xp": 1192,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 5,
+      "tier": "base"
+    },
+    "seconds": 18.43,
+    "circle": 6,
+    "won": false,
+    "kills": 14,
+    "escapes": 1,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 0,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 6,
+    "peakShots": 18,
+    "damageDelivered": 73,
+    "damageCalls": 72,
+    "score": 3962,
+    "circles": [
+      {
+        "circle": 5,
+        "seconds": 18.43
+      }
+    ],
+    "bosses": [],
+    "xp": 3962,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 5,
+      "tier": "evolved"
+    },
+    "seconds": 8.67,
+    "circle": 6,
+    "won": false,
+    "kills": 11,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 3,
+    "peakShots": 6,
+    "damageDelivered": 62,
+    "damageCalls": 32,
+    "score": 4202,
+    "circles": [
+      {
+        "circle": 5,
+        "seconds": 8.67
+      }
+    ],
+    "bosses": [],
+    "xp": 4202,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 5,
+      "tier": "maximum"
+    },
+    "seconds": 8.67,
+    "circle": 6,
+    "won": false,
+    "kills": 11,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 2,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 2,
+    "peakShots": 1,
+    "damageDelivered": 62,
+    "damageCalls": 24,
+    "score": 4248,
+    "circles": [
+      {
+        "circle": 5,
+        "seconds": 8.67
+      }
+    ],
+    "bosses": [],
+    "xp": 4248,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 9,
+      "tier": "base"
+    },
+    "seconds": 16.93,
+    "circle": 10,
+    "won": false,
+    "kills": 15,
+    "escapes": 3,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 2,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 6,
+    "peakShots": 12,
+    "damageDelivered": 76,
+    "damageCalls": 75,
+    "score": 4924,
+    "circles": [
+      {
+        "circle": 9,
+        "seconds": 16.93
+      }
+    ],
+    "bosses": [],
+    "xp": 4924,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 9,
+      "tier": "evolved"
+    },
+    "seconds": 10.5,
+    "circle": 10,
+    "won": false,
+    "kills": 14,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 3,
+    "peakShots": 11,
+    "damageDelivered": 70,
+    "damageCalls": 36,
+    "score": 5325,
+    "circles": [
+      {
+        "circle": 9,
+        "seconds": 10.5
+      }
+    ],
+    "bosses": [],
+    "xp": 5325,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 9,
+      "tier": "maximum"
+    },
+    "seconds": 9.47,
+    "circle": 10,
+    "won": false,
+    "kills": 14,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 4,
+    "giftsCollected": 1,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 3,
+    "peakShots": 6,
+    "damageDelivered": 70,
+    "damageCalls": 28,
+    "score": 5317,
+    "circles": [
+      {
+        "circle": 9,
+        "seconds": 9.47
+      }
+    ],
+    "bosses": [],
+    "xp": 5317,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 19,
+      "tier": "base"
+    },
+    "seconds": 18.9,
+    "circle": 20,
+    "won": false,
+    "kills": 22,
+    "escapes": 4,
+    "damageTaken": 1,
+    "rescues": 0,
+    "giftsSpawned": 5,
+    "giftsCollected": 1,
+    "giftsConverted": 0,
+    "giftsExpired": 1,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 7,
+    "peakShots": 12,
+    "damageDelivered": 142,
+    "damageCalls": 141,
+    "score": 9409,
+    "circles": [
+      {
+        "circle": 19,
+        "seconds": 18.9
+      }
+    ],
+    "bosses": [],
+    "xp": 9409,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 19,
+      "tier": "evolved"
+    },
+    "seconds": 14.87,
+    "circle": 20,
+    "won": false,
+    "kills": 22,
+    "escapes": 1,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 5,
+    "peakShots": 8,
+    "damageDelivered": 142.16,
+    "damageCalls": 77,
+    "score": 11172,
+    "circles": [
+      {
+        "circle": 19,
+        "seconds": 14.87
+      }
+    ],
+    "bosses": [],
+    "xp": 11172,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 19,
+      "tier": "maximum"
+    },
+    "seconds": 13.33,
+    "circle": 20,
+    "won": false,
+    "kills": 22,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 2,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 1,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 3,
+    "peakShots": 7,
+    "damageDelivered": 138,
+    "damageCalls": 47,
+    "score": 10861,
+    "circles": [
+      {
+        "circle": 19,
+        "seconds": 13.33
+      }
+    ],
+    "bosses": [],
+    "xp": 10861,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 29,
+      "tier": "base"
+    },
+    "seconds": 27.33,
+    "circle": 30,
+    "won": false,
+    "kills": 21,
+    "escapes": 13,
+    "damageTaken": 2,
+    "rescues": 0,
+    "giftsSpawned": 4,
+    "giftsCollected": 3,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 12,
+    "peakShots": 23,
+    "damageDelivered": 240,
+    "damageCalls": 237,
+    "score": 11110,
+    "circles": [
+      {
+        "circle": 29,
+        "seconds": 27.33
+      }
+    ],
+    "bosses": [],
+    "xp": 11110,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 29,
+      "tier": "evolved"
+    },
+    "seconds": 18.4,
+    "circle": 30,
+    "won": false,
+    "kills": 30,
+    "escapes": 3,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 9,
+    "giftsCollected": 3,
+    "giftsConverted": 0,
+    "giftsExpired": 1,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 7,
+    "peakShots": 14,
+    "damageDelivered": 261.16,
+    "damageCalls": 138,
+    "score": 19046,
+    "circles": [
+      {
+        "circle": 29,
+        "seconds": 18.4
+      }
+    ],
+    "bosses": [],
+    "xp": 19046,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 29,
+      "tier": "maximum"
+    },
+    "seconds": 15.73,
+    "circle": 30,
+    "won": false,
+    "kills": 31,
+    "escapes": 0,
+    "damageTaken": 1,
+    "rescues": 0,
+    "giftsSpawned": 2,
+    "giftsCollected": 1,
+    "giftsConverted": 0,
+    "giftsExpired": 1,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 6,
+    "peakShots": 10,
+    "damageDelivered": 254,
+    "damageCalls": 91,
+    "score": 19068,
+    "circles": [
+      {
+        "circle": 29,
+        "seconds": 15.73
+      }
+    ],
+    "bosses": [],
+    "xp": 19068,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 39,
+      "tier": "base"
+    },
+    "seconds": 33.3,
+    "circle": 40,
+    "won": false,
+    "kills": 29,
+    "escapes": 11,
+    "damageTaken": 2,
+    "rescues": 0,
+    "giftsSpawned": 2,
+    "giftsCollected": 2,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 11,
+    "peakShots": 28,
+    "damageDelivered": 335,
+    "damageCalls": 328,
+    "score": 20331,
+    "circles": [
+      {
+        "circle": 39,
+        "seconds": 33.3
+      }
+    ],
+    "bosses": [],
+    "xp": 20331,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 39,
+      "tier": "evolved"
+    },
+    "seconds": 18.1,
+    "circle": 40,
+    "won": false,
+    "kills": 35,
+    "escapes": 4,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 5,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 1,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 7,
+    "peakShots": 20,
+    "damageDelivered": 366.48,
+    "damageCalls": 183,
+    "score": 29938,
+    "circles": [
+      {
+        "circle": 39,
+        "seconds": 18.1
+      }
+    ],
+    "bosses": [],
+    "xp": 29938,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 39,
+      "tier": "maximum"
+    },
+    "seconds": 16.27,
+    "circle": 40,
+    "won": false,
+    "kills": 37,
+    "escapes": 0,
+    "damageTaken": 1,
+    "rescues": 0,
+    "giftsSpawned": 3,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 1,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 4,
+    "peakShots": 9,
+    "damageDelivered": 368,
+    "damageCalls": 137,
+    "score": 28037,
+    "circles": [
+      {
+        "circle": 39,
+        "seconds": 16.27
+      }
+    ],
+    "bosses": [],
+    "xp": 28037,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 49,
+      "tier": "base"
+    },
+    "seconds": 42.13,
+    "circle": 50,
+    "won": false,
+    "kills": 29,
+    "escapes": 11,
+    "damageTaken": 6,
+    "rescues": 3,
+    "giftsSpawned": 8,
+    "giftsCollected": 4,
+    "giftsConverted": 0,
+    "giftsExpired": 3,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 11,
+    "peakShots": 28,
+    "damageDelivered": 366,
+    "damageCalls": 361,
+    "score": 15507,
+    "circles": [
+      {
+        "circle": 49,
+        "seconds": 42.13
+      }
+    ],
+    "bosses": [],
+    "xp": 15507,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 49,
+      "tier": "evolved"
+    },
+    "seconds": 19.4,
+    "circle": 50,
+    "won": false,
+    "kills": 33,
+    "escapes": 6,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 4,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 1,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 8,
+    "peakShots": 20,
+    "damageDelivered": 390.28,
+    "damageCalls": 188,
+    "score": 28824,
+    "circles": [
+      {
+        "circle": 49,
+        "seconds": 19.4
+      }
+    ],
+    "bosses": [],
+    "xp": 28824,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 49,
+      "tier": "maximum"
+    },
+    "seconds": 14.77,
+    "circle": 50,
+    "won": false,
+    "kills": 35,
+    "escapes": 1,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 7,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 1,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 6,
+    "peakShots": 8,
+    "damageDelivered": 385,
+    "damageCalls": 142,
+    "score": 29585,
+    "circles": [
+      {
+        "circle": 49,
+        "seconds": 14.77
+      }
+    ],
+    "bosses": [],
+    "xp": 29585,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 10,
+      "tier": "base"
+    },
+    "seconds": 39.03,
+    "circle": 11,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 35,
+    "damageDelivered": 240,
+    "damageCalls": 230,
+    "score": 4290,
+    "circles": [
+      {
+        "circle": 10,
+        "seconds": 39.03
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 10,
+        "seconds": 39
+      }
+    ],
+    "xp": 4290,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 10,
+      "tier": "evolved"
+    },
+    "seconds": 13.23,
+    "circle": 11,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 34,
+    "damageDelivered": 240,
+    "damageCalls": 106,
+    "score": 4290,
+    "circles": [
+      {
+        "circle": 10,
+        "seconds": 13.23
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 10,
+        "seconds": 13.2
+      }
+    ],
+    "xp": 4290,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 10,
+      "tier": "maximum"
+    },
+    "seconds": 5.27,
+    "circle": 11,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 31,
+    "damageDelivered": 240,
+    "damageCalls": 73,
+    "score": 4290,
+    "circles": [
+      {
+        "circle": 10,
+        "seconds": 5.27
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 10,
+        "seconds": 5.23
+      }
+    ],
+    "xp": 4290,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 20,
+      "tier": "base"
+    },
+    "seconds": 58.87,
+    "circle": 21,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 1,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 33,
+    "damageDelivered": 420,
+    "damageCalls": 400,
+    "score": 5578,
+    "circles": [
+      {
+        "circle": 20,
+        "seconds": 58.87
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 20,
+        "seconds": 58.83
+      }
+    ],
+    "xp": 5578,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 20,
+      "tier": "evolved"
+    },
+    "seconds": 19.8,
+    "circle": 21,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 32,
+    "damageDelivered": 420,
+    "damageCalls": 193,
+    "score": 5578,
+    "circles": [
+      {
+        "circle": 20,
+        "seconds": 19.8
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 20,
+        "seconds": 19.77
+      }
+    ],
+    "xp": 5578,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 20,
+      "tier": "maximum"
+    },
+    "seconds": 9.83,
+    "circle": 21,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 31,
+    "damageDelivered": 420,
+    "damageCalls": 126,
+    "score": 5578,
+    "circles": [
+      {
+        "circle": 20,
+        "seconds": 9.83
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 20,
+        "seconds": 9.8
+      }
+    ],
+    "xp": 5578,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 30,
+      "tier": "base"
+    },
+    "seconds": 95.47,
+    "circle": 31,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 1,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 33,
+    "damageDelivered": 650,
+    "damageCalls": 625,
+    "score": 6630,
+    "circles": [
+      {
+        "circle": 30,
+        "seconds": 95.47
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 30,
+        "seconds": 95.43
+      }
+    ],
+    "xp": 6630,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 30,
+      "tier": "evolved"
+    },
+    "seconds": 30.2,
+    "circle": 31,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 32,
+    "damageDelivered": 650,
+    "damageCalls": 300,
+    "score": 6630,
+    "circles": [
+      {
+        "circle": 30,
+        "seconds": 30.2
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 30,
+        "seconds": 30.17
+      }
+    ],
+    "xp": 6630,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 30,
+      "tier": "maximum"
+    },
+    "seconds": 14.77,
+    "circle": 31,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 32,
+    "damageDelivered": 650,
+    "damageCalls": 196,
+    "score": 6630,
+    "circles": [
+      {
+        "circle": 30,
+        "seconds": 14.77
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 30,
+        "seconds": 14.73
+      }
+    ],
+    "xp": 6630,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 40,
+      "tier": "base"
+    },
+    "seconds": 137.93,
+    "circle": 41,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 2,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 33,
+    "damageDelivered": 900,
+    "damageCalls": 865,
+    "score": 7323,
+    "circles": [
+      {
+        "circle": 40,
+        "seconds": 137.93
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 40,
+        "seconds": 137.9
+      }
+    ],
+    "xp": 7323,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 40,
+      "tier": "evolved"
+    },
+    "seconds": 41.1,
+    "circle": 41,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 32,
+    "damageDelivered": 900,
+    "damageCalls": 412,
+    "score": 7323,
+    "circles": [
+      {
+        "circle": 40,
+        "seconds": 41.1
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 40,
+        "seconds": 41.07
+      }
+    ],
+    "xp": 7323,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 40,
+      "tier": "maximum"
+    },
+    "seconds": 19.07,
+    "circle": 41,
+    "won": false,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 1,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 32,
+    "damageDelivered": 900,
+    "damageCalls": 271,
+    "score": 7323,
+    "circles": [
+      {
+        "circle": 40,
+        "seconds": 19.07
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 40,
+        "seconds": 19.03
+      }
+    ],
+    "xp": 7323,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 50,
+      "tier": "base"
+    },
+    "seconds": 180.03,
+    "circle": 50,
+    "won": false,
+    "kills": 0,
+    "escapes": 0,
+    "damageTaken": 2,
+    "rescues": 0,
+    "giftsSpawned": 0,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 33,
+    "damageDelivered": 1169,
+    "damageCalls": 1129,
+    "score": 0,
+    "circles": [],
+    "bosses": [],
+    "xp": 0,
+    "timedOut": true
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 50,
+      "tier": "evolved"
+    },
+    "seconds": 56.4,
+    "circle": 50,
+    "won": true,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 0,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 32,
+    "damageDelivered": 1200,
+    "damageCalls": 549,
+    "score": 7350,
+    "circles": [
+      {
+        "circle": 50,
+        "seconds": 56.4
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 50,
+        "seconds": 56.37
+      }
+    ],
+    "xp": 7350,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": true,
+    "fixture": {
+      "circle": 50,
+      "tier": "maximum"
+    },
+    "seconds": 26.9,
+    "circle": 50,
+    "won": true,
+    "kills": 1,
+    "escapes": 0,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 0,
+    "giftsCollected": 0,
+    "giftsConverted": 0,
+    "giftsExpired": 0,
+    "boons": 0,
+    "xpBoons": 0,
+    "evolutionCircle": null,
+    "peakEnemies": 1,
+    "peakShots": 32,
+    "damageDelivered": 1200,
+    "damageCalls": 362,
+    "score": 7350,
+    "circles": [
+      {
+        "circle": 50,
+        "seconds": 26.9
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 50,
+        "seconds": 26.87
+      }
+    ],
+    "xp": 7350,
+    "timedOut": false
+  }
+]

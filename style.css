@@ -20,7 +20,8 @@ body {
   overflow: hidden;
   background: #07040f;
   color: var(--paper);
-  font-family: "Segoe UI", Candara, sans-serif;
+  font-family: "Press Start 2P", monospace;
+  font-size: 13px;
 }
 
 #game {
@@ -164,12 +165,12 @@ body {
 
 #boss-name {
   display: block;
-  margin-bottom: 7px;
+  margin-bottom: 5px;
   color: #f0c56a;
-  font-family: Palatino, "Palatino Linotype", Georgia, serif;
-  font-size: clamp(16px, 3vw, 24px);
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(10px, 1.1vw, 14px);
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
@@ -199,18 +200,19 @@ body {
 .stat span,
 #lives,
 #spell-name {
-  font-family: Palatino, "Palatino Linotype", Georgia, serif;
-  font-size: 28px;
-  letter-spacing: 0.04em;
+  font-family: "Press Start 2P", monospace;
+  font-size: 20px;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
   color: var(--gold);
 }
 
 .stat small,
 .spell small,
 #circle {
-  letter-spacing: 0.16em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 9px;
   color: rgba(244, 231, 200, 0.72);
 }
 
@@ -219,9 +221,9 @@ body {
 }
 
 .center-stat #circle {
-  font-family: Palatino, "Palatino Linotype", Georgia, serif;
-  font-size: 22px;
-  letter-spacing: 0.12em;
+  font-family: "Press Start 2P", monospace;
+  font-size: 14px;
+  letter-spacing: 0.08em;
   text-transform: none;
   color: var(--paper);
 }
@@ -229,9 +231,9 @@ body {
 #combo {
   min-height: 1.2em;
   color: #ffb15a;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-size: 13px;
+  font-size: 10px;
 }
 
 .right-stat {
@@ -265,6 +267,59 @@ body {
   background: linear-gradient(90deg, #8fd6ff, #f0c56a);
 }
 
+#abilities {
+  display: grid;
+  gap: 5px;
+  width: 150px;
+  margin-top: 8px;
+  margin-left: auto;
+}
+
+#abilities[hidden] {
+  display: none;
+}
+
+#abilities .ability {
+  position: relative;
+  height: auto;
+  border: 0;
+  background: none;
+  overflow: visible;
+  border-radius: 0;
+}
+
+#abilities .ability .ability-name {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 7px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-align: right;
+  text-transform: none;
+  color: var(--paper);
+}
+
+#abilities .ability .ability-bar {
+  position: relative;
+  display: block;
+  height: 6px;
+  border: 1px solid #847392;
+  border-radius: 99px;
+  background: #34283f;
+  overflow: hidden;
+  box-shadow: inset 1px 2px rgba(12, 9, 21, 0.6);
+}
+
+#abilities .ability .ability-fill {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #8fd6ff, #f0c56a);
+}
+
 .overlay {
   position: fixed;
   inset: 0;
@@ -292,42 +347,80 @@ body {
 .card h1,
 .card h2 {
   margin: 0;
-  font-family: Palatino, "Palatino Linotype", Georgia, serif;
+  font-family: "Press Start 2P", monospace;
   font-weight: 500;
-  font-size: 64px;
-  letter-spacing: 0.08em;
+  font-size: clamp(24px, 4.2vw, 38px);
+  line-height: 1.2;
+  letter-spacing: 0.04em;
   color: var(--gold);
 }
 
 .card h2 {
-  font-size: 48px;
+  font-size: clamp(18px, 3vw, 25px);
+  line-height: 1.25;
+  letter-spacing: 0.06em;
 }
 
 .lede,
 .card p {
   color: rgba(244, 231, 200, 0.88);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-.lede {
-  margin: 8px 0 22px;
-  font-size: 18px;
+.card > p {
+  font-size: 12px;
+}
+
+.card .lede {
+  margin: 10px 0 18px;
+  font-size: 12px;
 }
 
 .controls {
-  margin: 0 0 22px;
+  margin: 0 0 18px;
   padding: 0;
   list-style: none;
   text-align: left;
   display: grid;
-  gap: 8px;
+  gap: 7px;
 }
 
 .controls li {
   display: grid;
-  grid-template-columns: 148px 1fr;
-  gap: 12px;
-  font-size: 14px;
+  grid-template-columns: max-content 1fr;
+  gap: 14px;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.primer {
+  margin: -6px 0 20px;
+  border-top: 1px solid rgba(240, 197, 106, 0.2);
+  border-bottom: 1px solid rgba(240, 197, 106, 0.2);
+  text-align: left;
+}
+.primer summary {
+  padding: 10px 0;
+  color: var(--gold);
+  cursor: pointer;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+}
+.primer summary:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+.primer-copy {
+  padding: 0 0 8px;
+  color: rgba(244, 231, 200, 0.82);
+  font-size: 10px;
+  line-height: 1.6;
+}
+.primer-copy p {
+  margin: 7px 0;
+}
+.primer-copy strong {
+  color: var(--paper);
 }
 
 kbd {
@@ -337,11 +430,13 @@ kbd {
 
 button {
   font: inherit;
+  font-size: 11px;
+  line-height: 1.4;
   color: #1a1020;
   background: var(--gold);
   border: 0;
-  padding: 12px 22px;
-  letter-spacing: 0.12em;
+  padding: 11px 20px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
 }
@@ -356,24 +451,26 @@ button:focus-visible,
   outline-offset: 3px;
 }
 
-.final-score {
-  font-family: Palatino, "Palatino Linotype", Georgia, serif;
-  font-size: 42px;
+.card .final-score {
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(24px, 4vw, 34px);
+  line-height: 1.2;
   margin: 12px 0 4px;
   color: var(--gold);
 }
 
-.hint {
+.card .hint {
   margin: 16px 0 0;
   color: rgba(244, 231, 200, 0.62);
-  font-size: 13px;
+  font-size: 10px;
+  line-height: 1.5;
 }
 
-.eyebrow {
+.card .eyebrow {
   margin: 0 0 8px;
   color: var(--gold);
-  font-size: 12px;
-  letter-spacing: 0.16em;
+  font-size: 9px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -382,7 +479,7 @@ button:focus-visible,
 }
 
 .upgrade-card h2 {
-  font-size: clamp(36px, 6vw, 52px);
+  font-size: clamp(18px, 3vw, 25px);
 }
 
 .upgrade-choices {
@@ -417,17 +514,18 @@ button:focus-visible,
 }
 
 .upgrade-choice strong {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   color: var(--gold);
-  font-family: Palatino, "Palatino Linotype", Georgia, serif;
-  font-size: 20px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 11px;
+  line-height: 1.5;
   font-weight: 500;
 }
 
 .upgrade-choice small {
   color: rgba(244, 231, 200, 0.78);
-  font-size: 13px;
-  line-height: 1.45;
+  font-size: 10px;
+  line-height: 1.6;
 }
 
 @media (max-width: 900px), (pointer: coarse) {
@@ -455,7 +553,7 @@ button:focus-visible,
   .stat span,
   #lives,
   #spell-name {
-    font-size: 22px;
+    font-size: 18px;
   }
 
   #ward {
@@ -470,17 +568,41 @@ button:focus-visible,
   }
 
   .card h1 {
-    font-size: clamp(42px, 14vw, 64px);
+    font-size: clamp(22px, 6vw, 30px);
   }
 
   .card h2 {
-    font-size: 38px;
+    font-size: clamp(18px, 5vw, 23px);
   }
 
   .controls li {
-    grid-template-columns: minmax(112px, 0.8fr) 1fr;
-    gap: 8px;
-    font-size: 13px;
+    grid-template-columns: max-content 1fr;
+    gap: 14px;
+    font-size: 9px;
+  }
+
+  .card > p {
+    font-size: 10px;
+  }
+
+  .card .lede {
+    font-size: 10px;
+  }
+
+  .primer summary,
+  .primer-copy,
+  .card .hint,
+  .upgrade-choice small {
+    font-size: 9px;
+  }
+
+  .card .eyebrow {
+    font-size: 8px;
+  }
+
+  button {
+    font-size: 10px;
+    padding: 10px 16px;
   }
 
   .upgrade-choices {
@@ -492,5 +614,12 @@ button:focus-visible,
   .upgrade-choice {
     min-height: 0;
     padding: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .controls li {
+    grid-template-columns: 1fr;
+    gap: 2px;
   }
 }

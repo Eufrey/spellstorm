@@ -4,7 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Spellstorm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="hud.css">
 </head>
 <body>
   <canvas id="game" aria-label="Spellstorm playfield"></canvas>
@@ -26,21 +30,27 @@
     <div class="center-stat">
       <div id="circle">Circle 1</div>
       <div id="combo"></div>
+  <section id="boss-hud" hidden aria-live="polite">
+    <strong id="boss-name"></strong>
+    <div id="boss-health"><b id="boss-health-fill"></b></div>
+  </section>
     </div>
     <div class="right-stat">
-      <div id="lives" aria-label="Lives">♥ ♥ ♥</div>
+      <div id="lives" role="img" aria-label="Lives">♥ ♥ ♥</div>
       <div class="spell">
         <strong id="spell-name">Ember</strong><br>
         <small id="spell-hint">Twin lances</small>
       </div>
       <div id="ward" title="Ward Pulse"><b id="ward-fill"></b></div>
+      <div id="abilities" hidden>
+        <div class="ability"><span class="ability-name"></span><span class="ability-bar"><b class="ability-fill"></b></span></div>
+        <div class="ability"><span class="ability-name"></span><span class="ability-bar"><b class="ability-fill"></b></span></div>
+        <div class="ability"><span class="ability-name"></span><span class="ability-bar"><b class="ability-fill"></b></span></div>
+      </div>
     </div>
   </header>
 
-  <section id="boss-hud" hidden aria-live="polite">
-    <strong id="boss-name"></strong>
-    <div id="boss-health"><b id="boss-health-fill"></b></div>
-  </section>
+
 
   <section id="menu" class="overlay">
     <div class="card">
@@ -48,10 +58,18 @@
       <p class="lede">Hold the last spire. The dark is climbing.</p>
       <ul class="controls">
         <li><kbd>WASD / arrows</kbd><span>Move</span></li>
-        <li><kbd>1 2 3</kbd><span>Choose a grimoire boon</span></li>
+        <li><kbd>1 2 3</kbd><span>Choose a boon</span></li>
         <li><kbd>Space / right click</kbd><span>Ward Pulse</span></li>
         <li><kbd>Esc</kbd><span>Pause</span></li>
       </ul>
+      <details class="primer">
+        <summary>How progression works</summary>
+        <div class="primer-copy">
+          <p><strong>You begin with the Basic Grimoire, which casts automatically.</strong> Move to dodge and gather score; score fills the experience meter and opens a boon choice.</p>
+          <p><strong>Your first grimoire choice comes after Circle 5.</strong> Every five completed circles also brings a guaranteed boon choice.</p>
+          <p><strong>Build toward an evolution.</strong> Choose two grimoire-specific upgrades. Its stronger form may then appear among later boon choices.</p>
+        </div>
+      </details>
       <button id="start" type="button">Begin the vigil</button>
       <p class="hint" id="best-menu"></p>
     </div>
@@ -67,7 +85,7 @@
 
   <section id="upgrades" class="overlay" hidden>
     <div class="card upgrade-card">
-      <p class="eyebrow">A quiet moment between circles</p>
+      <p class="eyebrow">Between circles</p>
       <h2>Choose an aspect</h2>
       <p>Select one boon for this vigil.</p>
       <div id="upgrade-choices" class="upgrade-choices"></div>

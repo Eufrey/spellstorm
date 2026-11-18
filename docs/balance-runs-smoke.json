@@ -1,0 +1,2270 @@
+[
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "defensive",
+    "protected": false,
+    "fixture": null,
+    "seconds": 812,
+    "circle": 50,
+    "won": true,
+    "kills": 1144,
+    "escapes": 28,
+    "damageTaken": 2,
+    "rescues": 0,
+    "giftsSpawned": 158,
+    "giftsCollected": 84,
+    "giftsConverted": 29,
+    "giftsExpired": 74,
+    "boons": 28,
+    "xpBoons": 21,
+    "evolutionCircle": 16,
+    "peakEnemies": 9,
+    "peakShots": 37,
+    "damageDelivered": 12975.7,
+    "damageCalls": 3173,
+    "score": 799595,
+    "circles": [
+      {
+        "circle": 1,
+        "seconds": 12.4
+      },
+      {
+        "circle": 2,
+        "seconds": 11.67
+      },
+      {
+        "circle": 3,
+        "seconds": 21.23
+      },
+      {
+        "circle": 4,
+        "seconds": 25.8
+      },
+      {
+        "circle": 5,
+        "seconds": 23.2
+      },
+      {
+        "circle": 6,
+        "seconds": 15.33
+      },
+      {
+        "circle": 7,
+        "seconds": 11.03
+      },
+      {
+        "circle": 8,
+        "seconds": 11.57
+      },
+      {
+        "circle": 9,
+        "seconds": 13.4
+      },
+      {
+        "circle": 10,
+        "seconds": 20.83
+      },
+      {
+        "circle": 11,
+        "seconds": 15.07
+      },
+      {
+        "circle": 12,
+        "seconds": 15.37
+      },
+      {
+        "circle": 13,
+        "seconds": 15.9
+      },
+      {
+        "circle": 14,
+        "seconds": 14.77
+      },
+      {
+        "circle": 15,
+        "seconds": 18.17
+      },
+      {
+        "circle": 16,
+        "seconds": 17.7
+      },
+      {
+        "circle": 17,
+        "seconds": 14.87
+      },
+      {
+        "circle": 18,
+        "seconds": 15.7
+      },
+      {
+        "circle": 19,
+        "seconds": 15.2
+      },
+      {
+        "circle": 20,
+        "seconds": 12.03
+      },
+      {
+        "circle": 21,
+        "seconds": 16.17
+      },
+      {
+        "circle": 22,
+        "seconds": 15.87
+      },
+      {
+        "circle": 23,
+        "seconds": 16.13
+      },
+      {
+        "circle": 24,
+        "seconds": 15.47
+      },
+      {
+        "circle": 25,
+        "seconds": 18.03
+      },
+      {
+        "circle": 26,
+        "seconds": 18.57
+      },
+      {
+        "circle": 27,
+        "seconds": 16.6
+      },
+      {
+        "circle": 28,
+        "seconds": 16.83
+      },
+      {
+        "circle": 29,
+        "seconds": 16.3
+      },
+      {
+        "circle": 30,
+        "seconds": 14.57
+      },
+      {
+        "circle": 31,
+        "seconds": 17.03
+      },
+      {
+        "circle": 32,
+        "seconds": 16.1
+      },
+      {
+        "circle": 33,
+        "seconds": 16.57
+      },
+      {
+        "circle": 34,
+        "seconds": 16
+      },
+      {
+        "circle": 35,
+        "seconds": 15.97
+      },
+      {
+        "circle": 36,
+        "seconds": 16.6
+      },
+      {
+        "circle": 37,
+        "seconds": 16.77
+      },
+      {
+        "circle": 38,
+        "seconds": 17
+      },
+      {
+        "circle": 39,
+        "seconds": 16.7
+      },
+      {
+        "circle": 40,
+        "seconds": 11.53
+      },
+      {
+        "circle": 41,
+        "seconds": 15.9
+      },
+      {
+        "circle": 42,
+        "seconds": 16.5
+      },
+      {
+        "circle": 43,
+        "seconds": 17.97
+      },
+      {
+        "circle": 44,
+        "seconds": 16.4
+      },
+      {
+        "circle": 45,
+        "seconds": 16.9
+      },
+      {
+        "circle": 46,
+        "seconds": 16.23
+      },
+      {
+        "circle": 47,
+        "seconds": 16.57
+      },
+      {
+        "circle": 48,
+        "seconds": 16.57
+      },
+      {
+        "circle": 49,
+        "seconds": 16.27
+      },
+      {
+        "circle": 50,
+        "seconds": 16.67
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 10,
+        "seconds": 18.93
+      },
+      {
+        "circle": 20,
+        "seconds": 10.13
+      },
+      {
+        "circle": 30,
+        "seconds": 12.67
+      },
+      {
+        "circle": 40,
+        "seconds": 9.63
+      },
+      {
+        "circle": 50,
+        "seconds": 14.77
+      }
+    ],
+    "xp": 739,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "mixed",
+    "protected": false,
+    "fixture": null,
+    "seconds": 771.03,
+    "circle": 50,
+    "won": true,
+    "kills": 1139,
+    "escapes": 22,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 166,
+    "giftsCollected": 87,
+    "giftsConverted": 15,
+    "giftsExpired": 79,
+    "boons": 28,
+    "xpBoons": 21,
+    "evolutionCircle": 11,
+    "peakEnemies": 8,
+    "peakShots": 34,
+    "damageDelivered": 12854.05,
+    "damageCalls": 2968,
+    "score": 797545,
+    "circles": [
+      {
+        "circle": 1,
+        "seconds": 12.4
+      },
+      {
+        "circle": 2,
+        "seconds": 11.67
+      },
+      {
+        "circle": 3,
+        "seconds": 21.23
+      },
+      {
+        "circle": 4,
+        "seconds": 22.1
+      },
+      {
+        "circle": 5,
+        "seconds": 19.97
+      },
+      {
+        "circle": 6,
+        "seconds": 12.23
+      },
+      {
+        "circle": 7,
+        "seconds": 11.63
+      },
+      {
+        "circle": 8,
+        "seconds": 11.53
+      },
+      {
+        "circle": 9,
+        "seconds": 13.17
+      },
+      {
+        "circle": 10,
+        "seconds": 15.67
+      },
+      {
+        "circle": 11,
+        "seconds": 12.97
+      },
+      {
+        "circle": 12,
+        "seconds": 12.73
+      },
+      {
+        "circle": 13,
+        "seconds": 12.63
+      },
+      {
+        "circle": 14,
+        "seconds": 13.73
+      },
+      {
+        "circle": 15,
+        "seconds": 14.1
+      },
+      {
+        "circle": 16,
+        "seconds": 14.7
+      },
+      {
+        "circle": 17,
+        "seconds": 15.97
+      },
+      {
+        "circle": 18,
+        "seconds": 14.83
+      },
+      {
+        "circle": 19,
+        "seconds": 14.77
+      },
+      {
+        "circle": 20,
+        "seconds": 9.03
+      },
+      {
+        "circle": 21,
+        "seconds": 15.93
+      },
+      {
+        "circle": 22,
+        "seconds": 16.03
+      },
+      {
+        "circle": 23,
+        "seconds": 15.8
+      },
+      {
+        "circle": 24,
+        "seconds": 15.63
+      },
+      {
+        "circle": 25,
+        "seconds": 16.8
+      },
+      {
+        "circle": 26,
+        "seconds": 16.07
+      },
+      {
+        "circle": 27,
+        "seconds": 15.97
+      },
+      {
+        "circle": 28,
+        "seconds": 16.13
+      },
+      {
+        "circle": 29,
+        "seconds": 16.4
+      },
+      {
+        "circle": 30,
+        "seconds": 10.23
+      },
+      {
+        "circle": 31,
+        "seconds": 16.5
+      },
+      {
+        "circle": 32,
+        "seconds": 16.1
+      },
+      {
+        "circle": 33,
+        "seconds": 17.2
+      },
+      {
+        "circle": 34,
+        "seconds": 16.53
+      },
+      {
+        "circle": 35,
+        "seconds": 16.1
+      },
+      {
+        "circle": 36,
+        "seconds": 17.37
+      },
+      {
+        "circle": 37,
+        "seconds": 16.47
+      },
+      {
+        "circle": 38,
+        "seconds": 16.83
+      },
+      {
+        "circle": 39,
+        "seconds": 16.33
+      },
+      {
+        "circle": 40,
+        "seconds": 12.17
+      },
+      {
+        "circle": 41,
+        "seconds": 16.77
+      },
+      {
+        "circle": 42,
+        "seconds": 16.83
+      },
+      {
+        "circle": 43,
+        "seconds": 16.23
+      },
+      {
+        "circle": 44,
+        "seconds": 16.43
+      },
+      {
+        "circle": 45,
+        "seconds": 16.17
+      },
+      {
+        "circle": 46,
+        "seconds": 17.4
+      },
+      {
+        "circle": 47,
+        "seconds": 16.13
+      },
+      {
+        "circle": 48,
+        "seconds": 16.57
+      },
+      {
+        "circle": 49,
+        "seconds": 16.23
+      },
+      {
+        "circle": 50,
+        "seconds": 18.6
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 10,
+        "seconds": 13.77
+      },
+      {
+        "circle": 20,
+        "seconds": 7.13
+      },
+      {
+        "circle": 30,
+        "seconds": 8.33
+      },
+      {
+        "circle": 40,
+        "seconds": 10.27
+      },
+      {
+        "circle": 50,
+        "seconds": 16.7
+      }
+    ],
+    "xp": 362,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "ashen",
+    "policy": "offensive",
+    "protected": false,
+    "fixture": null,
+    "seconds": 771.03,
+    "circle": 50,
+    "won": true,
+    "kills": 1139,
+    "escapes": 22,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 166,
+    "giftsCollected": 87,
+    "giftsConverted": 15,
+    "giftsExpired": 79,
+    "boons": 28,
+    "xpBoons": 21,
+    "evolutionCircle": 11,
+    "peakEnemies": 8,
+    "peakShots": 34,
+    "damageDelivered": 12854.05,
+    "damageCalls": 2968,
+    "score": 797545,
+    "circles": [
+      {
+        "circle": 1,
+        "seconds": 12.4
+      },
+      {
+        "circle": 2,
+        "seconds": 11.67
+      },
+      {
+        "circle": 3,
+        "seconds": 21.23
+      },
+      {
+        "circle": 4,
+        "seconds": 22.1
+      },
+      {
+        "circle": 5,
+        "seconds": 19.97
+      },
+      {
+        "circle": 6,
+        "seconds": 12.23
+      },
+      {
+        "circle": 7,
+        "seconds": 11.63
+      },
+      {
+        "circle": 8,
+        "seconds": 11.53
+      },
+      {
+        "circle": 9,
+        "seconds": 13.17
+      },
+      {
+        "circle": 10,
+        "seconds": 15.67
+      },
+      {
+        "circle": 11,
+        "seconds": 12.97
+      },
+      {
+        "circle": 12,
+        "seconds": 12.73
+      },
+      {
+        "circle": 13,
+        "seconds": 12.63
+      },
+      {
+        "circle": 14,
+        "seconds": 13.73
+      },
+      {
+        "circle": 15,
+        "seconds": 14.1
+      },
+      {
+        "circle": 16,
+        "seconds": 14.7
+      },
+      {
+        "circle": 17,
+        "seconds": 15.97
+      },
+      {
+        "circle": 18,
+        "seconds": 14.83
+      },
+      {
+        "circle": 19,
+        "seconds": 14.77
+      },
+      {
+        "circle": 20,
+        "seconds": 9.03
+      },
+      {
+        "circle": 21,
+        "seconds": 15.93
+      },
+      {
+        "circle": 22,
+        "seconds": 16.03
+      },
+      {
+        "circle": 23,
+        "seconds": 15.8
+      },
+      {
+        "circle": 24,
+        "seconds": 15.63
+      },
+      {
+        "circle": 25,
+        "seconds": 16.8
+      },
+      {
+        "circle": 26,
+        "seconds": 16.07
+      },
+      {
+        "circle": 27,
+        "seconds": 15.97
+      },
+      {
+        "circle": 28,
+        "seconds": 16.13
+      },
+      {
+        "circle": 29,
+        "seconds": 16.4
+      },
+      {
+        "circle": 30,
+        "seconds": 10.23
+      },
+      {
+        "circle": 31,
+        "seconds": 16.5
+      },
+      {
+        "circle": 32,
+        "seconds": 16.1
+      },
+      {
+        "circle": 33,
+        "seconds": 17.2
+      },
+      {
+        "circle": 34,
+        "seconds": 16.53
+      },
+      {
+        "circle": 35,
+        "seconds": 16.1
+      },
+      {
+        "circle": 36,
+        "seconds": 17.37
+      },
+      {
+        "circle": 37,
+        "seconds": 16.47
+      },
+      {
+        "circle": 38,
+        "seconds": 16.83
+      },
+      {
+        "circle": 39,
+        "seconds": 16.33
+      },
+      {
+        "circle": 40,
+        "seconds": 12.17
+      },
+      {
+        "circle": 41,
+        "seconds": 16.77
+      },
+      {
+        "circle": 42,
+        "seconds": 16.83
+      },
+      {
+        "circle": 43,
+        "seconds": 16.23
+      },
+      {
+        "circle": 44,
+        "seconds": 16.43
+      },
+      {
+        "circle": 45,
+        "seconds": 16.17
+      },
+      {
+        "circle": 46,
+        "seconds": 17.4
+      },
+      {
+        "circle": 47,
+        "seconds": 16.13
+      },
+      {
+        "circle": 48,
+        "seconds": 16.57
+      },
+      {
+        "circle": 49,
+        "seconds": 16.23
+      },
+      {
+        "circle": 50,
+        "seconds": 18.6
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 10,
+        "seconds": 13.77
+      },
+      {
+        "circle": 20,
+        "seconds": 7.13
+      },
+      {
+        "circle": 30,
+        "seconds": 8.33
+      },
+      {
+        "circle": 40,
+        "seconds": 10.27
+      },
+      {
+        "circle": 50,
+        "seconds": 16.7
+      }
+    ],
+    "xp": 362,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "defensive",
+    "protected": false,
+    "fixture": null,
+    "seconds": 840.23,
+    "circle": 50,
+    "won": true,
+    "kills": 1140,
+    "escapes": 35,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 188,
+    "giftsCollected": 77,
+    "giftsConverted": 26,
+    "giftsExpired": 111,
+    "boons": 28,
+    "xpBoons": 21,
+    "evolutionCircle": 21,
+    "peakEnemies": 9,
+    "peakShots": 36,
+    "damageDelivered": 12619.61,
+    "damageCalls": 4076,
+    "score": 783693,
+    "circles": [
+      {
+        "circle": 1,
+        "seconds": 12.4
+      },
+      {
+        "circle": 2,
+        "seconds": 11.67
+      },
+      {
+        "circle": 3,
+        "seconds": 21.23
+      },
+      {
+        "circle": 4,
+        "seconds": 25.8
+      },
+      {
+        "circle": 5,
+        "seconds": 23.2
+      },
+      {
+        "circle": 6,
+        "seconds": 19.53
+      },
+      {
+        "circle": 7,
+        "seconds": 11.93
+      },
+      {
+        "circle": 8,
+        "seconds": 13.17
+      },
+      {
+        "circle": 9,
+        "seconds": 12.77
+      },
+      {
+        "circle": 10,
+        "seconds": 17
+      },
+      {
+        "circle": 11,
+        "seconds": 14.4
+      },
+      {
+        "circle": 12,
+        "seconds": 16.2
+      },
+      {
+        "circle": 13,
+        "seconds": 15.53
+      },
+      {
+        "circle": 14,
+        "seconds": 16.2
+      },
+      {
+        "circle": 15,
+        "seconds": 19.1
+      },
+      {
+        "circle": 16,
+        "seconds": 14.67
+      },
+      {
+        "circle": 17,
+        "seconds": 16.33
+      },
+      {
+        "circle": 18,
+        "seconds": 15.1
+      },
+      {
+        "circle": 19,
+        "seconds": 15.7
+      },
+      {
+        "circle": 20,
+        "seconds": 24.73
+      },
+      {
+        "circle": 21,
+        "seconds": 15.57
+      },
+      {
+        "circle": 22,
+        "seconds": 16.23
+      },
+      {
+        "circle": 23,
+        "seconds": 16.27
+      },
+      {
+        "circle": 24,
+        "seconds": 15.8
+      },
+      {
+        "circle": 25,
+        "seconds": 16.77
+      },
+      {
+        "circle": 26,
+        "seconds": 16.9
+      },
+      {
+        "circle": 27,
+        "seconds": 16.53
+      },
+      {
+        "circle": 28,
+        "seconds": 17.97
+      },
+      {
+        "circle": 29,
+        "seconds": 17.57
+      },
+      {
+        "circle": 30,
+        "seconds": 17.33
+      },
+      {
+        "circle": 31,
+        "seconds": 16.6
+      },
+      {
+        "circle": 32,
+        "seconds": 15.97
+      },
+      {
+        "circle": 33,
+        "seconds": 15.53
+      },
+      {
+        "circle": 34,
+        "seconds": 17.1
+      },
+      {
+        "circle": 35,
+        "seconds": 16.9
+      },
+      {
+        "circle": 36,
+        "seconds": 15.9
+      },
+      {
+        "circle": 37,
+        "seconds": 16.23
+      },
+      {
+        "circle": 38,
+        "seconds": 16.27
+      },
+      {
+        "circle": 39,
+        "seconds": 17
+      },
+      {
+        "circle": 40,
+        "seconds": 14.73
+      },
+      {
+        "circle": 41,
+        "seconds": 18
+      },
+      {
+        "circle": 42,
+        "seconds": 16.23
+      },
+      {
+        "circle": 43,
+        "seconds": 16.17
+      },
+      {
+        "circle": 44,
+        "seconds": 16.47
+      },
+      {
+        "circle": 45,
+        "seconds": 16.8
+      },
+      {
+        "circle": 46,
+        "seconds": 16.5
+      },
+      {
+        "circle": 47,
+        "seconds": 16.17
+      },
+      {
+        "circle": 48,
+        "seconds": 16.47
+      },
+      {
+        "circle": 49,
+        "seconds": 16.87
+      },
+      {
+        "circle": 50,
+        "seconds": 24.73
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 10,
+        "seconds": 15.1
+      },
+      {
+        "circle": 20,
+        "seconds": 22.83
+      },
+      {
+        "circle": 30,
+        "seconds": 15.43
+      },
+      {
+        "circle": 40,
+        "seconds": 12.83
+      },
+      {
+        "circle": 50,
+        "seconds": 22.83
+      }
+    ],
+    "xp": 380,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "mixed",
+    "protected": false,
+    "fixture": null,
+    "seconds": 796.77,
+    "circle": 50,
+    "won": true,
+    "kills": 1145,
+    "escapes": 22,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 175,
+    "giftsCollected": 78,
+    "giftsConverted": 16,
+    "giftsExpired": 97,
+    "boons": 28,
+    "xpBoons": 21,
+    "evolutionCircle": 11,
+    "peakEnemies": 8,
+    "peakShots": 38,
+    "damageDelivered": 13055.5,
+    "damageCalls": 3723,
+    "score": 815830,
+    "circles": [
+      {
+        "circle": 1,
+        "seconds": 12.4
+      },
+      {
+        "circle": 2,
+        "seconds": 11.67
+      },
+      {
+        "circle": 3,
+        "seconds": 21.23
+      },
+      {
+        "circle": 4,
+        "seconds": 22.1
+      },
+      {
+        "circle": 5,
+        "seconds": 19.97
+      },
+      {
+        "circle": 6,
+        "seconds": 12.83
+      },
+      {
+        "circle": 7,
+        "seconds": 11.1
+      },
+      {
+        "circle": 8,
+        "seconds": 12
+      },
+      {
+        "circle": 9,
+        "seconds": 13.6
+      },
+      {
+        "circle": 10,
+        "seconds": 26.43
+      },
+      {
+        "circle": 11,
+        "seconds": 13.37
+      },
+      {
+        "circle": 12,
+        "seconds": 12.5
+      },
+      {
+        "circle": 13,
+        "seconds": 12.7
+      },
+      {
+        "circle": 14,
+        "seconds": 15.53
+      },
+      {
+        "circle": 15,
+        "seconds": 13.57
+      },
+      {
+        "circle": 16,
+        "seconds": 15.33
+      },
+      {
+        "circle": 17,
+        "seconds": 15.3
+      },
+      {
+        "circle": 18,
+        "seconds": 14.47
+      },
+      {
+        "circle": 19,
+        "seconds": 14.63
+      },
+      {
+        "circle": 20,
+        "seconds": 9.4
+      },
+      {
+        "circle": 21,
+        "seconds": 16
+      },
+      {
+        "circle": 22,
+        "seconds": 15.03
+      },
+      {
+        "circle": 23,
+        "seconds": 15.67
+      },
+      {
+        "circle": 24,
+        "seconds": 15.63
+      },
+      {
+        "circle": 25,
+        "seconds": 16.9
+      },
+      {
+        "circle": 26,
+        "seconds": 18.2
+      },
+      {
+        "circle": 27,
+        "seconds": 15.67
+      },
+      {
+        "circle": 28,
+        "seconds": 15.93
+      },
+      {
+        "circle": 29,
+        "seconds": 16.53
+      },
+      {
+        "circle": 30,
+        "seconds": 13.6
+      },
+      {
+        "circle": 31,
+        "seconds": 17.43
+      },
+      {
+        "circle": 32,
+        "seconds": 16.93
+      },
+      {
+        "circle": 33,
+        "seconds": 17.5
+      },
+      {
+        "circle": 34,
+        "seconds": 16.6
+      },
+      {
+        "circle": 35,
+        "seconds": 16.03
+      },
+      {
+        "circle": 36,
+        "seconds": 16.9
+      },
+      {
+        "circle": 37,
+        "seconds": 17.37
+      },
+      {
+        "circle": 38,
+        "seconds": 16.13
+      },
+      {
+        "circle": 39,
+        "seconds": 16.6
+      },
+      {
+        "circle": 40,
+        "seconds": 14.87
+      },
+      {
+        "circle": 41,
+        "seconds": 17.4
+      },
+      {
+        "circle": 42,
+        "seconds": 18.13
+      },
+      {
+        "circle": 43,
+        "seconds": 17
+      },
+      {
+        "circle": 44,
+        "seconds": 16.83
+      },
+      {
+        "circle": 45,
+        "seconds": 16.97
+      },
+      {
+        "circle": 46,
+        "seconds": 16.13
+      },
+      {
+        "circle": 47,
+        "seconds": 16.83
+      },
+      {
+        "circle": 48,
+        "seconds": 17.43
+      },
+      {
+        "circle": 49,
+        "seconds": 16.8
+      },
+      {
+        "circle": 50,
+        "seconds": 17.57
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 10,
+        "seconds": 24.53
+      },
+      {
+        "circle": 20,
+        "seconds": 7.5
+      },
+      {
+        "circle": 30,
+        "seconds": 11.7
+      },
+      {
+        "circle": 40,
+        "seconds": 12.97
+      },
+      {
+        "circle": 50,
+        "seconds": 15.67
+      }
+    ],
+    "xp": 383,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "hollowWinter",
+    "policy": "offensive",
+    "protected": false,
+    "fixture": null,
+    "seconds": 796.77,
+    "circle": 50,
+    "won": true,
+    "kills": 1145,
+    "escapes": 22,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 175,
+    "giftsCollected": 78,
+    "giftsConverted": 16,
+    "giftsExpired": 97,
+    "boons": 28,
+    "xpBoons": 21,
+    "evolutionCircle": 11,
+    "peakEnemies": 8,
+    "peakShots": 38,
+    "damageDelivered": 13055.5,
+    "damageCalls": 3723,
+    "score": 815830,
+    "circles": [
+      {
+        "circle": 1,
+        "seconds": 12.4
+      },
+      {
+        "circle": 2,
+        "seconds": 11.67
+      },
+      {
+        "circle": 3,
+        "seconds": 21.23
+      },
+      {
+        "circle": 4,
+        "seconds": 22.1
+      },
+      {
+        "circle": 5,
+        "seconds": 19.97
+      },
+      {
+        "circle": 6,
+        "seconds": 12.83
+      },
+      {
+        "circle": 7,
+        "seconds": 11.1
+      },
+      {
+        "circle": 8,
+        "seconds": 12
+      },
+      {
+        "circle": 9,
+        "seconds": 13.6
+      },
+      {
+        "circle": 10,
+        "seconds": 26.43
+      },
+      {
+        "circle": 11,
+        "seconds": 13.37
+      },
+      {
+        "circle": 12,
+        "seconds": 12.5
+      },
+      {
+        "circle": 13,
+        "seconds": 12.7
+      },
+      {
+        "circle": 14,
+        "seconds": 15.53
+      },
+      {
+        "circle": 15,
+        "seconds": 13.57
+      },
+      {
+        "circle": 16,
+        "seconds": 15.33
+      },
+      {
+        "circle": 17,
+        "seconds": 15.3
+      },
+      {
+        "circle": 18,
+        "seconds": 14.47
+      },
+      {
+        "circle": 19,
+        "seconds": 14.63
+      },
+      {
+        "circle": 20,
+        "seconds": 9.4
+      },
+      {
+        "circle": 21,
+        "seconds": 16
+      },
+      {
+        "circle": 22,
+        "seconds": 15.03
+      },
+      {
+        "circle": 23,
+        "seconds": 15.67
+      },
+      {
+        "circle": 24,
+        "seconds": 15.63
+      },
+      {
+        "circle": 25,
+        "seconds": 16.9
+      },
+      {
+        "circle": 26,
+        "seconds": 18.2
+      },
+      {
+        "circle": 27,
+        "seconds": 15.67
+      },
+      {
+        "circle": 28,
+        "seconds": 15.93
+      },
+      {
+        "circle": 29,
+        "seconds": 16.53
+      },
+      {
+        "circle": 30,
+        "seconds": 13.6
+      },
+      {
+        "circle": 31,
+        "seconds": 17.43
+      },
+      {
+        "circle": 32,
+        "seconds": 16.93
+      },
+      {
+        "circle": 33,
+        "seconds": 17.5
+      },
+      {
+        "circle": 34,
+        "seconds": 16.6
+      },
+      {
+        "circle": 35,
+        "seconds": 16.03
+      },
+      {
+        "circle": 36,
+        "seconds": 16.9
+      },
+      {
+        "circle": 37,
+        "seconds": 17.37
+      },
+      {
+        "circle": 38,
+        "seconds": 16.13
+      },
+      {
+        "circle": 39,
+        "seconds": 16.6
+      },
+      {
+        "circle": 40,
+        "seconds": 14.87
+      },
+      {
+        "circle": 41,
+        "seconds": 17.4
+      },
+      {
+        "circle": 42,
+        "seconds": 18.13
+      },
+      {
+        "circle": 43,
+        "seconds": 17
+      },
+      {
+        "circle": 44,
+        "seconds": 16.83
+      },
+      {
+        "circle": 45,
+        "seconds": 16.97
+      },
+      {
+        "circle": 46,
+        "seconds": 16.13
+      },
+      {
+        "circle": 47,
+        "seconds": 16.83
+      },
+      {
+        "circle": 48,
+        "seconds": 17.43
+      },
+      {
+        "circle": 49,
+        "seconds": 16.8
+      },
+      {
+        "circle": 50,
+        "seconds": 17.57
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 10,
+        "seconds": 24.53
+      },
+      {
+        "circle": 20,
+        "seconds": 7.5
+      },
+      {
+        "circle": 30,
+        "seconds": 11.7
+      },
+      {
+        "circle": 40,
+        "seconds": 12.97
+      },
+      {
+        "circle": 50,
+        "seconds": 15.67
+      }
+    ],
+    "xp": 383,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "defensive",
+    "protected": false,
+    "fixture": null,
+    "seconds": 982.93,
+    "circle": 50,
+    "won": true,
+    "kills": 1128,
+    "escapes": 82,
+    "damageTaken": 10,
+    "rescues": 0,
+    "giftsSpawned": 165,
+    "giftsCollected": 99,
+    "giftsConverted": 18,
+    "giftsExpired": 66,
+    "boons": 28,
+    "xpBoons": 21,
+    "evolutionCircle": 21,
+    "peakEnemies": 9,
+    "peakShots": 35,
+    "damageDelivered": 13132.4,
+    "damageCalls": 6141,
+    "score": 764989,
+    "circles": [
+      {
+        "circle": 1,
+        "seconds": 12.4
+      },
+      {
+        "circle": 2,
+        "seconds": 11.67
+      },
+      {
+        "circle": 3,
+        "seconds": 21.23
+      },
+      {
+        "circle": 4,
+        "seconds": 25.8
+      },
+      {
+        "circle": 5,
+        "seconds": 23.2
+      },
+      {
+        "circle": 6,
+        "seconds": 18.27
+      },
+      {
+        "circle": 7,
+        "seconds": 16.5
+      },
+      {
+        "circle": 8,
+        "seconds": 11.93
+      },
+      {
+        "circle": 9,
+        "seconds": 13.1
+      },
+      {
+        "circle": 10,
+        "seconds": 35.53
+      },
+      {
+        "circle": 11,
+        "seconds": 20.67
+      },
+      {
+        "circle": 12,
+        "seconds": 16.73
+      },
+      {
+        "circle": 13,
+        "seconds": 16.3
+      },
+      {
+        "circle": 14,
+        "seconds": 22.53
+      },
+      {
+        "circle": 15,
+        "seconds": 19.33
+      },
+      {
+        "circle": 16,
+        "seconds": 22.07
+      },
+      {
+        "circle": 17,
+        "seconds": 24.6
+      },
+      {
+        "circle": 18,
+        "seconds": 16.13
+      },
+      {
+        "circle": 19,
+        "seconds": 22.3
+      },
+      {
+        "circle": 20,
+        "seconds": 50.27
+      },
+      {
+        "circle": 21,
+        "seconds": 18.9
+      },
+      {
+        "circle": 22,
+        "seconds": 17.7
+      },
+      {
+        "circle": 23,
+        "seconds": 18.07
+      },
+      {
+        "circle": 24,
+        "seconds": 16.57
+      },
+      {
+        "circle": 25,
+        "seconds": 20.7
+      },
+      {
+        "circle": 26,
+        "seconds": 19.83
+      },
+      {
+        "circle": 27,
+        "seconds": 17.47
+      },
+      {
+        "circle": 28,
+        "seconds": 20.2
+      },
+      {
+        "circle": 29,
+        "seconds": 16.33
+      },
+      {
+        "circle": 30,
+        "seconds": 26.73
+      },
+      {
+        "circle": 31,
+        "seconds": 16.33
+      },
+      {
+        "circle": 32,
+        "seconds": 16.93
+      },
+      {
+        "circle": 33,
+        "seconds": 18.13
+      },
+      {
+        "circle": 34,
+        "seconds": 19.27
+      },
+      {
+        "circle": 35,
+        "seconds": 16.73
+      },
+      {
+        "circle": 36,
+        "seconds": 16.97
+      },
+      {
+        "circle": 37,
+        "seconds": 19
+      },
+      {
+        "circle": 38,
+        "seconds": 17.5
+      },
+      {
+        "circle": 39,
+        "seconds": 16.57
+      },
+      {
+        "circle": 40,
+        "seconds": 22.23
+      },
+      {
+        "circle": 41,
+        "seconds": 18.4
+      },
+      {
+        "circle": 42,
+        "seconds": 18.33
+      },
+      {
+        "circle": 43,
+        "seconds": 16.53
+      },
+      {
+        "circle": 44,
+        "seconds": 18.77
+      },
+      {
+        "circle": 45,
+        "seconds": 19.8
+      },
+      {
+        "circle": 46,
+        "seconds": 17.03
+      },
+      {
+        "circle": 47,
+        "seconds": 16.7
+      },
+      {
+        "circle": 48,
+        "seconds": 19.17
+      },
+      {
+        "circle": 49,
+        "seconds": 17.7
+      },
+      {
+        "circle": 50,
+        "seconds": 27.77
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 10,
+        "seconds": 33.63
+      },
+      {
+        "circle": 20,
+        "seconds": 48.37
+      },
+      {
+        "circle": 30,
+        "seconds": 24.83
+      },
+      {
+        "circle": 40,
+        "seconds": 20.33
+      },
+      {
+        "circle": 50,
+        "seconds": 25.87
+      }
+    ],
+    "xp": 600,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "mixed",
+    "protected": false,
+    "fixture": null,
+    "seconds": 848.07,
+    "circle": 50,
+    "won": true,
+    "kills": 1130,
+    "escapes": 52,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 177,
+    "giftsCollected": 82,
+    "giftsConverted": 19,
+    "giftsExpired": 95,
+    "boons": 28,
+    "xpBoons": 21,
+    "evolutionCircle": 11,
+    "peakEnemies": 8,
+    "peakShots": 39,
+    "damageDelivered": 12872.43,
+    "damageCalls": 4864,
+    "score": 772580,
+    "circles": [
+      {
+        "circle": 1,
+        "seconds": 12.4
+      },
+      {
+        "circle": 2,
+        "seconds": 11.67
+      },
+      {
+        "circle": 3,
+        "seconds": 21.23
+      },
+      {
+        "circle": 4,
+        "seconds": 22.1
+      },
+      {
+        "circle": 5,
+        "seconds": 19.97
+      },
+      {
+        "circle": 6,
+        "seconds": 18.37
+      },
+      {
+        "circle": 7,
+        "seconds": 11.87
+      },
+      {
+        "circle": 8,
+        "seconds": 13.53
+      },
+      {
+        "circle": 9,
+        "seconds": 14.13
+      },
+      {
+        "circle": 10,
+        "seconds": 16.1
+      },
+      {
+        "circle": 11,
+        "seconds": 14.5
+      },
+      {
+        "circle": 12,
+        "seconds": 15.77
+      },
+      {
+        "circle": 13,
+        "seconds": 13.1
+      },
+      {
+        "circle": 14,
+        "seconds": 15.83
+      },
+      {
+        "circle": 15,
+        "seconds": 14.33
+      },
+      {
+        "circle": 16,
+        "seconds": 15.4
+      },
+      {
+        "circle": 17,
+        "seconds": 15.63
+      },
+      {
+        "circle": 18,
+        "seconds": 14.23
+      },
+      {
+        "circle": 19,
+        "seconds": 15.77
+      },
+      {
+        "circle": 20,
+        "seconds": 14.43
+      },
+      {
+        "circle": 21,
+        "seconds": 16.47
+      },
+      {
+        "circle": 22,
+        "seconds": 15.7
+      },
+      {
+        "circle": 23,
+        "seconds": 15.63
+      },
+      {
+        "circle": 24,
+        "seconds": 16.6
+      },
+      {
+        "circle": 25,
+        "seconds": 18.6
+      },
+      {
+        "circle": 26,
+        "seconds": 17.73
+      },
+      {
+        "circle": 27,
+        "seconds": 19.53
+      },
+      {
+        "circle": 28,
+        "seconds": 16.5
+      },
+      {
+        "circle": 29,
+        "seconds": 17.47
+      },
+      {
+        "circle": 30,
+        "seconds": 16.8
+      },
+      {
+        "circle": 31,
+        "seconds": 21.13
+      },
+      {
+        "circle": 32,
+        "seconds": 17.47
+      },
+      {
+        "circle": 33,
+        "seconds": 16.33
+      },
+      {
+        "circle": 34,
+        "seconds": 16.87
+      },
+      {
+        "circle": 35,
+        "seconds": 18.03
+      },
+      {
+        "circle": 36,
+        "seconds": 17.43
+      },
+      {
+        "circle": 37,
+        "seconds": 17.33
+      },
+      {
+        "circle": 38,
+        "seconds": 16.77
+      },
+      {
+        "circle": 39,
+        "seconds": 18.23
+      },
+      {
+        "circle": 40,
+        "seconds": 23.57
+      },
+      {
+        "circle": 41,
+        "seconds": 18.2
+      },
+      {
+        "circle": 42,
+        "seconds": 16.9
+      },
+      {
+        "circle": 43,
+        "seconds": 16.83
+      },
+      {
+        "circle": 44,
+        "seconds": 17.13
+      },
+      {
+        "circle": 45,
+        "seconds": 18.6
+      },
+      {
+        "circle": 46,
+        "seconds": 18.4
+      },
+      {
+        "circle": 47,
+        "seconds": 17.73
+      },
+      {
+        "circle": 48,
+        "seconds": 16.77
+      },
+      {
+        "circle": 49,
+        "seconds": 17.17
+      },
+      {
+        "circle": 50,
+        "seconds": 25.77
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 10,
+        "seconds": 14.2
+      },
+      {
+        "circle": 20,
+        "seconds": 12.53
+      },
+      {
+        "circle": 30,
+        "seconds": 14.9
+      },
+      {
+        "circle": 40,
+        "seconds": 21.67
+      },
+      {
+        "circle": 50,
+        "seconds": 23.87
+      }
+    ],
+    "xp": 127,
+    "timedOut": false
+  },
+  {
+    "seed": 1,
+    "branch": "stormbound",
+    "policy": "offensive",
+    "protected": false,
+    "fixture": null,
+    "seconds": 848.07,
+    "circle": 50,
+    "won": true,
+    "kills": 1130,
+    "escapes": 52,
+    "damageTaken": 0,
+    "rescues": 0,
+    "giftsSpawned": 177,
+    "giftsCollected": 82,
+    "giftsConverted": 19,
+    "giftsExpired": 95,
+    "boons": 28,
+    "xpBoons": 21,
+    "evolutionCircle": 11,
+    "peakEnemies": 8,
+    "peakShots": 39,
+    "damageDelivered": 12872.43,
+    "damageCalls": 4864,
+    "score": 772580,
+    "circles": [
+      {
+        "circle": 1,
+        "seconds": 12.4
+      },
+      {
+        "circle": 2,
+        "seconds": 11.67
+      },
+      {
+        "circle": 3,
+        "seconds": 21.23
+      },
+      {
+        "circle": 4,
+        "seconds": 22.1
+      },
+      {
+        "circle": 5,
+        "seconds": 19.97
+      },
+      {
+        "circle": 6,
+        "seconds": 18.37
+      },
+      {
+        "circle": 7,
+        "seconds": 11.87
+      },
+      {
+        "circle": 8,
+        "seconds": 13.53
+      },
+      {
+        "circle": 9,
+        "seconds": 14.13
+      },
+      {
+        "circle": 10,
+        "seconds": 16.1
+      },
+      {
+        "circle": 11,
+        "seconds": 14.5
+      },
+      {
+        "circle": 12,
+        "seconds": 15.77
+      },
+      {
+        "circle": 13,
+        "seconds": 13.1
+      },
+      {
+        "circle": 14,
+        "seconds": 15.83
+      },
+      {
+        "circle": 15,
+        "seconds": 14.33
+      },
+      {
+        "circle": 16,
+        "seconds": 15.4
+      },
+      {
+        "circle": 17,
+        "seconds": 15.63
+      },
+      {
+        "circle": 18,
+        "seconds": 14.23
+      },
+      {
+        "circle": 19,
+        "seconds": 15.77
+      },
+      {
+        "circle": 20,
+        "seconds": 14.43
+      },
+      {
+        "circle": 21,
+        "seconds": 16.47
+      },
+      {
+        "circle": 22,
+        "seconds": 15.7
+      },
+      {
+        "circle": 23,
+        "seconds": 15.63
+      },
+      {
+        "circle": 24,
+        "seconds": 16.6
+      },
+      {
+        "circle": 25,
+        "seconds": 18.6
+      },
+      {
+        "circle": 26,
+        "seconds": 17.73
+      },
+      {
+        "circle": 27,
+        "seconds": 19.53
+      },
+      {
+        "circle": 28,
+        "seconds": 16.5
+      },
+      {
+        "circle": 29,
+        "seconds": 17.47
+      },
+      {
+        "circle": 30,
+        "seconds": 16.8
+      },
+      {
+        "circle": 31,
+        "seconds": 21.13
+      },
+      {
+        "circle": 32,
+        "seconds": 17.47
+      },
+      {
+        "circle": 33,
+        "seconds": 16.33
+      },
+      {
+        "circle": 34,
+        "seconds": 16.87
+      },
+      {
+        "circle": 35,
+        "seconds": 18.03
+      },
+      {
+        "circle": 36,
+        "seconds": 17.43
+      },
+      {
+        "circle": 37,
+        "seconds": 17.33
+      },
+      {
+        "circle": 38,
+        "seconds": 16.77
+      },
+      {
+        "circle": 39,
+        "seconds": 18.23
+      },
+      {
+        "circle": 40,
+        "seconds": 23.57
+      },
+      {
+        "circle": 41,
+        "seconds": 18.2
+      },
+      {
+        "circle": 42,
+        "seconds": 16.9
+      },
+      {
+        "circle": 43,
+        "seconds": 16.83
+      },
+      {
+        "circle": 44,
+        "seconds": 17.13
+      },
+      {
+        "circle": 45,
+        "seconds": 18.6
+      },
+      {
+        "circle": 46,
+        "seconds": 18.4
+      },
+      {
+        "circle": 47,
+        "seconds": 17.73
+      },
+      {
+        "circle": 48,
+        "seconds": 16.77
+      },
+      {
+        "circle": 49,
+        "seconds": 17.17
+      },
+      {
+        "circle": 50,
+        "seconds": 25.77
+      }
+    ],
+    "bosses": [
+      {
+        "circle": 10,
+        "seconds": 14.2
+      },
+      {
+        "circle": 20,
+        "seconds": 12.53
+      },
+      {
+        "circle": 30,
+        "seconds": 14.9
+      },
+      {
+        "circle": 40,
+        "seconds": 21.67
+      },
+      {
+        "circle": 50,
+        "seconds": 23.87
+      }
+    ],
+    "xp": 127,
+    "timedOut": false
+  }
+]
