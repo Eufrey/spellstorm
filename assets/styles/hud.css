@@ -1,0 +1,176 @@
+/* Pixel silhouettes and bitmap numerals share space with scalable spell text. */
+#hud, #boss-hud, #ward-button {
+  --plate: #211a33;
+  --rim: #79678d;
+  font-family: "Pixelify Sans", monospace;
+  font-variant-numeric: tabular-nums;
+}
+#hud { grid-template-columns: 1fr minmax(140px, 32vw) 1fr; gap: 8px; padding: max(10px,env(safe-area-inset-top)) max(14px,env(safe-area-inset-right)) 0 max(14px,env(safe-area-inset-left)); text-shadow: 1px 2px #100b1c }
+#hud > div {
+  width: fit-content;
+  max-width: 100%;
+  min-width: 0;
+  padding: 7px 12px;
+  background: var(--plate);
+  border: 2px solid;
+  border-color: var(--rim) #30253e #30253e var(--rim);
+  box-shadow: inset 0 -3px #100b1c;
+  clip-path: polygon(0 4px,4px 4px,4px 0,calc(100% - 4px) 0,calc(100% - 4px) 4px,100% 4px,100% calc(100% - 4px),calc(100% - 4px) calc(100% - 4px),calc(100% - 4px) 100%,4px 100%,4px calc(100% - 4px),0 calc(100% - 4px));
+}
+.center-stat { justify-self: center }
+.right-stat { justify-self: end }
+#score { --px: 3px; display: flex; filter: drop-shadow(0 2px #804726) }
+#score i { width: calc(4 * var(--px)); height: calc(5 * var(--px)); background: url("../art/hud-digits.svg") no-repeat; background-size: calc(40 * var(--px)) 100%; background-position-x: calc(-4 * var(--digit) * var(--px)); image-rendering: pixelated }
+#lives { display: flex; justify-content: flex-end; gap: 3px; min-height: 12px }
+#lives i { width: 14px; height: 12px; background: linear-gradient(#ffbdac 0 24%,#fb676e 24% 72%,#b33f5d 72%); clip-path: polygon(0 16%,16% 16%,16% 0,42% 0,42% 16%,58% 16%,58% 0,84% 0,84% 16%,100% 16%,100% 50%,84% 50%,84% 67%,68% 67%,68% 84%,57% 84%,57% 100%,43% 100%,43% 84%,32% 84%,32% 67%,16% 67%,16% 50%,0 50%) }
+#hud #circle,#hud #spell-name { font: bold clamp(10px,1.1vw,14px)/1.2 "Pixelify Sans", monospace; letter-spacing: .02em }
+#combo:empty { display: none }
+#hud .spell { line-height: 1.2 }
+#boss-hud { position: static; width: auto; transform: none; margin-top: 6px }
+#boss-name { font-size: clamp(10px, 1.1vw, 14px); line-height: 1.25; letter-spacing: .06em }
+#ward,#xp-bar,#boss-health { position: relative; overflow: hidden; border: 1px solid #847392; border-radius: 0; box-shadow: inset 1px 2px #0c0915; background: #34283f }
+#xp-bar { position: fixed }
+#ward::after,#xp-bar::after,#boss-health::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg,transparent 0 10px,#21182d 10px 12px); pointer-events: none }
+#ward b,#xp-fill { background: linear-gradient(#fff0b7 0 28%,#eab952 28% 70%,#ad723c 70%); box-shadow: none }
+#touch-pad,#touch-pad span,#ward-button { border-radius: 20%; border-width: 3px; box-shadow: inset 2px 2px #ab99ad66,inset -3px -4px #21162c99 }
+#ward-button { font-weight: bold }
+@media (max-width:900px), (pointer:coarse) {
+  #hud { grid-template-columns: auto 1fr; gap: 4px }
+  #hud > div { padding: 5px 8px }
+  #hud .center-stat { justify-self: start; margin-top: 0 }
+  #hud .spell { margin-top: 3px; max-width: 46vw }
+  #hud #circle,#hud #spell-name { font-size: 12px }
+  #score { --px: 2px }
+  #boss-name { font-size: 11px }
+}
+@media (max-width:380px) {
+  #hud .spell { max-width: 52vw }
+  #hud #circle,#hud #spell-name { font-size: 11px }
+  #hud .spell small { font-size: 8px; letter-spacing: .08em }
+  #abilities { width: 136px }
+  #abilities .ability .ability-name { font-size: 6px }
+}
+
+/* Combat HUD follows the measured arena, not the browser's outer edges. */
+#hud{right:auto;z-index:3;padding:0 12px;gap:8px;align-items:start;grid-template-columns:minmax(82px,1fr) minmax(0,1.55fr);grid-template-areas:"score loadout" "circle loadout" "boss boss"}
+#hud[data-layout="rails"]{padding:0;grid-template-columns:var(--hud-rail) minmax(0,1fr) var(--hud-rail);column-gap:12px;grid-template-areas:"score circle loadout" ". boss loadout"}
+#hud .stat{grid-area:score;justify-self:stretch;min-width:0}
+#hud .center-stat{grid-area:circle;justify-self:stretch;order:0;min-width:0}
+#hud .right-stat{grid-area:loadout;justify-self:stretch;text-align:left;min-width:0}
+#hud>div,#hud #boss-hud{width:100%;max-width:none;padding:10px 12px;background:#181220ed;border:1px solid #51415f;border-top:2px solid #a18bad;box-shadow:inset 0 -2px #0c0914,0 3px 0 #0c091466;clip-path:none;border-radius:3px}
+#hud .stat small,#hud .hud-label,#hud .ward-heading,#hud .spell small{font:500 14px/1.3 "Pixelify Sans","Pixelify Sans",monospace;color:#c4b5cf;letter-spacing:.025em;text-transform:none}
+#hud .stat{gap:7px}#score{--px:2px;flex-wrap:nowrap;max-width:100%}#hud[data-layout="rails"] #score{--px:3px}#score i{flex-shrink:1;min-width:0}
+#hud #circle{font-size:clamp(10px,1vw,14px);line-height:1.6;letter-spacing:0}
+#hud #combo{font:500 14px/1.4 "Pixelify Sans",monospace;margin-top:4px;letter-spacing:0}
+#hud #lives{justify-content:flex-start;flex-wrap:wrap;gap:4px;margin:6px 0 8px}
+#hud #lives i{width:12px;height:11px;flex-shrink:0}
+#hud[data-layout="rails"] #lives i{width:15px;height:13px}
+#hud .spell{max-width:none;margin:0;padding-top:8px;border-top:1px solid #51415f;line-height:1.4}
+#hud #spell-name{display:block;font:600 18px/1.15 "Pixelify Sans","Pixelify Sans",monospace;letter-spacing:0;overflow-wrap:anywhere}
+#hud .spell br{display:none}#hud .spell small{display:block;margin-top:4px}
+#hud .ward-heading{display:flex;justify-content:space-between;gap:6px;margin-top:10px;color:#ffe4a0}
+#hud #ward-status{color:#ffe4a0;white-space:nowrap}
+#hud #ward,#hud #abilities{width:100%;margin:5px 0 0}#hud #ward{height:9px}
+#hud #abilities{gap:6px;margin-top:10px}#hud #abilities .ability-name{text-align:left;font:500 13px/1.2 "Pixelify Sans",monospace;letter-spacing:0}
+#hud #boss-hud{grid-area:boss;position:static;transform:none;margin:0;text-align:center;border-top-color:#f56872;padding:8px 10px}
+#hud #boss-hud[hidden]{display:none}#hud #boss-name{font:600 16px/1.2 "Pixelify Sans",monospace;letter-spacing:0;margin-bottom:7px}#boss-health{height:12px}
+#xp-bar{height:11px;border-color:#a18bad;background:#21182d;overflow:visible;box-shadow:0 2px 0 #0c0914}
+#xp-bar::before{content:'XP  ' attr(aria-valuenow) '%';position:absolute;bottom:100%;left:0;padding:0 4px 3px;color:#ffe4a0;font:600 13px/1.2 "Pixelify Sans",monospace;text-shadow:0 1px #0c0914}
+#xp-bar::after{border:0;background:repeating-linear-gradient(90deg,transparent 0 14px,#21182d88 14px 16px)}
+#mobile-controls{border:0;box-shadow:none}
+#touch-pad{width:max(64px,calc(108px * var(--control-scale,1)));height:max(64px,calc(108px * var(--control-scale,1)));left:max(12px,calc(22px * var(--control-scale,1)));bottom:max(44px,calc(66px * var(--control-scale,1)));border-radius:8px;background:#171120d9;border:2px solid #79678d;box-shadow:inset 0 0 0 3px #21182d,0 3px 0 #0c0914}
+#touch-pad::before,#touch-pad::after{content:'';position:absolute;inset:50% 10%;height:1px;background:#a18bad44;pointer-events:none}#touch-pad::after{inset:10% 50%;width:1px;height:80%}
+#touch-pad span{border-radius:4px;background:#30243d;border:2px solid #68cfe5;box-shadow:inset 0 2px #d1f7ff33,0 2px 0 #0c0914;z-index:1}
+#ward-button{width:max(52px,calc(82px * var(--control-scale,1)));height:max(52px,calc(82px * var(--control-scale,1)));right:max(12px,calc(22px * var(--control-scale,1)));bottom:max(44px,calc(66px * var(--control-scale,1)));border-radius:8px;border:2px solid #ffe4a0;background:#d5a34f;color:#171120;box-shadow:inset 0 3px #ffe4a0,inset 0 -4px #80502c,0 3px 0 #0c0914;font-size:clamp(9px,1vw,12px)}
+#ward-button.cooling{background:#30243d;color:#f5e7c8;border-color:#79678d;box-shadow:inset 0 2px #51415f,0 3px 0 #0c0914}
+@media(max-width:420px){#hud{padding:0 8px;gap:6px}#hud>div{padding:7px 8px}#hud #spell-name{font-size:16px}#hud .spell small,#hud .ward-heading,#hud .hud-label{font-size:12px}#hud #lives{gap:3px;margin:4px 0 6px}#hud #lives i{width:11px;height:10px}#hud #ward{height:7px}#hud #abilities .ability-name{font-size:12px}}
+
+/* Compact arena HUD: two aligned rows, a third only when abilities are active. */
+#hud[data-layout="arena"]{grid-template-columns:minmax(62px,1fr) minmax(70px,1fr) minmax(76px,1fr);grid-template-areas:"score circle vitality" "spell spell ward" "abilities abilities abilities" "boss boss boss";gap:0;align-items:stretch;padding:0 10px;background:none}
+#hud[data-layout="arena"] .right-stat{display:contents}
+#hud[data-layout="arena"] .stat,#hud[data-layout="arena"] .center-stat,#hud[data-layout="arena"] .hud-vitality,#hud[data-layout="arena"] .spell,#hud[data-layout="arena"] .hud-ward,#hud[data-layout="arena"] #abilities{min-width:0;width:100%;margin:0;padding:7px 8px;background:#181220e8;border:0;box-shadow:none;clip-path:none;border-radius:0;}
+#hud[data-layout="arena"] .stat{grid-area:score;gap:4px;border:1px solid #51415f;border-right:0;border-radius:4px 0 0 0;justify-content:center}
+#hud[data-layout="arena"] .center-stat{grid-area:circle;display:flex;flex-direction:column;align-items:center;justify-content:center;border-top:1px solid #51415f;text-align:center}
+#hud[data-layout="arena"] .hud-vitality{grid-area:vitality;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;border:1px solid #51415f;border-left:0;border-radius:0 4px 0 0}
+#hud[data-layout="arena"] .stat small,#hud[data-layout="arena"] .hud-label{font-size:11px;line-height:1.2}
+#hud[data-layout="arena"] #score{--px:2px;gap:0}
+#hud[data-layout="arena"] #circle{font-size:clamp(9px,2.3vw,12px);line-height:1.5;overflow-wrap:normal}
+#hud[data-layout="arena"] #combo{font-size:11px;line-height:1.1;margin:3px 0 0;min-height:0}
+#hud[data-layout="arena"] #lives{justify-content:flex-end;max-width:100%;margin:4px 0 0;gap:3px;min-height:0}
+#hud[data-layout="arena"] #lives i{width:10px;height:9px}
+#hud[data-layout="arena"] .spell{grid-area:spell;border:1px solid #51415f;border-top:0;border-right:0;border-radius:0 0 0 4px;display:flex;align-items:center}
+#hud[data-layout="arena"] #spell-name{font-size:clamp(13px,3.7vw,16px);line-height:1.2}
+#hud[data-layout="arena"] #spell-hint{display:none}
+#hud[data-layout="arena"] .hud-ward{grid-area:ward;border:1px solid #51415f;border-top:0;border-left:0;border-radius:0 0 4px 0;align-self:stretch;display:flex;flex-direction:column;justify-content:center}
+#hud[data-layout="arena"] .ward-heading{margin:0;gap:3px;font-size:11px;line-height:1.2}
+#hud[data-layout="arena"] .ward-heading>small:first-child{font-size:0}
+#hud[data-layout="arena"] .ward-heading>small:first-child::after{content:'Ward';font-size:11px}
+#hud[data-layout="arena"] #ward{height:5px;margin:4px 0 0}
+#hud[data-layout="arena"] #abilities{grid-area:abilities;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;border:1px solid #51415f;border-radius:4px;margin-top:4px;padding:6px 8px}
+#hud[data-layout="arena"] #abilities[hidden]{display:none}
+#hud[data-layout="arena"] #abilities .ability-name{font-size:10px;line-height:1.15;overflow-wrap:anywhere}
+#hud[data-layout="arena"] #abilities .ability-bar{height:4px;margin-top:3px}
+#hud[data-layout="arena"] #boss-hud{margin-top:4px;padding:6px 8px}
+#hud[data-layout="arena"] #boss-name{font-size:13px;margin-bottom:4px}
+#hud[data-layout="arena"] #boss-health{height:7px}
+@media(max-width:360px){#hud[data-layout="arena"]{padding-inline:6px}#hud[data-layout="arena"] .stat,#hud[data-layout="arena"] .center-stat,#hud[data-layout="arena"] .hud-vitality,#hud[data-layout="arena"] .spell,#hud[data-layout="arena"] .hud-ward{padding:6px}#hud[data-layout="arena"] #score{--px:1.5px}}
+
+/* Grimoire shortcuts: the same raised pixel controls as Ward. */
+#touch-abilities{position:absolute;right:max(12px,calc(22px * var(--control-scale,1)));bottom:calc(max(44px,66px * var(--control-scale,1)) + max(52px,82px * var(--control-scale,1)) + 10px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;max-width:calc(100% - 24px);width:clamp(162px,calc(264px * var(--control-scale,1)),240px);pointer-events:none}
+#touch-abilities[hidden]{display:none}
+#touch-abilities .ability-touch{pointer-events:auto;touch-action:manipulation;user-select:none;min-width:0;min-height:58px;padding:5px 3px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border:2px solid var(--ability-color,#d5a34f);border-radius:6px;background:#241a30;color:#f5e7c8;box-shadow:inset 0 2px #ffffff22,inset 0 -3px #0c0914,0 3px #0c0914;font:600 12px/1.05 'Pixelify Sans',monospace;letter-spacing:0;text-transform:none;text-align:center}
+#touch-abilities .ability-touch:active{transform:translateY(2px);box-shadow:inset 0 1px #ffffff22}
+#touch-abilities .ability-touch:focus-visible{outline:2px solid #ffe4a0;outline-offset:3px}
+#touch-abilities .ability-touch-key{font:400 9px/1.1 'Pixelify Sans',monospace;color:var(--ability-color,#d5a34f)}
+#touch-abilities .ability-touch-name{overflow-wrap:anywhere;max-width:100%}
+#touch-abilities .ability-touch-status{font-size:11px;color:var(--ability-color,#d5a34f)}
+#touch-abilities .ability-touch.cooling{border-color:#51415f;background:#181220;box-shadow:inset 0 2px #30243d,0 3px #0c0914;color:#a18bad;opacity:.88}
+#hud #abilities .ability-caption{display:flex;align-items:center;flex-wrap:wrap;gap:4px;min-width:0}
+#hud #abilities .ability-caption kbd{font:400 8px/1.2 'Pixelify Sans',monospace;color:#ffe4a0}
+#hud #abilities .ability-name{flex:1;min-width:0;margin:0}
+#hud #abilities .ability-status{font:600 11px/1.2 'Pixelify Sans',monospace;color:#ffe4a0;white-space:nowrap}
+#hud #abilities .cooling .ability-status{color:#a18bad}
+#hud[data-layout="arena"] #abilities .ability-caption{gap:3px;align-items:baseline}
+#hud[data-layout="arena"] #abilities .ability-status{font-size:10px}
+@media(pointer:coarse){#touch-abilities .ability-touch-key{display:none}#touch-abilities .ability-touch{min-height:60px;font-size:12px}#hud #abilities .ability-caption kbd{display:none}}
+@media(max-height:440px) and (orientation:landscape){#touch-abilities{bottom:calc(max(44px,66px * var(--control-scale,1)) + 58px);gap:3px}#touch-abilities .ability-touch{min-height:44px;font-size:10px;padding:3px 2px}}
+
+/* Touch layout: circular skills fan out around Ward. */
+@media (max-width:700px), (pointer:coarse){
+  #hud[data-layout="arena"]{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr) minmax(0,1fr);grid-template-areas:"score circle vitality" "spell spell spell" "boss boss boss";padding:0 6px;gap:0}
+  #hud #abilities,#hud[data-layout="arena"] .hud-ward{display:none}
+  #hud[data-layout="arena"] .stat,#hud[data-layout="arena"] .center-stat,#hud[data-layout="arena"] .hud-vitality{padding:5px 6px;min-height:35px;gap:2px}
+  #hud[data-layout="arena"] #circle{font-size:0;white-space:nowrap;line-height:1.1;letter-spacing:0}
+  #hud[data-layout="arena"] #circle::after{content:attr(data-short);font:600 15px/1.1 'Pixelify Sans',monospace;text-transform:none;color:#ffe4a0}
+  #hud[data-layout="arena"] #combo{font-size:10px;line-height:1;margin:1px 0 0}
+  #hud[data-layout="arena"] .stat small,#hud[data-layout="arena"] .hud-label{font-size:10px}
+  #hud[data-layout="arena"] #lives{margin:1px 0 0;gap:2px}
+  #hud[data-layout="arena"] #lives i{width:9px;height:8px}
+  #hud[data-layout="arena"] .spell{padding:3px 6px;justify-content:center;max-width:none;min-height:22px;border-right:1px solid #51415f;border-radius:0 0 4px 4px}
+  #hud[data-layout="arena"] #spell-name{font-size:0;line-height:1;white-space:nowrap;text-align:center}
+  #hud[data-layout="arena"] #spell-name::after{content:attr(data-short);font:600 13px/1.1 'Pixelify Sans',monospace}
+  #hud[data-layout="arena"] #boss-hud{padding:4px 6px;margin-top:3px}
+  #hud[data-layout="arena"] #boss-name{font-size:11px;margin-bottom:3px}
+  #hud[data-layout="arena"] #boss-health{height:6px}
+  #hud[data-layout="arena"] #abilities{display:none}
+  #mobile-controls{--skill-size:clamp(44px,calc(74px * var(--control-scale,1)),58px);--ward-size:clamp(54px,calc(90px * var(--control-scale,1)),70px);--control-inset:max(10px,calc(18px * var(--control-scale,1)));--control-bottom:max(32px,calc(54px * var(--control-scale,1)));--skill-gap:10px}
+  #touch-pad{left:var(--control-inset);bottom:var(--control-bottom);border-radius:50%;width:clamp(62px,calc(108px * var(--control-scale,1)),84px);height:clamp(62px,calc(108px * var(--control-scale,1)),84px);background:#171120b8}
+  #touch-pad span{border-radius:50%}
+  #ward-button{right:var(--control-inset);bottom:var(--control-bottom);width:var(--ward-size);height:var(--ward-size);border-radius:50%;padding:0;border-width:2px;font-size:10px}
+  #touch-abilities{display:block;right:var(--control-inset);bottom:var(--control-bottom);width:calc(var(--ward-size) + var(--skill-size) + var(--skill-gap));height:calc(var(--ward-size) + var(--skill-size) + var(--skill-gap));max-width:none;pointer-events:none}
+  #touch-abilities[hidden]{display:none}
+  #touch-abilities .ability-touch{position:absolute;width:var(--skill-size);height:var(--skill-size);min-height:0;border-radius:50%;border:2px solid var(--ability-color);padding:5px 1px;gap:2px;background:#20172de8;box-shadow:inset 0 0 0 2px #100b1c,0 3px 0 #090610;font-size:10px;overflow:hidden}
+  #touch-abilities #ability-touch-q{left:0;bottom:calc((var(--ward-size) - var(--skill-size))/2)}
+  #touch-abilities #ability-touch-e{left:0;top:0}
+  #touch-abilities #ability-touch-r{right:calc((var(--ward-size) - var(--skill-size))/2);top:0}
+  #touch-abilities .ability-touch-key{display:block;font-size:0;line-height:1;color:var(--ability-color)}
+  #touch-abilities .ability-touch-key::before{font:600 21px/1 'Pixelify Sans',monospace;content:'✦'}
+  #touch-abilities #ability-touch-e .ability-touch-key::before{content:'❖'}
+  #touch-abilities #ability-touch-r .ability-touch-key::before{content:'✷'}
+  #touch-abilities .ability-touch-name{white-space:nowrap;overflow-wrap:normal;font-size:10px;line-height:1}
+  #touch-abilities .ability-touch-status:empty{display:none}
+  #touch-abilities .ability-touch.cooling{border-color:#79678d;background:conic-gradient(from 0deg,#3a2a4a var(--recharge,0%),#181220 var(--recharge,0%));color:#b5a6c5;opacity:1}
+  #touch-abilities .ability-touch.cooling .ability-touch-key{display:none}
+  #touch-abilities .ability-touch-status{color:#ffe4a0;font-size:13px;line-height:1}
+}
+

@@ -1,34 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-type="software">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Spellstorm</title>
+<<<<<<< Updated upstream
   <link rel="stylesheet" href="style.css">
+=======
+  <meta name="description" content="Defend the last spire in Spellstorm, a browser arcade survival game with 50 circles and five Archons.">
+  <meta name="page-type" content="software">
+  <meta name="site-kind" content="gaming">
+  <meta name="theme-color" content="#171120">
+  <link rel="stylesheet" href="assets/styles/loading.css">
+  <script src="js/loading.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles/style.css">
+  <link rel="stylesheet" href="assets/styles/hud.css">
+  <link rel="stylesheet" href="assets/styles/site-nav.css">
+  <link rel="stylesheet" href="assets/styles/portal-theme.css">
+  <link rel="stylesheet" href="assets/styles/landing.css">
+>>>>>>> Stashed changes
 </head>
-<body>
+<body class="play-page">
+  <div id="play-site-nav"><nav class="site-nav" aria-label="Main navigation"><a class="site-brand site-home" href="index.html" aria-label="Return to Spellstorm home" title="Home"><img src="assets/text/spellstorm-home-icon.png" alt="" width="32" height="32"></a><div class="site-auth"><a href="login.php">Log in</a><a href="register.php">Register</a></div></nav></div>
   <canvas id="game" aria-label="Spellstorm playfield"></canvas>
+<<<<<<< Updated upstream
+=======
+  <div id="mobile-controls" aria-label="Touch controls" hidden>
+    <div id="touch-pad" aria-label="Move">
+      <span></span>
+    </div>
+    <button id="ward-button" type="button" aria-label="Cast Ward Pulse">Ward</button>
+    <div id="touch-abilities" aria-label="Grimoire abilities" hidden>
+      <button id="ability-touch-q" class="ability-touch" type="button"><span class="ability-touch-key">Q</span><span class="ability-touch-name"></span><span class="ability-touch-status"></span></button>
+      <button id="ability-touch-e" class="ability-touch" type="button"><span class="ability-touch-key">E</span><span class="ability-touch-name"></span><span class="ability-touch-status"></span></button>
+      <button id="ability-touch-r" class="ability-touch" type="button"><span class="ability-touch-key">R</span><span class="ability-touch-name"></span><span class="ability-touch-status"></span></button>
+    </div>
+  </div>
+  <div id="xp-bar" hidden role="progressbar" aria-label="Experience" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+    <b id="xp-fill"></b>
+  </div>
+>>>>>>> Stashed changes
 
   <header id="hud" hidden>
     <div class="stat">
-      <span id="score">0</span>
       <small>Score</small>
+      <span id="score">0</span>
     </div>
     <div class="center-stat">
       <div id="circle">Circle 1</div>
       <div id="combo"></div>
     </div>
     <div class="right-stat">
+<<<<<<< Updated upstream
       <div id="lives" aria-label="Lives">♥ ♥ ♥</div>
+=======
+      <div class="hud-vitality">
+      <small class="hud-label">Vitality</small>
+      <div id="lives" role="img" aria-label="Lives">♥ ♥ ♥</div>
+      </div>
+>>>>>>> Stashed changes
       <div class="spell">
         <strong id="spell-name">Ember</strong><br>
         <small id="spell-hint">Twin lances</small>
       </div>
+      <div class="hud-ward">
+      <div class="ward-heading"><small>Ward Pulse</small><small id="ward-status">Ready</small></div>
       <div id="ward" title="Ward Pulse"><b id="ward-fill"></b></div>
+<<<<<<< Updated upstream
+=======
+      </div>
+      <div id="abilities" hidden>
+        <div class="ability"><span class="ability-caption"><kbd>Q</kbd><span class="ability-name"></span><span class="ability-status"></span></span><span class="ability-bar"><b class="ability-fill"></b></span></div>
+        <div class="ability"><span class="ability-caption"><kbd>E</kbd><span class="ability-name"></span><span class="ability-status"></span></span><span class="ability-bar"><b class="ability-fill"></b></span></div>
+        <div class="ability"><span class="ability-caption"><kbd>R</kbd><span class="ability-name"></span><span class="ability-status"></span></span><span class="ability-bar"><b class="ability-fill"></b></span></div>
+      </div>
+>>>>>>> Stashed changes
     </div>
+    <section id="boss-hud" hidden aria-live="polite">
+      <strong id="boss-name"></strong>
+      <div id="boss-health"><b id="boss-health-fill"></b></div>
+    </section>
   </header>
 
   <section id="menu" class="overlay">
+<<<<<<< Updated upstream
     <div class="card">
       <h1>Spellstorm</h1>
       <p class="lede">Hold the last spire. The dark is climbing.</p>
@@ -39,15 +97,44 @@
         <li><kbd>Esc</kbd><span>Pause</span></li>
       </ul>
       <button id="start" type="button">Begin the vigil</button>
+=======
+    <section id="landing-top" class="landing-hero" aria-labelledby="landing-title">
+    <div class="vigil-world" aria-hidden="true"></div>
+    <div class="vigil-stars" aria-hidden="true"></div>
+    <div class="vigil-title" data-enter>
+      <span class="vigil-sigil" aria-hidden="true">✦</span>
+      <h1 id="landing-title"><img class="spellstorm-wordmark" src="assets/text/spellstorm-title.png" alt="Spellstorm" width="560" height="112" fetchpriority="high"></h1>
+      <p class="vigil-subtitle">The last spire stands.</p>
+      <button id="start" type="button">Begin the vigil <span aria-hidden="true">&rarr;</span></button>
+>>>>>>> Stashed changes
       <p class="hint" id="best-menu"></p>
     </div>
+    <a class="landing-scroll" href="#how-to-play">How to play <span aria-hidden="true">↓</span></a>
+    </section>
+    <section id="how-to-play" class="landing-guide" aria-labelledby="guide-title">
+      <div class="guide-wrap">
+        <header class="guide-intro"><p class="guide-kicker">The Vellum Vigil</p><h2 id="guide-title">How to play</h2><p>The Veil has swallowed the realm. One mage remains above its last spire, armed with a blank grimoire. Survive 50 circles and defeat the five Archons.</p></header>
+        <div class="guide-cycle"><article><img src="assets/art/field-guide.svg#mage" alt="" aria-hidden="true"><h3>Survive</h3><p>Move and dodge. Your spells fire automatically.</p></article><article><img src="assets/art/field-guide.svg#book" alt="" aria-hidden="true"><h3>Grow</h3><p>Earn XP and choose boons to strengthen your magic.</p></article><article><img src="assets/art/field-guide.svg#crown" alt="" aria-hidden="true"><h3>Conquer</h3><p>Defeat an Archon every ten circles.</p></article></div>
+        <div class="guide-block guide-controls-block"><h3>Controls</h3><div class="guide-controls"><div><span>Move</span><kbd>WASD / Arrows</kbd><small>Touch: movement pad</small></div><div><span>Ward Pulse</span><kbd>Space / Right click</kbd><small>Touch: Ward button</small></div><div><span>Boons</span><kbd>1 / 2 / 3</kbd><small>Or tap a choice</small></div><div><span>Pause</span><kbd>Esc</kbd><small>Enter to resume</small></div><div><span>Spell abilities</span><kbd>Q / E / R</kbd><small>After choosing a grimoire</small></div></div></div>
+        <div class="guide-block"><h3>Three paths of magic</h3><p>Choose a grimoire after Circle 5. Take two specializations to make its evolution available.</p><div class="guide-grimoires"><article style="--spell:#ff9b42"><h4>Ashen Crown</h4><p>Heavy fire lances</p><small>Infernal Testament</small></article><article style="--spell:#8eebff"><h4>Hollow Winter</h4><p>Slowing ice bolts</p><small>Glacial Sovereign</small></article><article style="--spell:#d2b6ff"><h4>Stormbound</h4><p>Piercing lightning</p><small>Tempest Ascendant</small></article></div></div>
+        <div class="guide-block guide-reference"><h3>The mage's field guide</h3><p>Detailed mechanics for every vigil.</p>
+          <details><summary>Combat and progression</summary><p>Start with three lives. Ward Pulse damages nearby foes and clears projectiles (3.8-second initial recharge). Enemy score fills XP; every fifth cleared circle guarantees a boon. Maintain a kill chain within 2.4 seconds for higher scores.</p></details>
+          <details><summary>Boons and gifts</summary><p>Arcane Edge increases damage; Quickcast speeds casting; Swiftstep improves movement; Stormshot speeds projectiles. Ward Resonance reduces recharge and Expanding Ward increases range. Vitality raises maximum lives and restores one.</p><p>Falling gifts: Vitality restores a life, Surge speeds casting for 4.5 seconds, and Aegis absorbs one hit. Duplicate Aegis and full-health Vitality grant Surge.</p></details>
+          <details><summary>Grimoire abilities and evolution</summary><p>Choose Ashen Crown for fire, Hollow Winter for slowing ice, or Stormbound for piercing lightning. Q, E and R activate your family's three abilities with independent cooldowns. Two specialization upgrades make your evolution eligible for a later boon.</p></details>
+          <details><summary>Enemies and Archons</summary><p>Bats, imps, wraiths and cultists appear as circles progress. Defeat Vaelith, Mordrath, Elyndra, Tharos and Aurex at circles 10, 20, 30, 40 and 50.</p></details>
+          <details><summary>Scores and achievements</summary><p>Sign in to save runs and earn titles. Guests can preview their ranking after victory.</p></details>
+        </div>
+        <div class="guide-end"><a class="guide-back" href="#landing-top">Return to the vigil ↑</a></div>
+      </div>
+    </section>
   </section>
 
   <section id="paused" class="overlay" hidden>
     <div class="card">
       <h2>Held</h2>
       <p>The storm waits.</p>
-      <button id="resume" type="button">Return</button>
+      <button id="audio-toggle" class="secondary-action" type="button" aria-pressed="false">Sound: on</button>
+      <div class="result-actions"><button id="resume" type="button">Resume</button><button id="quit-menu" class="secondary-action" type="button">Quit to menu</button></div>
     </div>
   </section>
 
@@ -56,10 +143,18 @@
       <h2>The spire falls</h2>
       <p class="final-score" id="final-score">0</p>
       <p id="best-over"></p>
-      <button id="again" type="button">Rise again</button>
+      <p id="run-details"></p>
+      <p id="run-sync-status" aria-live="polite"></p>
+      <div class="result-actions"><button id="again" type="button">Retry</button><button id="show-result-leaderboard" class="secondary-action" type="button" hidden>Show leaderboard</button><button id="back-menu" class="secondary-action" type="button">Back to menu</button></div>
+      <section id="result-leaderboard" hidden aria-live="polite"><h3>Leaderboard</h3><p id="result-rank"></p><ol id="result-ranking-list"></ol><button id="close-result-leaderboard" type="button" class="secondary-action">Close leaderboard</button></section>
+      <p id="guest-progress" hidden>Playing as guest. <a href="register.php">Create an account</a> to save future progress.</p>
     </div>
   </section>
 
-  <script src="game.js"></script>
+  <script src="js/site-nav.js"></script>
+  <script src="js/mobile-portal.js"></script>
+  <script src="js/run-sync.js"></script>
+  <script src="js/results.js"></script>
+  <script src="js/game.js"></script>
 </body>
 </html>

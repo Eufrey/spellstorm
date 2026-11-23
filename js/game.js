@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:game.js
 const SPELLS = {
   ember: {
     name: "Ember",
@@ -21,6 +22,24 @@ const SPELLS = {
     damage: 1,
   },
 };
+=======
+// Load the classic-script modules in dependency order. Shared game state remains
+// in the global lexical scope; load each script only once and in this sequence.
+const gameModules = [
+  "data.js",
+  "state.js",
+  "viewport.js",
+  "audio-effects.js",
+  "progression.js",
+  "combat.js",
+  "game-flow.js",
+  "sprites.js",
+  "render.js",
+  "input.js",
+];
+const gameModuleBase = new URL("./", document.currentScript.src);
+let gameModuleIndex = 0;
+>>>>>>> Stashed changes:js/game.js
 
 const SPELL_ORDER = ["ember", "rime", "tempest"];
 

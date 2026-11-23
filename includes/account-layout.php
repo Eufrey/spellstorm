@@ -1,0 +1,6 @@
+<?php
+require_once __DIR__.'/site-nav.php';
+function account_header(string $title, bool $wide=false, bool $profile=false): void { ?>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="assets/styles/loading.css"><script src="js/loading.js"></script><title><?=escape($title)?> | Spellstorm</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"><link rel="stylesheet" href="assets/styles/account.css"><?php if($profile): ?><link rel="stylesheet" href="assets/styles/profile.css"><?php endif; ?><link rel="stylesheet" href="assets/styles/site-nav.css"><link rel="stylesheet" href="assets/styles/portal-theme.css"></head><body<?= $profile?' class="profile-page"':'' ?>><?php site_nav(['account.php'=>'profile','leaderboard.php'=>'leaderboard','achievements.php'=>'achievements','login.php'=>'login','register.php'=>'register'][basename($_SERVER['SCRIPT_NAME']??'')]??''); ?><main class="container py-5"><section class="account-card<?= $wide?' wide':'' ?>"><h1><?=escape($title)?></h1>
+<?php }
+function account_footer(): void { ?></section></main><script src="js/mobile-portal.js"></script></body></html><?php }

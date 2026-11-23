@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 48" shape-rendering="crispEdges">
+<view id="mage" viewBox="0 0 48 48"/><view id="book" viewBox="48 0 48 48"/><view id="crown" viewBox="96 0 48 48"/>
+<g transform="translate(24 24)"><path fill="#ab8ce5" d="M-12-7h5v-7h5v-8h5v8h5v7h8v5h-32z"/><path fill="#51415f" d="M-11-2h22v9h4v10h5v5h-40v-5h5V7h4z"/><path fill="#d5a34f" d="M-6 1h4v4h-4zm8 0h4v4H2zm-9 13h14v3H-7zM17-5h3v25h-3z"/><path fill="#ffe4a0" d="M14-11h9v8h-9z"/></g>
+<g transform="translate(48)"><path fill="#80502c" d="M8 5h32v39H8z"/><path fill="#d5a34f" d="M11 5h29v4H15v31h25v4H11z"/><path fill="#51415f" d="M15 10h21v28H15z"/><path fill="#ffe4a0" d="M24 14h3v8h8v3h-8v8h-3v-8h-8v-3h8z"/></g>
+<g transform="translate(96)"><path fill="#80502c" d="M4 12h7v8h8V6h10v14h8v-8h7v28H4z"/><path fill="#d5a34f" d="M4 12h7v8h8V6h10v14h8v-8h7v21H4z"/><path fill="#ffe4a0" d="M8 30h32v5H8zM22 10h4v10h-4z"/><path fill="#f56872" d="M20 25h8v5h-8z"/></g>
+</svg>
