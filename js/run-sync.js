@@ -7,6 +7,7 @@
     if (location.protocol === 'file:') return { guest: true };
     try { const auth = await fetch('run-api.php', { credentials: 'same-origin', cache: 'no-store' });
       if (auth.status === 401) return { guest: true };
+      if (auth.status === 404 || auth.status === 405) return { offline: true };
       if (!auth.ok) return { unavailable: true };
       return { ...(await auth.json()), guest: false };
     } catch (_) { return { unavailable: true }; }
@@ -26,6 +27,7 @@
     if(status) status.textContent='Checking run...';
     try {
       const auth = await current.session;
+      if (auth.offline) { if(status && run===current) status.textContent='Guest run · online saving is unavailable on this host.'; return { offline: true }; }
       if (auth.guest) { if(status && run===current) status.textContent='Guest run · not saved online.'; return {guest:true}; }
       if (auth.unavailable || !current.id) throw Error('Session unavailable');
       const response = await fetch('run-api.php', { method: 'POST', credentials: 'same-origin', keepalive:true, headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': auth.csrf }, body: JSON.stringify(payload) });

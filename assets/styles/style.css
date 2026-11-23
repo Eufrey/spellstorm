@@ -18,12 +18,8 @@ body {
   overflow: hidden;
   background: #07040f;
   color: var(--paper);
-<<<<<<< Updated upstream:style.css
-  font-family: "Segoe UI", Candara, sans-serif;
-=======
   font-family: "Pixelify Sans", monospace;
   font-size: 13px;
->>>>>>> Stashed changes:assets/styles/style.css
 }
 
 #game {
@@ -51,8 +47,6 @@ body {
   display: none;
 }
 
-<<<<<<< Updated upstream:style.css
-=======
 #boss-hud {
   position: fixed;
   top: max(18px, env(safe-area-inset-top));
@@ -96,7 +90,6 @@ body {
   transform-origin: left center;
 }
 
->>>>>>> Stashed changes:assets/styles/style.css
 .stat {
   display: flex;
   flex-direction: column;
@@ -107,16 +100,10 @@ body {
 .stat span,
 #lives,
 #spell-name {
-<<<<<<< Updated upstream:style.css
-  font-family: Palatino, "Palatino Linotype", Georgia, serif;
-  font-size: 28px;
-  letter-spacing: 0.04em;
-=======
   font-family: "Pixelify Sans", monospace;
   font-size: 20px;
   line-height: 1.25;
   letter-spacing: 0.03em;
->>>>>>> Stashed changes:assets/styles/style.css
   color: var(--gold);
 }
 
@@ -134,15 +121,9 @@ body {
 }
 
 .center-stat #circle {
-<<<<<<< Updated upstream:style.css
-  font-family: Palatino, "Palatino Linotype", Georgia, serif;
-  font-size: 22px;
-  letter-spacing: 0.12em;
-=======
   font-family: "Pixelify Sans", monospace;
   font-size: 14px;
   letter-spacing: 0.08em;
->>>>>>> Stashed changes:assets/styles/style.css
   text-transform: none;
   color: var(--paper);
 }
@@ -184,6 +165,59 @@ body {
   background: linear-gradient(90deg, #8fd6ff, #f0c56a);
 }
 
+#abilities {
+  display: grid;
+  gap: 5px;
+  width: 150px;
+  margin-top: 8px;
+  margin-left: auto;
+}
+
+#abilities[hidden] {
+  display: none;
+}
+
+#abilities .ability {
+  position: relative;
+  height: auto;
+  border: 0;
+  background: none;
+  overflow: visible;
+  border-radius: 0;
+}
+
+#abilities .ability .ability-name {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 7px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-align: right;
+  text-transform: none;
+  color: var(--paper);
+}
+
+#abilities .ability .ability-bar {
+  position: relative;
+  display: block;
+  height: 6px;
+  border: 1px solid #847392;
+  border-radius: 99px;
+  background: #34283f;
+  overflow: hidden;
+  box-shadow: inset 1px 2px rgba(12, 9, 21, 0.6);
+}
+
+#abilities .ability .ability-fill {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #8fd6ff, #f0c56a);
+}
+
 .overlay {
   position: fixed;
   inset: 0;
@@ -210,11 +244,7 @@ body {
 .card h1,
 .card h2 {
   margin: 0;
-<<<<<<< Updated upstream:style.css
-  font-family: Palatino, "Palatino Linotype", Georgia, serif;
-=======
   font-family: "Pixelify Sans", monospace;
->>>>>>> Stashed changes:assets/styles/style.css
   font-weight: 500;
   font-size: 64px;
   letter-spacing: 0.08em;
@@ -278,16 +308,10 @@ button:focus-visible,
   outline-offset: 3px;
 }
 
-<<<<<<< Updated upstream:style.css
-.final-score {
-  font-family: Palatino, "Palatino Linotype", Georgia, serif;
-  font-size: 42px;
-=======
 .card .final-score {
   font-family: "Pixelify Sans", monospace;
   font-size: clamp(24px, 4vw, 34px);
   line-height: 1.2;
->>>>>>> Stashed changes:assets/styles/style.css
   margin: 12px 0 4px;
   color: var(--gold);
 }
@@ -295,9 +319,6 @@ button:focus-visible,
 .hint {
   margin: 16px 0 0;
   color: rgba(244, 231, 200, 0.62);
-<<<<<<< Updated upstream:style.css
-  font-size: 13px;
-=======
   font-size: 10px;
   line-height: 1.5;
 }
@@ -458,6 +479,5 @@ button:focus-visible,
     grid-template-columns: 1fr;
     gap: 2px;
   }
->>>>>>> Stashed changes:assets/styles/style.css
 }
 .result-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px}.result-actions button{min-width:100px}.result-actions button[hidden],#result-leaderboard[hidden],#guest-progress[hidden]{display:none!important}.secondary-action{color:var(--gold);background:rgba(20,12,34,.8);border:1px solid var(--gold-dim)}.secondary-action:hover{background:#382549;color:var(--paper)}#result-leaderboard{margin-top:20px;padding-top:18px;border-top:1px solid var(--gold-dim);text-align:left}#result-leaderboard h3{font-size:12px;color:var(--gold)}#result-ranking-list{font-family:system-ui,sans-serif;list-style:none;padding:0;font-size:13px}#result-ranking-list li{padding:7px 0;border-bottom:1px solid #f0c56330}#result-rank,#run-details,#guest-progress{font-family:system-ui,sans-serif;font-size:13px;line-height:1.5}#guest-progress a{color:var(--gold)}#result-leaderboard button{margin-top:8px}

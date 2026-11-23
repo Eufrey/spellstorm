@@ -2,11 +2,8 @@
 <html lang="en" data-type="software">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Spellstorm</title>
-<<<<<<< Updated upstream
-  <link rel="stylesheet" href="style.css">
-=======
   <meta name="description" content="Defend the last spire in Spellstorm, a browser arcade survival game with 50 circles and five Archons.">
   <meta name="page-type" content="software">
   <meta name="site-kind" content="gaming">
@@ -21,13 +18,10 @@
   <link rel="stylesheet" href="assets/styles/site-nav.css">
   <link rel="stylesheet" href="assets/styles/portal-theme.css">
   <link rel="stylesheet" href="assets/styles/landing.css">
->>>>>>> Stashed changes
 </head>
 <body class="play-page">
   <div id="play-site-nav"><nav class="site-nav" aria-label="Main navigation"><a class="site-brand site-home" href="index.html" aria-label="Return to Spellstorm home" title="Home"><img src="assets/text/spellstorm-home-icon.png" alt="" width="32" height="32"></a><div class="site-auth"><a href="login.php">Log in</a><a href="register.php">Register</a></div></nav></div>
   <canvas id="game" aria-label="Spellstorm playfield"></canvas>
-<<<<<<< Updated upstream
-=======
   <div id="mobile-controls" aria-label="Touch controls" hidden>
     <div id="touch-pad" aria-label="Move">
       <span></span>
@@ -42,7 +36,6 @@
   <div id="xp-bar" hidden role="progressbar" aria-label="Experience" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
     <b id="xp-fill"></b>
   </div>
->>>>>>> Stashed changes
 
   <header id="hud" hidden>
     <div class="stat">
@@ -54,30 +47,23 @@
       <div id="combo"></div>
     </div>
     <div class="right-stat">
-<<<<<<< Updated upstream
-      <div id="lives" aria-label="Lives">♥ ♥ ♥</div>
-=======
       <div class="hud-vitality">
-      <small class="hud-label">Vitality</small>
-      <div id="lives" role="img" aria-label="Lives">♥ ♥ ♥</div>
+        <small class="hud-label">Vitality</small>
+        <div id="lives" role="img" aria-label="Lives">♥ ♥ ♥</div>
       </div>
->>>>>>> Stashed changes
       <div class="spell">
         <strong id="spell-name">Ember</strong><br>
         <small id="spell-hint">Twin lances</small>
       </div>
       <div class="hud-ward">
-      <div class="ward-heading"><small>Ward Pulse</small><small id="ward-status">Ready</small></div>
-      <div id="ward" title="Ward Pulse"><b id="ward-fill"></b></div>
-<<<<<<< Updated upstream
-=======
+        <div class="ward-heading"><small>Ward Pulse</small><small id="ward-status">Ready</small></div>
+        <div id="ward" title="Ward Pulse"><b id="ward-fill"></b></div>
       </div>
       <div id="abilities" hidden>
         <div class="ability"><span class="ability-caption"><kbd>Q</kbd><span class="ability-name"></span><span class="ability-status"></span></span><span class="ability-bar"><b class="ability-fill"></b></span></div>
         <div class="ability"><span class="ability-caption"><kbd>E</kbd><span class="ability-name"></span><span class="ability-status"></span></span><span class="ability-bar"><b class="ability-fill"></b></span></div>
         <div class="ability"><span class="ability-caption"><kbd>R</kbd><span class="ability-name"></span><span class="ability-status"></span></span><span class="ability-bar"><b class="ability-fill"></b></span></div>
       </div>
->>>>>>> Stashed changes
     </div>
     <section id="boss-hud" hidden aria-live="polite">
       <strong id="boss-name"></strong>
@@ -86,30 +72,17 @@
   </header>
 
   <section id="menu" class="overlay">
-<<<<<<< Updated upstream
-    <div class="card">
-      <h1>Spellstorm</h1>
-      <p class="lede">Hold the last spire. The dark is climbing.</p>
-      <ul class="controls">
-        <li><kbd>WASD / arrows</kbd><span>Move</span></li>
-        <li><kbd>1 2 3 · Q E</kbd><span>Change spell</span></li>
-        <li><kbd>Space / right click</kbd><span>Ward Pulse</span></li>
-        <li><kbd>Esc</kbd><span>Pause</span></li>
-      </ul>
-      <button id="start" type="button">Begin the vigil</button>
-=======
     <section id="landing-top" class="landing-hero" aria-labelledby="landing-title">
-    <div class="vigil-world" aria-hidden="true"></div>
-    <div class="vigil-stars" aria-hidden="true"></div>
-    <div class="vigil-title" data-enter>
-      <span class="vigil-sigil" aria-hidden="true">✦</span>
-      <h1 id="landing-title"><img class="spellstorm-wordmark" src="assets/text/spellstorm-title.png" alt="Spellstorm" width="560" height="112" fetchpriority="high"></h1>
-      <p class="vigil-subtitle">The last spire stands.</p>
-      <button id="start" type="button">Begin the vigil <span aria-hidden="true">&rarr;</span></button>
->>>>>>> Stashed changes
-      <p class="hint" id="best-menu"></p>
-    </div>
-    <a class="landing-scroll" href="#how-to-play">How to play <span aria-hidden="true">↓</span></a>
+      <div class="vigil-world" aria-hidden="true"></div>
+      <div class="vigil-stars" aria-hidden="true"></div>
+      <div class="vigil-title" data-enter>
+        <span class="vigil-sigil" aria-hidden="true">✦</span>
+        <h1 id="landing-title"><img class="spellstorm-wordmark" src="assets/text/spellstorm-title.png" alt="Spellstorm" width="560" height="112" fetchpriority="high"></h1>
+        <p class="vigil-subtitle">The last spire stands.</p>
+        <button id="start" type="button">Begin the vigil <span aria-hidden="true">&rarr;</span></button>
+        <p class="hint" id="best-menu"></p>
+      </div>
+      <a class="landing-scroll" href="#how-to-play">How to play <span aria-hidden="true">↓</span></a>
     </section>
     <section id="how-to-play" class="landing-guide" aria-labelledby="guide-title">
       <div class="guide-wrap">
@@ -138,9 +111,18 @@
     </div>
   </section>
 
+  <section id="upgrades" class="overlay" hidden>
+    <div class="card upgrade-card">
+      <p class="eyebrow">Between circles</p>
+      <h2>Choose an aspect</h2>
+      <p>Select one boon for this vigil.</p>
+      <div id="upgrade-choices" class="upgrade-choices"></div>
+    </div>
+  </section>
+
   <section id="over" class="overlay" hidden>
     <div class="card">
-      <h2>The spire falls</h2>
+      <h2 id="over-title">The spire falls</h2>
       <p class="final-score" id="final-score">0</p>
       <p id="best-over"></p>
       <p id="run-details"></p>

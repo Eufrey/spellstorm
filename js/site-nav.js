@@ -7,7 +7,13 @@
   window.addEventListener('resize', measure);
   measure();
   fetch('site-nav.php', { credentials: 'same-origin', cache: 'no-store' })
-    .then(response => response.ok ? response.text() : '')
+    .then(response => {
+      if (response.status === 404) {
+        slot.querySelectorAll('.site-auth').forEach(auth => { auth.hidden = true; });
+        return '';
+      }
+      return response.ok ? response.text() : '';
+    })
     .then(markup => { if (markup.includes('class="site-nav"')) { slot.innerHTML = markup; measure(); } })
     .catch(() => {});
 })();
