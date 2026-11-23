@@ -6,6 +6,53 @@ Updated 2026-11-18. Figma art-direction and handoff brief.
 
 Spellstorm should feel like a dark fantasy arcade game from the 16-bit era, with a mage defending the last spire against an advancing veil. Build on the existing midnight-purple atmosphere, amber magic, distinctive grimoire colors, bold borders, and raised HUD controls. Translate those ideas into deliberate pixel clusters, stepped silhouettes, and limited color ramps.
 
+## Grimoire abilities and visual design
+
+This section records the current gameplay implementation in `js/data.js`, `js/combat.js`, and `js/render.js`. Damage, radius, and timing are current values, not permanent balance requirements. Distances are logical playfield units on the 540 × 960 canvas, not source-art pixels.
+
+### Unlocking and controls
+
+- The Basic Grimoire has no active grimoire abilities. After Circle 5 the player chooses Ashen Crown, Hollow Winter, or Stormbound; that family's three abilities then become available.
+- Desktop uses Q, E, and R. Mobile uses three circular ability buttons arranged near Ward. Each ability has its own cooldown, readiness state, and countdown; cooldowns advance during active play.
+- The evolved books retain their original family's abilities: Infernal Testament uses Ashen Crown, Glacial Sovereign uses Hollow Winter, and Tempest Ascendant uses Stormbound.
+- Q is a damaging cast, E is a short-range slow, and R is a stronger piercing cast. All casts show an expanding colored ring, particles, the ability name, and sound. R also produces brief screen shake.
+- Q and R target each living enemy within their listed radius. If none is in range, they fire a spread toward the nearest visible enemy, or upward if no enemy is visible: three projectiles for Q and five for R. Ability projectiles last 1.6 seconds; a shared hit set prevents repeated damage to the same enemy within one cast. R projectiles pierce; Q projectiles do not.
+- E immediately slows living enemies inside its radius, including their hit radius. It does not fire a projectile or deal damage. Normal enemies move at 55% speed while slowed; Archons move at 80%. Boss firing timers are not slowed. The duration is shown in the table below.
+
+### Ability reference
+
+| Family | Key | Ability | Type | Cooldown | Radius | Effect |
+| --- | --- | --- | --- | ---: | ---: | --- |
+| Ashen Crown | Q | Ember Nova | Damage | 8 s | 70 | 5 damage per projectile |
+| Ashen Crown | E | Cinders | Slow | 10 s | 90 | 1.6 s slow |
+| Ashen Crown | R | Infernal Pyre | Ultimate | 15 s | 110 | 12 damage per piercing projectile |
+| Hollow Winter | Q | Frostbite | Damage | 8 s | 70 | 4.5 damage per projectile |
+| Hollow Winter | E | Deep Rime | Slow | 10 s | 90 | 2.0 s slow |
+| Hollow Winter | R | Sovereign Hail | Ultimate | 15 s | 110 | 11 damage per piercing projectile |
+| Stormbound | Q | Thunderclap | Damage | 8 s | 70 | 4.5 damage per projectile |
+| Stormbound | E | Static | Slow | 10 s | 90 | 1.8 s slow |
+| Stormbound | R | Stormbreaker | Ultimate | 15 s | 110 | 11 damage per piercing projectile |
+
+### Effect art direction and handoff
+
+The implemented effects are canvas-drawn shapes, particles, rings, and synthesized sounds; the following asset descriptions are design targets for future Figma artwork, not existing exported animations. Preserve the current mechanics and readable telegraphs if replacing them.
+
+| Family | Ability | Suggested icon and cast effect |
+| --- | --- | --- |
+| Ashen | Ember Nova | Compact flame burst; rounded ember projectiles with a bright core and short stepped trails. |
+| Ashen | Cinders | Three drifting embers; a broken orange ring and sparse sparks to show the slow radius. |
+| Ashen | Infernal Pyre | Crown-shaped flame; larger piercing fire bolts and a bolder double ring. |
+| Hollow Winter | Frostbite | Sharp ice crystal; pointed pale-blue shards with small bright centers. |
+| Hollow Winter | Deep Rime | Snowflake or frost seal; a dotted icy ring and small square frost particles. |
+| Hollow Winter | Sovereign Hail | Cluster of ice spikes; larger piercing shards and a bright, brief circular burst. |
+| Stormbound | Thunderclap | Angular bolt; jagged violet lightning projectiles with short pixel trails. |
+| Stormbound | Static | Broken lightning ring; a segmented violet pulse and sparse electric flecks. |
+| Stormbound | Stormbreaker | Forked bolt or storm crown; larger piercing lightning and a bold segmented ring. |
+
+Use the palette defined below: fire `#FF7B39`, ice `#68CFE5`, lightning `#AB8CE5`, with pale highlights and dark outlines. Runtime effects currently use their base grimoire colors from `GRIMOIRES`; those can differ from palette targets. Give each ability a distinct silhouette so its function is legible without relying on color. Keep hostile shots visibly distinct and avoid obscuring the mage or approach lane.
+
+For future production assets, create separate transparent PNG frames on a consistent grid, with fixed dimensions and center anchors for each animation. Use 24 × 24 source pixels for ability icons as a starting point; select projectile and ring canvas sizes according to their effect, and record dimensions, frame order, anchor, and intended timing in the manifest. Test at native, 2×, and 3× with nearest-neighbor scaling. Provide ready, cooldown, and pressed button variants, plus a reduced-motion presentation that keeps readiness and range understandable.
+
 The earlier arcade HUD established the right hierarchy and tactile controls. Improve it with one consistent pixel scale, stronger enemy and spell silhouettes, and clearer status changes. Use the spire, moon, celestial markings, mist, and floating mage as recurring motifs.
 
 The intended feeling is magical, dangerous, responsive, and rewarding. Keep the playfield spacious enough to read incoming shots. The first deliverable is the HUD, followed by menus, spellbook assets, and gameplay art.
