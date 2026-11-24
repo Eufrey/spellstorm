@@ -1,5 +1,6 @@
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
+let shotGuidesEnabled = true;
 const hud = document.getElementById("hud");
 const menu = document.getElementById("menu");
 const paused = document.getElementById("paused");
@@ -84,6 +85,8 @@ const game = {
   xpExhausted: false,
   pendingRewards: [],
   currentOffer: null,
+  rewardGather: 0,
+  rewardGatherDuration: 0,
   offerSerial: 0,
   accumulator: 0,
   upgradeCounts: {},

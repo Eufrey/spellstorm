@@ -38,10 +38,13 @@ function updatePlay(dt) {
 
   if (game.between <= 0 && game.queue.length) {
     game.spawnCd -= dt;
-    if (game.spawnCd <= 0 && canSpawn(game.queue[0])) {
-      const kind = game.queue.shift();
-      spawn(kind);
-      game.spawnCd = kind === "archon" ? 1 : spawnInterval(game.wave);
+    if (game.spawnCd <= 0) {
+      const index=game.queue.findIndex(canSpawn);
+      if(index>=0){
+        const [entry] = game.queue.splice(index,1);
+        spawn(entry);
+        game.spawnCd = entry === "archon" ? 1 : typeof entry === 'string' ? spawnInterval(game.wave) : entry.delay;
+      }
     }
   }
   queueFodderReinforcement(dt);
@@ -55,7 +58,9 @@ function updatePlay(dt) {
     (bolt) => bolt.life > 0 && bolt.y > -40 && bolt.y < game.h + 40 && bolt.x > -40 && bolt.x < game.w + 40
   );
 
+  const slowFields = game.particles.filter(field => field.abilityType === 'debuff' && field.life > 0);
   for (const foe of game.foes) {
+    for (const field of slowFields) applySlowField(field, foe);
     updateFoe(foe, dt);
     const margin = foe.r + 4;
     foe.x = Math.max(margin, Math.min(game.w - margin, foe.x));
@@ -66,8 +71,12 @@ function updatePlay(dt) {
       if (foe.hp <= 0 || bolt.hit.has(foe)) continue;
       if (Math.hypot(bolt.x - foe.x, bolt.y - foe.y) < foe.r + bolt.r) {
         bolt.hit.add(foe);
-        if (bolt.spell === "rime") foe.slow = 1.6;
+        if (bolt.spell === "rime" && (foe.slow || 0) < 1.6) { foe.slow = 1.6; foe.slowColor = '#8eebff'; }
         damageFoe(foe, bolt.damage);
+        if (bolt.art) {
+          const duration = bolt.abilityType === 'ultimate' ? .38 : .25;
+          game.particles.push({ x: bolt.x, y: bolt.y, vx: 0, vy: 0, life: duration, max: duration, size: bolt.spell === 'ability' ? 48 : 32, effect: `${bolt.art.element}-impact-${bolt.art.tier}`, color: bolt.color });
+        }
         burst(bolt.x, bolt.y, bolt.color, 5, 80);
         if (!bolt.pierce) {
           bolt.life = 0;
@@ -130,19 +139,25 @@ function clearTouchMove() {
 function takeGift(gift) {
   const player = game.player;
   if (player.lives <= 0) return;
-  tone(660, 0.12, "triangle", 0.04, 990);
-  tone(990, 0.18, "sine", 0.025, 1320);
   const kind = (gift.kind === "heart" && player.lives >= player.maxLives) ||
     (gift.kind === "aegis" && player.aegis) ? "surge" : gift.kind;
-  burst(player.x, player.y, kind === "heart" ? "#ff8aa0" : kind === "surge" ? "#ffb15a" : "#b7f3ff", 18, 100);
+  const color = kind === 'heart' ? '#ff8aa0' : kind === 'surge' ? '#ffb15a' : '#b7f3ff';
+  const pitch = kind === 'heart' ? 660 : kind === 'surge' ? 880 : 440;
+  tone(pitch, .12, 'triangle', .04, pitch * 1.5);
+  tone(pitch * 1.5, .18, 'sine', .025, pitch * 2);
+  burst(player.x, player.y, color, kind === 'surge' ? 28 : 18, 120);
+  game.particles.push({x:player.x,y:player.y,vx:0,vy:0,life:.38,max:.38,ring:true,radius:57,color});
   if (kind === "heart") {
     player.lives = Math.min(player.maxLives, player.lives + 1);
-    floatText(player.x, player.y - 30, "Vitality", "#ff8aa0");
+    floatText(player.x, player.y - 30, "+1 Vitality", "#ff8aa0");
   } else if (kind === "surge") {
-    player.surge = 4.5;
+    player.surge = BALANCE.surgeDuration;
+    player.cool = Math.min(player.cool, spellInterval());
+    game.particles.push({x:player.x,y:player.y,vx:0,vy:0,life:.4,max:.4,size:85,effect:'surge-activate'});
     floatText(player.x, player.y - 30, "Surge", "#ffb15a");
   } else {
     player.aegis = true;
+    game.particles.push({x:player.x,y:player.y,vx:0,vy:0,life:.4,max:.4,size:85,effect:'aegis-activate'});
     floatText(player.x, player.y - 30, "Aegis", "#b7f3ff");
   }
 }
@@ -220,8 +235,11 @@ function syncHud() {
       return tile;
     }));
   }
-  circleEl.textContent = game.wave % 10 === 0 ? `Circle ${game.wave} · Archon` : `Circle ${game.wave}`;
-  comboEl.textContent = game.combo >= 2 ? `Chain ×${(1 + Math.min(game.combo, 8) * 0.25).toFixed(2)}` : "";
+  circleEl.textContent = String(game.wave).padStart(2, '0');
+  const chain = 1 + Math.min(game.combo, 8) * 0.25;
+  comboEl.textContent = `×${chain.toFixed(2)}`;
+  comboEl.dataset.active = String(game.combo > 0);
+  document.getElementById('chain-fill').style.width = `${Math.max(0, Math.min(1, game.comboTimer / 2.4)) * 100}%`;
   const lives = Math.max(0, game.player.lives);
   circleEl.dataset.short = `Circle ${game.wave}`;
   if (livesEl.dataset.value !== String(lives)) {
@@ -229,11 +247,47 @@ function syncHud() {
     livesEl.setAttribute("aria-label", lives + " lives");
     livesEl.replaceChildren(...Array.from({ length: lives }, () => document.createElement("i")));
   }
-  spellNameEl.textContent = game.player.surge > 0 ? `${grimoire.name} surge` : grimoire.name;
+  spellNameEl.textContent = grimoire.name;
   const shortGrimoire = { basic: 'Basic Grimoire', ashen: 'Ashen Crown', hollowWinter: 'Hollow Winter', stormbound: 'Stormbound', infernal: 'Infernal Testament', glacial: 'Glacial Sovereign', thunderous: 'Tempest Ascendant' }[game.player.grimoire] || grimoire.name;
-  spellNameEl.dataset.short = shortGrimoire + (game.player.surge > 0 ? ' + Surge' : '');
+  spellNameEl.dataset.short = shortGrimoire;
   spellNameEl.style.color = grimoire.color;
+  const bookImage = document.getElementById('equipped-book-art');
+  const bookPath = bookArt(game.player.grimoire, game.player.surge > 0 ? 'activated' : 'equipped');
+  if (bookImage.dataset.path !== bookPath) {
+    bookImage.dataset.path = bookPath;
+    bookImage.src = bookPath;
+  }
   spellHintEl.textContent = grimoire.hint;
+  const profile = document.getElementById('mage-profile');
+  const player = game.player;
+  const emblem = document.getElementById('equipped-emblem');
+  const emblemPath = grimoireEmblem(player.grimoire);
+  if (emblem.dataset.path !== emblemPath) {
+    emblem.dataset.path = emblemPath;
+    emblem.src = emblemPath;
+  }
+  profile.style.setProperty('--mage-accent', player.grimoire === 'basic' ? '#e8be72' : grimoire.color);
+  document.getElementById('compact-vitality').textContent = `♥ ${lives}/${player.maxLives}`;
+  document.getElementById('mage-condition').textContent = [player.aegis && 'Aegis', player.surge > 0 && 'Surge'].filter(Boolean).join(' · ') || 'Vigil in progress';
+  document.getElementById('mage-power').textContent = Number((grimoire.damage * (1 + player.spellDamage + player.grimoireDamage)).toFixed(1));
+  const condition = document.getElementById('mage-condition');
+  condition.dataset.surge = String(player.surge > 0);
+  if (player.surge > 0) condition.textContent = `${player.aegis ? 'Aegis · ' : ''}Surge ${player.surge.toFixed(1)}s`;
+  document.getElementById('mage-rate').textContent = (1 / spellInterval()).toFixed(1);
+  const boonEntries = Object.entries(game.upgradeCounts).filter(([id]) => !GRIMOIRES[id]);
+  document.getElementById('mage-boons').textContent = boonEntries.reduce((sum, [, count]) => sum + count, 0);
+  const list = document.getElementById('mage-upgrade-list');
+  const signature = JSON.stringify(boonEntries);
+  if (list.dataset.signature !== signature) {
+    list.dataset.signature = signature;
+    const options = [...UPGRADE_OPTIONS, ...Object.values(GRIMOIRE_UPGRADES).flat(), ...Object.values(GRIMOIRE_EVOLUTIONS)];
+    list.textContent = boonEntries.length ? '' : 'No boons yet';
+    if (boonEntries.length) list.replaceChildren(...boonEntries.map(([id, count]) => {
+      const item = document.createElement('span');
+      item.textContent = `${options.find(option => option.id === id)?.name || id}${count > 1 ? ` ×${count}` : ''}`;
+      return item;
+    }));
+  }
   const ready = game.player.ward <= 0;
   wardFill.style.width = ready ? "100%" : `${(1 - game.player.ward / game.player.wardCooldown) * 100}%`;
   wardButton.classList.toggle("cooling", !ready);
@@ -244,7 +298,7 @@ function syncHud() {
   const abilityKit = GRIMOIRE_ABILITY_KITS[grimoireFamily()];
   touchAbilities.hidden = !abilityKit || game.state !== "play";
   if (abilitiesEl) {
-    abilitiesEl.hidden = !abilityKit || game.state !== "play";
+    abilitiesEl.hidden = !abilityKit;
     if (abilityKit) {
       abilityKit.abilities.forEach((ability, index) => {
         const slot = abilitiesEl.children[index];
@@ -254,11 +308,22 @@ function syncHud() {
         if (name) name.textContent = ability.name;
         const cooldown = game.player.grimoireAbilityCooldowns[`${grimoireFamily()}:${ability.id}`] || 0;
         const ready = cooldown <= 0;
+        const artState = ready ? 'ready' : cooldown >= ability.cooldown - .25 ? 'activated' : 'cooldown';
+        const desktopArtState = !ready && cooldown >= ability.cooldown - .10 ? 'pressed' : artState;
+        if (slot) slot.style.setProperty('--skill-art', `url("${abilityArt(ability.id, 'desktop', desktopArtState)}")`);
         if (fill) fill.style.width = cooldown > 0 ? `${Math.max(0, (1 - cooldown / ability.cooldown) * 100)}%` : "100%";
         if (fill) fill.style.background = grimoire.color;
         if (status) status.textContent = ready ? 'Ready' : `${Math.ceil(cooldown)}s`;
         if (slot) slot.classList.toggle('cooling', !ready);
         const button = touchAbilityButtons[index];
+        const image = document.getElementById(`ability-art-${['q','e','r'][index]}`);
+        const mobileArtState = !ready && cooldown >= ability.cooldown - .10 ? 'pressed' : artState;
+        const imagePath = abilityArt(ability.id, 'mobile', mobileArtState);
+        if (image.dataset.path !== imagePath) {
+          image.dataset.path = imagePath;
+          image.onerror = () => { image.onerror = null; image.src = `assets/grimoire/ss-ability-icon-${ABILITY_ART[ability.id]}.png`; };
+          image.src = imagePath;
+        }
         const shortNames = { 'ashen-nova':'Nova', 'ashen-cinders':'Cinders', 'ashen-infernal':'Pyre', 'hollow-frostbite':'Frost', 'hollow-deeprime':'Rime', 'hollow-hail':'Hail', 'storm-thunderclap':'Clap', 'storm-static':'Static', 'storm-breaker':'Breaker' };
         button.querySelector('.ability-touch-name').textContent = shortNames[ability.id] || ability.name;
         button.querySelector('.ability-touch-status').textContent = ready ? '' : `${Math.ceil(cooldown)}s`;
@@ -275,11 +340,16 @@ function syncHud() {
 }
 
 function showPause(on) {
+  const profile = document.getElementById('mage-profile');
+  if (on) document.getElementById('pause-profile-slot').appendChild?.(profile);
+  else hud.insertBefore?.(profile, bossHud);
   paused.hidden = !on;
   hud.hidden = on || game.state === "menu" || game.state === "over";
+  xpBar.hidden = hud.hidden;
 }
 
 function startGame() {
+  hud.insertBefore?.(document.getElementById('mage-profile'), bossHud);
   ensureAudio();
   startDrone();
   resetRun();
@@ -293,6 +363,7 @@ function startGame() {
 }
 
 function returnToMenu() {
+  hud.insertBefore?.(document.getElementById('mage-profile'), bossHud);
   if (typeof stopDrone === 'function') stopDrone();
   resetGameplayInput();
   game.state = "menu";

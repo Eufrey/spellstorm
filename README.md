@@ -1,4 +1,4 @@
-# Spellstorm
+﻿# Spellstorm
 
 A vertical shooter in the shape of a last stand. You are a mage above a collapsing spire, and the things climbing the dark are not ships.
 
@@ -46,5 +46,7 @@ The game is split into ordered scripts in `js/`. `js/game.js` is the small loade
 - `js/input.js` - animation loop, keyboard/pointer/touch listeners, and startup.
 
 ## Static hosting
+
+The planned full application deployment is Vercel. Profile pictures can be uploaded from the mage profile or administrator settings (PNG, JPEG or WebP, up to 512 KB and 2048 × 2048 pixels). Images are validated by PHP and stored in the existing database profile field, rather than on a temporary hosting filesystem. They appear on the leaderboard and navigation.
 
 `index.html` and the game scripts run on any static host, including GitHub Pages. Account, leaderboard, and run-saving features depend on the PHP entry points (`login.php`, `register.php`, `run-api.php`, `rank-preview.php`, `site-nav.php`) plus the database configuration in `config/`. Those features are unavailable on a static host; the game remains playable as a guest with local best-score storage.

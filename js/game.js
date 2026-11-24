@@ -1,4 +1,4 @@
-// Load the classic-script modules in dependency order. Shared game state remains
+﻿// Load the classic-script modules in dependency order. Shared game state remains
 // in the global lexical scope; load each script only once and in this sequence.
 const gameModules = [
   "data.js",

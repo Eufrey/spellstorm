@@ -30,7 +30,7 @@
       const data=await response.json();
       if(result!==current || panel.hidden) return;
       rank.textContent=`${data.guest?'Guest — Unranked':data.name} · ${data.guest?'Temporary position':'Your current rank'} #${data.rank} · ${Number(data.score).toLocaleString()}${data.guest?' · Not saved':''}`;
-      for(const row of data.rows){ const item=document.createElement('li'); item.textContent=`#${row.rank}  ${row.username} · ${Number(row.score).toLocaleString()}`; list.appendChild(item); }
+      for(const row of data.rows){ const item=document.createElement('li'); const img=document.createElement('img'); img.src=`avatar.php?id=${encodeURIComponent(row.user_id)}`; img.alt=''; img.width=24; img.height=24; img.className='rounded-circle object-fit-cover me-2'; item.append(img,document.createTextNode(`#${row.rank}  ${row.username} · ${Number(row.score).toLocaleString()}`)); list.appendChild(item); }
       if(!data.rows.length){const item=document.createElement('li');item.textContent='No registered scores yet.';list.appendChild(item);}
     } catch (_) { if(result===current && !panel.hidden) rank.textContent='Leaderboard unavailable. Please try again.'; }
     finally { if(result===current) show.disabled=false; }

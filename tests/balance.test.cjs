@@ -11,6 +11,7 @@ test('Circle 5 kill preserves overflow and presents grimoire before earned boon'
     assert.equal(game.xp, 300);
     assert.equal(game.state, 'upgrade');
     assert.equal(game.currentOffer.kind, 'grimoire');
+    for(let i=0;i<6;i++) advanceFrame(.1);
     chooseUpgrade('ashen');
     assert.equal(game.xp, 300);
     assert.equal(game.currentOffer.kind, 'xp');
@@ -21,7 +22,7 @@ test('Circle 5 kill preserves overflow and presents grimoire before earned boon'
 test('milestone leaves partial experience and its frozen target intact', () => {
   createGame().run(`
     game.wave = 5; game.between = 0; game.queue = []; game.xp = 2000; game.xpTarget = 2700;
-    updatePlay(1 / 120); chooseUpgrade('stormbound');
+    updatePlay(1 / 120); for(let i=0;i<6;i++) advanceFrame(.1); chooseUpgrade('stormbound');
     assert.equal(game.xp, 2000); assert.equal(game.xpTarget, 2700);
   `);
 });
@@ -29,7 +30,7 @@ test('milestone leaves partial experience and its frozen target intact', () => {
 test('large score award queues multiple choices and keeps exact remainder', () => {
   createGame().run(`
     game.xp = 2600; game.xpTarget = 2700;
-    addScore(4800, 0, 0);
+    awardExperience(100 + xpTargetForWave(game.wave) + 700);
     assert.equal(game.xp, 700);
     assert.equal(game.pendingRewards.length, 2);
     assert.equal(game.state, 'play');
@@ -51,7 +52,7 @@ test('same-step death beats final victory and cannot be healed by a gift', () =>
 test('final boss score cannot leave an upgrade overlay or survival gift', () => {
   createGame().run(`
     game.wave = 50; game.queue = []; game.between = 0; game.xp = 2699;
-    spawn('archon'); damageFoe(game.foes[0], 10000); updatePlay(1/120);
+    spawn('archon'); const boss=game.foes[0]; damageFoe(boss,10000); updateArchon(boss,.01,1,1); boss.phaseLock=0; damageFoe(boss, 10000); updatePlay(1/120);
     assert.equal(game.state, 'over'); assert.equal(game.won, true);
     assert.equal(upgrades.hidden, true); assert.equal(game.pendingRewards.length, 0);
     assert.equal(game.gifts.length, 0); assert.ok(game.score > 0);
@@ -64,6 +65,7 @@ test('evolution is always offered and retains uncapped specialization choices', 
     game.player.grimoireUpgradeCount = 2; game.upgradeCounts['ashen-cinders'] = 2;
     showUpgradePhase();
     assert.ok(game.currentOffer.ids.includes('evolve-infernal'));
+    for(let i=0;i<6;i++) advanceFrame(.1);
     chooseUpgrade('evolve-infernal');
     assert.equal(game.player.grimoire, 'infernal');
     assert.ok(getAvailableUpgrades().some(u => u.id === 'ashen-cinders'));
@@ -75,10 +77,12 @@ test('evolution is always offered and retains uncapped specialization choices', 
 test('choices reject unoffered evolutions and stale offer tokens', () => {
   createGame().run(`
     game.player.grimoire = 'ashen'; game.player.grimoireFamily = 'ashen'; showUpgradePhase();
+    for(let i=0;i<6;i++) advanceFrame(.1);
     chooseUpgrade('evolve-thunderous'); assert.equal(game.player.grimoire, 'ashen');
     const old = game.currentOffer; game.pendingRewards.push('xp');
     chooseUpgrade(old.ids[0], old.token);
     const next = game.currentOffer;
+    for(let i=0;i<6;i++) advanceFrame(.1);
     chooseUpgrade(next.ids[0], old.token);
     assert.equal(game.currentOffer.token, next.token);
   `);
@@ -106,7 +110,9 @@ test('scaled damage persists through evolution and casting obeys the minimum int
     }
     game.player.surge = 4.5; fireSpell(1/120);
     assert.ok(Math.abs(game.bullets[0].damage - 3.28) < 1e-9);
-    assert.equal(spellInterval(), 0.045);
+    assert.equal(spellInterval(), BALANCE.surgeMinimumSpellInterval);
+    game.player.surge = 0; assert.ok(spellInterval() > BALANCE.minimumSpellInterval);
+    game.player.cooldownMultiplier = .1; assert.equal(spellInterval(), BALANCE.minimumSpellInterval);
   `);
 });
 
@@ -147,7 +153,7 @@ test('short render frames retain pending Ward until a simulation step', () => {
 test('focus loss pauses play and digit auto-repeat cannot select another boon', () => {
   const g = createGame();
   g.listeners.blur(); assert.equal(g.run('game.state'), 'pause');
-  g.run("togglePause(); showUpgradePhase(); game.pendingRewards.push('xp')");
+  g.run("togglePause(); showUpgradePhase(); game.pendingRewards.push('xp'); for(let i=0;i<6;i++) advanceFrame(.1)");
   const event = { code: 'Digit1', repeat: false, preventDefault() {} };
   g.listeners.keydown(event);
   const token = g.run('game.currentOffer.token');
@@ -155,13 +161,29 @@ test('focus loss pauses play and digit auto-repeat cannot select another boon', 
   assert.equal(g.run('game.currentOffer.token'), token);
 });
 
+test('reward gathering freezes combat, rejects premature choices, then reveals the cards', () => {
+  createGame().run(`
+    showUpgradePhase(true);
+    const time = game.time, token = game.currentOffer.token;
+    assert.equal(upgrades.hidden, true);
+    chooseUpgrade('ashen', token); assert.equal(game.player.grimoire, 'basic');
+    for(let i=0;i<5;i++) advanceFrame(.1);
+    assert.equal(upgrades.hidden, true);
+    advanceFrame(.1);
+    assert.equal(upgrades.hidden, false); assert.equal(game.time,time);
+    chooseUpgrade('ashen', token); assert.equal(game.player.grimoire,'ashen');
+    assert.equal(game.state,'play');
+  `);
+});
+
 test('spawn caps hold a queued ranged enemy without discarding it', () => {
   createGame().run(`
     game.wave = 20; game.between = 0; game.spawnCd = 0; game.queue = ['cultist'];
-    for (let i = 0; i < 6; i++) spawn('wraith');
-    updatePlay(1/120); assert.equal(game.queue.length, 1); assert.equal(game.foes.length, 6);
+    const cap=enemyLimits().ranged;
+    for (let i = 0; i < cap; i++) spawn('wraith');
+    updatePlay(1/120); assert.equal(game.queue.length, 1); assert.equal(game.foes.length, cap);
     game.foes.pop(); updatePlay(1/120);
-    assert.equal(game.queue.length, 0); assert.equal(game.foes.length, 6);
+    assert.equal(game.queue.length, 0); assert.equal(game.foes.length, cap);
   `);
 });
 
@@ -172,8 +194,8 @@ test('campaign queues retain bosses and total the approved regular budget', () =
       const queue = buildQueue(c);
       if(c % 10 === 0) assert.equal(queue.join(), 'archon'); else count += queue.length;
     }
-    assert.equal(count, 1141);
-    game.wave = 50; spawn('archon'); assert.equal(game.foes[0].hp, 1200);
+    assert.equal(count, 1624);
+    game.wave = 50; spawn('archon'); assert.equal(game.foes[0].hp, BALANCE.bossHealth[4]);
   `);
 });
 
@@ -183,6 +205,19 @@ test('duplicate protection and full-health hearts refresh Surge', () => {
     assert.equal(game.player.aegis, true); assert.equal(game.player.surge, 4.5);
     game.player.surge = 1; game.player.lives = game.player.maxLives;
     takeGift({kind:'heart'}); assert.equal(game.player.surge, 4.5);
+  `);
+});
+
+test('Surge immediately accelerates normal casting without stacking or renaming the grimoire', () => {
+  createGame().run(`
+    const normal = spellInterval(); game.player.cool = normal;
+    takeGift({kind:'surge'});
+    assert.ok(Math.abs(spellInterval() / normal - .55) < 1e-9);
+    assert.equal(game.player.cool, spellInterval());
+    takeGift({kind:'surge'}); assert.equal(game.player.surge, BALANCE.surgeDuration);
+    syncHud(); assert.equal(spellNameEl.textContent, GRIMOIRES.basic.name);
+    assert.equal(spellNameEl.dataset.short, 'Basic Grimoire');
+    game.player.surge = 0; assert.equal(spellInterval(), normal);
   `);
 });
 
@@ -240,8 +275,28 @@ test('touch ability controls unlock with grimoire, cast once and show cooldown',
   const { run, elements } = createGame();
   run('syncHud(); assert.equal(touchAbilities.hidden, true)');
   run("game.player.grimoire = game.player.grimoireFamily = 'stormbound'; syncHud(); assert.equal(touchAbilities.hidden, false)");
+  assert.match(elements.get('ability-art-q').src,/thunderclap-mobile-ready\.png$/);
+  assert.match(elements.get('ability-art-e').src,/static-mobile-ready\.png$/);
   const button = elements.get('ability-touch-q');
   button.pointerdown({ preventDefault() {} });
   run('advanceFrame(1/120); syncHud(); assert.ok(game.player.grimoireAbilityCooldowns["stormbound:storm-thunderclap"] > 0); assert.ok(game.bullets.some(bolt => bolt.spell === "ability"))');
+  assert.match(elements.get('ability-art-q').src,/thunderclap-mobile-pressed\.png$/);
   run('assert.equal(touchAbilityButtons[0].disabled, true); togglePause(); syncHud(); assert.equal(touchAbilities.hidden, true)');
+});
+
+test('second abilities create a persistent field that slows entering enemies once', () => {
+  createGame().run(`
+    for (const family of ['ashen','hollowWinter','stormbound']) {
+      game.player.grimoire = game.player.grimoireFamily = family;
+      game.foes = []; game.particles = [];
+      const ability = GRIMOIRE_ABILITY_KITS[family].abilities[1];
+      castGrimoireAbility(ability.id);
+      const field = game.particles.find(p=>p.abilityType==='debuff');
+      assert.equal(field.life,1.25); assert.equal(field.radius,150);
+      spawn('bat'); const foe=game.foes[0]; foe.x=field.x; foe.y=field.y-200;
+      applySlowField(field,foe); assert.equal(foe.slow,0);
+      foe.y=field.y-130; applySlowField(field,foe); assert.equal(foe.slow,ability.slow);
+      foe.slow-=.2; applySlowField(field,foe); assert.equal(foe.slow,ability.slow-.2);
+    }
+  `);
 });

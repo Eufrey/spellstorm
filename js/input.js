@@ -7,6 +7,17 @@ function resetGameplayInput() {
 }
 
 function advanceFrame(elapsed) {
+  if (game.state === 'upgrade') {
+    if (game.rewardGather > 0) {
+      game.rewardGather = Math.max(0, game.rewardGather - Math.max(0, Math.min(.1, elapsed)));
+      if (game.rewardGather <= 1e-8) {
+        game.rewardGather = 0;
+        upgrades.hidden = false;
+      }
+    }
+    game.accumulator = 0;
+    return;
+  }
   if (game.state !== "play" && game.state !== "dying") {
     game.accumulator = 0;
     return;
@@ -101,7 +112,20 @@ upgradeChoices.addEventListener("click", (event) => {
 document.getElementById("start").addEventListener("click", startGame);
 document.getElementById("again").addEventListener("click", startGame);
 document.getElementById("resume").addEventListener("click", togglePause);
+document.getElementById('pause-vigil').addEventListener('click', togglePause);
 document.getElementById("audio-toggle").addEventListener("click", () => { if (typeof toggleGameAudio === 'function') toggleGameAudio(); });
+const shotGuidesButton = document.getElementById("shot-guides-toggle");
+function syncShotGuidesButton() {
+  shotGuidesButton.textContent = `Shot guides: ${shotGuidesEnabled ? 'on' : 'off'}`;
+  shotGuidesButton.setAttribute('aria-pressed', String(shotGuidesEnabled));
+}
+try { shotGuidesEnabled = localStorage.getItem('spellstorm-shot-guides') !== 'off'; } catch (_) { /* Storage may be unavailable. */ }
+syncShotGuidesButton();
+shotGuidesButton.addEventListener('click', () => {
+  shotGuidesEnabled = !shotGuidesEnabled;
+  syncShotGuidesButton();
+  try { localStorage.setItem('spellstorm-shot-guides', shotGuidesEnabled ? 'on' : 'off'); } catch (_) { /* Keep the in-session preference. */ }
+});
 document.getElementById("back-menu").addEventListener("click", returnToMenu);
 document.getElementById("quit-menu").addEventListener("click", () => { if (game.state === "pause" && window.confirm("Abandon this vigil? Your unfinished run will not be saved.")) returnToMenu(); });
 

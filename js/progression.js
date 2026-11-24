@@ -24,31 +24,58 @@ function resetRun() {
   game.completedLevels = 0;
   game.xp = 0; game.xpTarget = BALANCE.firstXpTarget; game.xpExhausted = false;
   game.pendingRewards = []; game.currentOffer = null;
+  game.rewardGather = game.rewardGatherDuration = 0;
   game.upgradeCounts = {}; game.score = 0; game.combo = 0; game.comboTimer = 0;
   game.shake = 0; game.dying = 0; game.won = false;
   game.hint = 7; game.queue = buildQueue(1); game.spawnCd = 0.4; game.between = 1.35;
-  game.banner = { text: "Circle 1", sub: LINES[0], life: 2.2 };
+  game.banner = { text: "Circle 1", sub: formationChapterName(1), life: 2.2 };
   upgrades.hidden = true;
   game.state = "play";
 }
 
+function formationChapterName(wave) {
+  return ['The Gathering','The Burning Siege','The Frozen Veil','The Stormfront','The Final Ascent'][Math.min(4,Math.floor((wave-1)/10))];
+}
+
 function regularCount(wave) {
-  return Math.min(36, 8 + Math.floor(0.8 * (wave - 1)));
+  return Math.min(50, 16 + Math.floor(Math.min(8,wave-1)*1.5 + Math.max(0,wave-9)*.58));
 }
 
 function spawnInterval(wave) {
-  return Math.max(0.40, 0.82 - 0.012 * wave);
+  return Math.max(.38, 1.05 - .013 * (wave-1));
+}
+
+function enemyLimits(wave=game.wave) {
+  const chapter=Math.min(4,Math.floor((wave-1)/10));
+  return {ordinary:chapter===0?9+Math.floor((wave-1)/3):[0,13,15,18,20][chapter],ranged:chapter===0?2+Math.floor((wave-1)/4):[0,5,5,6,7][chapter],shots:chapter===0?12+Math.floor((wave-1)*1.25):[0,24,29,36,44][chapter]};
 }
 
 function buildQueue(wave) {
   if (wave % 10 === 0) return ["archon"];
-  return Array.from({ length: regularCount(wave) }, () => {
-    const roll = Math.random();
-    if (wave >= 4 && roll > 0.86) return "cultist";
-    if (wave >= 3 && roll > 0.66) return "wraith";
-    if (wave >= 2 && roll > 0.42) return "imp";
-    return "bat";
-  });
+  const chapter = Math.floor((wave-1)/10);
+  const count = regularCount(wave);
+  const intro=Math.min(1,(wave-1)/8);
+  const weights=[[.67-.25*intro,.23+.13*intro,.07+.08*intro,.03+.04*intro],[.40,.36,.16,.08],[.31,.36,.21,.12],[.27,.34,.23,.16],[.23,.35,.24,.18]][chapter];
+  const queue=[];
+  const kinds=['bat','imp','wraith','cultist'];
+  const unlocked=Math.min(4,wave);
+  const total=weights.slice(0,unlocked).reduce((a,b)=>a+b,0);
+  let rangedRun=0;
+  for(let i=0;i<count;i++){
+    let roll=Math.random()*total, k=0;
+    while(k<unlocked-1 && (roll-=weights[k])>=0) k++;
+    if(k>=2 && rangedRun>=2) k=Math.random()<.5?0:1;
+    rangedRun=k>=2?rangedRun+1:0;
+    queue.push({kind:kinds[k],formation:'random',lane:.12+Math.random()*.76,slot:Math.floor(Math.random()*4),group:i,size:1,chapter,delay:Math.random()<.35?.32+Math.random()*.25:.8+Math.random()*.65});
+  }
+  // Guaranteed introductions alongside randomized composition.
+  if(wave>=2&&!queue.some(e=>e.kind==='imp')) queue[1].kind='imp';
+  if(wave>=3&&!queue.some(e=>e.kind==='wraith')) queue[3].kind='wraith';
+  if(wave>=4&&!queue.some(e=>e.kind==='cultist')) queue[5].kind='cultist';
+  const duration=queue.slice(0,-1).reduce((sum,e)=>sum+e.delay,0);
+  const target=chapter===0?12.5-(wave-1)*.15+Math.random()*1.2:14+chapter*1.4+Math.random()*1.5;
+  for(const entry of queue) entry.delay*=target/duration;
+  return queue;
 }
 
 function xpTargetForWave(wave) {
@@ -88,10 +115,12 @@ function isRangedEnemy(foe) {
 }
 
 function canSpawn(kind) {
+  kind = typeof kind === 'string' ? kind : kind.kind;
   if (kind === "archon") return true;
   const alive = game.foes.filter(foe => foe.hp > 0 && foe.kind !== "archon");
-  return alive.length < BALANCE.maxOrdinaryEnemies &&
-    (!isRangedEnemy({ kind }) || alive.filter(isRangedEnemy).length < BALANCE.maxRangedEnemies);
+  const limits=enemyLimits();
+  return alive.length < limits.ordinary &&
+    (!isRangedEnemy({ kind }) || alive.filter(isRangedEnemy).length < limits.ranged);
 }
 
 function queueFodderReinforcement(dt) {
@@ -102,7 +131,8 @@ function queueFodderReinforcement(dt) {
   game.reinforcementCd -= dt;
   if (game.reinforcementCd > 0) return;
   game.reinforcements += 1;
-  spawn(Math.random() < 0.58 ? "bat" : "imp");
+  const chapter=Math.floor((game.wave-1)/10);
+  spawn({kind:Math.random()<.55?'bat':'imp',formation:'random',lane:.12+Math.random()*.76,slot:0,size:1,group:game.reinforcements,chapter,delay:0});
   game.reinforcementCd = BALANCE.reinforcementInterval;
 }
 
@@ -144,18 +174,26 @@ function showUpgradePhase(grimoireChoice = false, kind = "milestone") {
     : shuffled(available).slice(0, 3);
   const token = ++game.offerSerial;
   game.currentOffer = { kind: grimoireChoice ? "grimoire" : kind, ids: choices.map(u => u.id), token };
+  document.getElementById('upgrade-title').textContent = grimoireChoice ? 'Choose a grimoire' : 'Choose a boon';
+  document.getElementById('upgrade-description').textContent = grimoireChoice ? 'Choose one school of magic for this vigil.' : 'Choose one upgrade for this vigil.';
   upgradeChoices.replaceChildren(...choices.map((upgrade, index) => {
     const button = document.createElement("button");
     button.className = "upgrade-choice"; button.type = "button";
     button.dataset.upgradeId = upgrade.id; button.dataset.offerToken = String(token);
-    const stacks = upgrade.maxStacks ? ` (${game.upgradeCounts[upgrade.id] || 0}/${upgrade.maxStacks})` : "";
-    button.innerHTML = `<strong>${index + 1}. ${upgrade.name}${stacks}</strong><small>${upgrade.description}</small>`;
+    const stacks = upgrade.maxStacks ? `<span class="upgrade-stack">${game.upgradeCounts[upgrade.id] || 0}/${upgrade.maxStacks} acquired</span>` : '';
+    const book = grimoireChoice ? upgrade.id : upgrade.grimoire;
+    const artPath = book ? bookArt(book, 'unselected') : 'assets/grimoire/ss-boon-select-f03.png';
+    button.innerHTML = `<span class="upgrade-choice-visual"><img class="grimoire-choice-art" src="${artPath}" alt=""><kbd class="upgrade-key" aria-hidden="true">${index + 1}</kbd></span><span class="upgrade-choice-copy"><strong>${upgrade.name}</strong><small>${upgrade.description}</small>${stacks}</span>`;
     return button;
   }));
   resetGameplayInput();
-  upgrades.hidden = false; hud.hidden = true; mobileControls.hidden = true; xpBar.hidden = true;
+  const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  game.rewardGatherDuration = reducedMotion ? 0 : grimoireChoice ? .55 : .42;
+  game.rewardGather = game.rewardGatherDuration;
+  upgrades.hidden = game.rewardGather > 0; hud.hidden = true; mobileControls.hidden = true; xpBar.hidden = true;
   bossHud.hidden = true;
   game.state = "upgrade";
+  tone(grimoireChoice ? 440 : 330, .28, 'sine', .035, grimoireChoice ? 880 : 660);
 }
 
 function openNextReward() {
@@ -166,7 +204,7 @@ function openNextReward() {
 
 function chooseUpgrade(id, token = game.currentOffer?.token) {
   const offer = game.currentOffer;
-  if (game.state !== "upgrade" || !offer || offer.token !== token || !offer.ids.includes(id)) return;
+  if (game.state !== "upgrade" || game.rewardGather > 0 || !offer || offer.token !== token || !offer.ids.includes(id)) return;
   const player = game.player;
   const available = offer.kind === "grimoire" ? GRIMOIRE_OPTIONS : getAvailableUpgrades();
   const upgrade = available.find(option => option.id === id);
@@ -181,6 +219,7 @@ function chooseUpgrade(id, token = game.currentOffer?.token) {
     if (GRIMOIRE_UPGRADES[grimoireFamily()]?.some(option => option.id === id)) player.grimoireUpgradeCount += 1;
   }
   game.upgradeCounts[id] = (game.upgradeCounts[id] || 0) + 1;
+  game.particles.push({ x: player.x, y: player.y, vx: 0, vy: 0, life: .48, max: .48, size: 96, effect: 'boon-select', color: '#f1d394' });
   player.cool = Math.max(0, Math.min(player.cool, spellInterval()));
   game.currentOffer = null;
   resetGameplayInput();
@@ -201,11 +240,12 @@ function resolvePlayStep() {
     game.completedLevels = game.wave;
     if (game.completedLevels % 5 === 0) game.pendingRewards.unshift(game.completedLevels === 5 ? "grimoire" : "milestone");
     game.wave += 1; game.reinforcements = 0;
+    game.shots = [];
     game.reinforcementCd = BALANCE.reinforcementInterval;
     game.queue = buildQueue(game.wave); game.between = 1.6; game.spawnCd = 0.3;
     const boss = game.wave % 10 === 0;
     game.banner = { text: boss ? "An Archon descends" : `Circle ${game.wave}`,
-      sub: boss ? "Break the crown" : LINES[(game.wave - 1) % LINES.length], life: 2.3 };
+      sub: boss ? "Break the crown" : formationChapterName(game.wave), life: 2.3 };
   }
   openNextReward();
 }

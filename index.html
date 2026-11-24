@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-type="software">
 <head>
   <meta charset="UTF-8">
@@ -13,11 +13,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/styles/style.css">
   <link rel="stylesheet" href="assets/styles/hud.css">
   <link rel="stylesheet" href="assets/styles/site-nav.css">
   <link rel="stylesheet" href="assets/styles/portal-theme.css">
   <link rel="stylesheet" href="assets/styles/landing.css">
+  <link rel="stylesheet" href="assets/styles/combat-profile.css">
 </head>
 <body class="play-page">
   <div id="play-site-nav"><nav class="site-nav" aria-label="Main navigation"><a class="site-brand site-home" href="index.html" aria-label="Return to Spellstorm home" title="Home"><img src="assets/text/spellstorm-home-icon.png" alt="" width="32" height="32"></a><div class="site-auth"><a href="login.php">Log in</a><a href="register.php">Register</a></div></nav></div>
@@ -28,9 +30,9 @@
     </div>
     <button id="ward-button" type="button" aria-label="Cast Ward Pulse">Ward</button>
     <div id="touch-abilities" aria-label="Grimoire abilities" hidden>
-      <button id="ability-touch-q" class="ability-touch" type="button"><span class="ability-touch-key">Q</span><span class="ability-touch-name"></span><span class="ability-touch-status"></span></button>
-      <button id="ability-touch-e" class="ability-touch" type="button"><span class="ability-touch-key">E</span><span class="ability-touch-name"></span><span class="ability-touch-status"></span></button>
-      <button id="ability-touch-r" class="ability-touch" type="button"><span class="ability-touch-key">R</span><span class="ability-touch-name"></span><span class="ability-touch-status"></span></button>
+      <button id="ability-touch-q" class="ability-touch" type="button"><img id="ability-art-q" class="ability-touch-art" alt="" width="64" height="64"><span class="ability-touch-key">Q</span><span class="ability-touch-name"></span><span class="ability-touch-status"></span></button>
+      <button id="ability-touch-e" class="ability-touch" type="button"><img id="ability-art-e" class="ability-touch-art" alt="" width="64" height="64"><span class="ability-touch-key">E</span><span class="ability-touch-name"></span><span class="ability-touch-status"></span></button>
+      <button id="ability-touch-r" class="ability-touch" type="button"><img id="ability-art-r" class="ability-touch-art" alt="" width="64" height="64"><span class="ability-touch-key">R</span><span class="ability-touch-name"></span><span class="ability-touch-status"></span></button>
     </div>
   </div>
   <div id="xp-bar" hidden role="progressbar" aria-label="Experience" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
@@ -41,20 +43,24 @@
     <div class="stat">
       <small>Score</small>
       <span id="score">0</span>
+      <span id="compact-vitality" class="compact-vitality"></span>
     </div>
     <div class="center-stat">
-      <div id="circle">Circle 1</div>
-      <div id="combo"></div>
+      <div class="circle-metric"><small>Circle</small><strong id="circle">01</strong></div>
+      <div class="chain-metric"><small>Chain</small><strong id="combo">×1.00</strong><span class="chain-track" aria-hidden="true"><b id="chain-fill"></b></span></div>
     </div>
-    <div class="right-stat">
+    <button id="pause-vigil" type="button" aria-label="Pause game"><span aria-hidden="true"></span></button>
+    <div class="right-stat mage-profile" id="mage-profile">
+      <div class="mage-identity"><span class="mage-portrait"><img src="assets/sprites/spellstorm_last_mage_idle_01.png" alt=""></span><div><small>THE LAST SPIRE</small><strong>The Last Mage</strong><span id="mage-condition">Vigil in progress</span></div></div>
       <div class="hud-vitality">
         <small class="hud-label">Vitality</small>
         <div id="lives" role="img" aria-label="Lives">♥ ♥ ♥</div>
       </div>
       <div class="spell">
-        <strong id="spell-name">Ember</strong><br>
-        <small id="spell-hint">Twin lances</small>
+        <img id="equipped-book-art" src="assets/grimoire/State=equipped.png" alt="" width="44" height="44">
+        <div class="spell-copy"><small class="spell-label"><img id="equipped-emblem" src="assets/grimoire/ss-emblem-basic-grimoire.png" alt="" width="16" height="16">Equipped grimoire</small><strong id="spell-name">Basic Grimoire</strong><small id="spell-hint">A blank spellbook</small></div>
       </div>
+      <div class="mage-stats"><div><small>Power</small><strong id="mage-power">1</strong></div><div><small>Cast / sec</small><strong id="mage-rate">3.3</strong></div><div><small>Boons</small><strong id="mage-boons">0</strong></div></div>
       <div class="hud-ward">
         <div class="ward-heading"><small>Ward Pulse</small><small id="ward-status">Ready</small></div>
         <div id="ward" title="Ward Pulse"><b id="ward-fill"></b></div>
@@ -64,10 +70,11 @@
         <div class="ability"><span class="ability-caption"><kbd>E</kbd><span class="ability-name"></span><span class="ability-status"></span></span><span class="ability-bar"><b class="ability-fill"></b></span></div>
         <div class="ability"><span class="ability-caption"><kbd>R</kbd><span class="ability-name"></span><span class="ability-status"></span></span><span class="ability-bar"><b class="ability-fill"></b></span></div>
       </div>
+      <div class="mage-upgrades"><small>ACQUIRED BOONS</small><div id="mage-upgrade-list">No boons yet</div></div>
     </div>
-    <section id="boss-hud" hidden aria-live="polite">
-      <strong id="boss-name"></strong>
-      <div id="boss-health"><b id="boss-health-fill"></b></div>
+    <section id="boss-hud" hidden aria-label="Archon health">
+      <div class="boss-heading"><strong id="boss-name"></strong><span id="boss-phase" aria-live="polite">Phase I</span><span id="boss-health-text">100%</span></div>
+      <div id="boss-health" role="progressbar" aria-label="Archon health" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><b id="boss-health-fill"></b></div>
     </section>
   </header>
 
@@ -88,12 +95,48 @@
       <div class="guide-wrap">
         <header class="guide-intro"><p class="guide-kicker">The Vellum Vigil</p><h2 id="guide-title">How to play</h2><p>The Veil has swallowed the realm. One mage remains above its last spire, armed with a blank grimoire. Survive 50 circles and defeat the five Archons.</p></header>
         <div class="guide-cycle"><article><img src="assets/art/field-guide.svg#mage" alt="" aria-hidden="true"><h3>Survive</h3><p>Move and dodge. Your spells fire automatically.</p></article><article><img src="assets/art/field-guide.svg#book" alt="" aria-hidden="true"><h3>Grow</h3><p>Earn XP and choose boons to strengthen your magic.</p></article><article><img src="assets/art/field-guide.svg#crown" alt="" aria-hidden="true"><h3>Conquer</h3><p>Defeat an Archon every ten circles.</p></article></div>
-        <div class="guide-block guide-controls-block"><h3>Controls</h3><div class="guide-controls"><div><span>Move</span><kbd>WASD / Arrows</kbd><small>Touch: movement pad</small></div><div><span>Ward Pulse</span><kbd>Space / Right click</kbd><small>Touch: Ward button</small></div><div><span>Boons</span><kbd>1 / 2 / 3</kbd><small>Or tap a choice</small></div><div><span>Pause</span><kbd>Esc</kbd><small>Enter to resume</small></div><div><span>Spell abilities</span><kbd>Q / E / R</kbd><small>After choosing a grimoire</small></div></div></div>
-        <div class="guide-block"><h3>Three paths of magic</h3><p>Choose a grimoire after Circle 5. Take two specializations to make its evolution available.</p><div class="guide-grimoires"><article style="--spell:#ff9b42"><h4>Ashen Crown</h4><p>Heavy fire lances</p><small>Infernal Testament</small></article><article style="--spell:#8eebff"><h4>Hollow Winter</h4><p>Slowing ice bolts</p><small>Glacial Sovereign</small></article><article style="--spell:#d2b6ff"><h4>Stormbound</h4><p>Piercing lightning</p><small>Tempest Ascendant</small></article></div></div>
+        <div class="guide-block guide-controls-block">
+          <h3>Controls</h3>
+          <p class="guide-section-lead">Spells fire automatically. Focus on movement, timing and your active abilities.</p>
+          <div class="control-reference">
+            <div class="control-reference-head" aria-hidden="true"><span>Action</span><span>Keyboard &amp; mouse</span><span>Touch screen</span></div>
+            <div class="control-reference-row"><strong>Move</strong><div><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd><span class="control-alternative">or arrow keys</span></div><span>Movement pad</span></div>
+            <div class="control-reference-row"><strong>Ward Pulse</strong><div><kbd>Space</kbd><span class="control-alternative">or right click</span></div><span>Ward button</span></div>
+            <div class="control-reference-row"><strong>Grimoire abilities</strong><div><kbd>Q</kbd> <kbd>E</kbd> <kbd>R</kbd></div><span>Ability buttons</span></div>
+            <div class="control-reference-row"><strong>Choose a boon</strong><div><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd><span class="control-alternative">or click a card</span></div><span>Tap a card</span></div>
+            <div class="control-reference-row"><strong>Pause / resume</strong><div><kbd>Esc</kbd><span class="control-alternative">Enter to resume</span></div><span>Pause / Resume button</span></div>
+          </div>
+        </div>
+        <div class="guide-block guide-magic-block">
+          <h3>Three paths of magic</h3>
+          <p class="guide-section-lead">Begin with a blank grimoire, then choose your school of magic after Circle 5.</p>
+          <div class="magic-progression"><div><img src="assets/grimoire/State=equipped.png" alt="" width="48" height="48"><span><small>Circle 1</small><strong>Basic Grimoire</strong></span></div><span class="magic-arrow" aria-hidden="true">→</span><div><img src="assets/grimoire/ss-emblem-ashen-crown.png" alt="" width="48" height="48"><span><small>After Circle 5</small><strong>Choose a school</strong></span></div><span class="magic-arrow" aria-hidden="true">→</span><div><img src="assets/grimoire/ss-emblem-tempest-ascendant.png" alt="" width="48" height="48"><span><small>Two specialization upgrades</small><strong>Evolution becomes available</strong></span></div></div>
+          <div class="magic-schools">
+            <article class="magic-school" style="--spell:#ff9b42">
+              <header class="magic-school-heading"><img src="assets/grimoire/State=equipped-1.png" alt="" width="80" height="80"><div><span class="magic-element">Fire</span><h4>Grimoire of the Ashen Crown</h4></div></header>
+              <p>Twin fire lances with heavy damage.</p>
+              <ul class="magic-abilities"><li><img src="assets/grimoire/ss-ability-icon-ember-nova.png" alt="" width="36" height="36"><div><strong>Ember Nova</strong><span>Flame volley</span></div><div class="magic-key"><kbd>Q</kbd><span>8s</span></div></li><li><img src="assets/grimoire/ss-ability-icon-cinders.png" alt="" width="36" height="36"><div><strong>Cinders</strong><span>Slows nearby foes</span></div><div class="magic-key"><kbd>E</kbd><span>10s</span></div></li><li><img src="assets/grimoire/ss-ability-icon-infernal-pyre.png" alt="" width="36" height="36"><div><strong>Infernal Pyre</strong><span>Piercing fire volley</span></div><div class="magic-key"><kbd>R</kbd><span>15s</span></div></li></ul>
+              <div class="magic-evolution"><img src="assets/grimoire/State=equipped-4.png" alt="" width="52" height="52"><div><span>Evolution</span><strong>Infernal Testament</strong><small>Stronger, faster fire lances.</small></div></div>
+            </article>
+            <article class="magic-school" style="--spell:#8eebff">
+              <header class="magic-school-heading"><img src="assets/grimoire/State=equipped-2.png" alt="" width="80" height="80"><div><span class="magic-element">Ice</span><h4>Codex of the Hollow Winter</h4></div></header>
+              <p>A fan of freezing bolts that slows enemies.</p>
+              <ul class="magic-abilities"><li><img src="assets/grimoire/ss-ability-icon-frostbite.png" alt="" width="36" height="36"><div><strong>Frostbite</strong><span>Frost shard volley</span></div><div class="magic-key"><kbd>Q</kbd><span>8s</span></div></li><li><img src="assets/grimoire/ss-ability-icon-deep-rime.png" alt="" width="36" height="36"><div><strong>Deep Rime</strong><span>Slows nearby foes</span></div><div class="magic-key"><kbd>E</kbd><span>10s</span></div></li><li><img src="assets/grimoire/ss-ability-icon-sovereign-hail.png" alt="" width="36" height="36"><div><strong>Sovereign Hail</strong><span>Piercing ice volley</span></div><div class="magic-key"><kbd>R</kbd><span>15s</span></div></li></ul>
+              <div class="magic-evolution"><img src="assets/grimoire/State=equipped-5.png" alt="" width="52" height="52"><div><span>Evolution</span><strong>Glacial Sovereign</strong><small>Stronger, faster freezing bolts.</small></div></div>
+            </article>
+            <article class="magic-school" style="--spell:#d2b6ff">
+              <header class="magic-school-heading"><img src="assets/grimoire/State=equipped-3.png" alt="" width="80" height="80"><div><span class="magic-element">Lightning</span><h4>Tome of the Stormbound</h4></div></header>
+              <p>Rapid lightning needles that pierce enemies.</p>
+              <ul class="magic-abilities"><li><img src="assets/grimoire/ss-ability-icon-thunderclap.png" alt="" width="36" height="36"><div><strong>Thunderclap</strong><span>Lightning volley</span></div><div class="magic-key"><kbd>Q</kbd><span>8s</span></div></li><li><img src="assets/grimoire/ss-ability-icon-static.png" alt="" width="36" height="36"><div><strong>Static</strong><span>Slows nearby foes</span></div><div class="magic-key"><kbd>E</kbd><span>10s</span></div></li><li><img src="assets/grimoire/ss-ability-icon-stormbreaker.png" alt="" width="36" height="36"><div><strong>Stormbreaker</strong><span>Piercing lightning volley</span></div><div class="magic-key"><kbd>R</kbd><span>15s</span></div></li></ul>
+              <div class="magic-evolution"><img src="assets/grimoire/State=equipped-6.png" alt="" width="52" height="52"><div><span>Evolution</span><strong>Tempest Ascendant</strong><small>Stronger, faster lightning.</small></div></div>
+            </article>
+          </div>
+          <p class="magic-note">Q: damage · E: slow · R: ultimate. Each ability has its own recharge and remains available after evolution.</p>
+        </div>
         <div class="guide-block guide-reference"><h3>The mage's field guide</h3><p>Detailed mechanics for every vigil.</p>
           <details><summary>Combat and progression</summary><p>Start with three lives. Ward Pulse damages nearby foes and clears projectiles (3.8-second initial recharge). Enemy score fills XP; every fifth cleared circle guarantees a boon. Maintain a kill chain within 2.4 seconds for higher scores.</p></details>
-          <details><summary>Boons and gifts</summary><p>Arcane Edge increases damage; Quickcast speeds casting; Swiftstep improves movement; Stormshot speeds projectiles. Ward Resonance reduces recharge and Expanding Ward increases range. Vitality raises maximum lives and restores one.</p><p>Falling gifts: Vitality restores a life, Surge speeds casting for 4.5 seconds, and Aegis absorbs one hit. Duplicate Aegis and full-health Vitality grant Surge.</p></details>
-          <details><summary>Grimoire abilities and evolution</summary><p>Choose Ashen Crown for fire, Hollow Winter for slowing ice, or Stormbound for piercing lightning. Q, E and R activate your family's three abilities with independent cooldowns. Two specialization upgrades make your evolution eligible for a later boon.</p></details>
+          <details><summary>Boons and gifts</summary><p>Arcane Edge increases damage; Quickcast speeds casting; Swiftstep improves movement; Stormshot speeds projectiles. Ward Resonance reduces recharge and Expanding Ward increases range. Vitality raises maximum lives and restores one.</p><p>Falling gifts: Vitality restores a life, Surge reduces automatic casting intervals by 45% for 4.5 seconds (up to the firing-rate limit), and Aegis absorbs one hit. Duplicate Aegis and full-health Vitality grant Surge. Repeated Surge pickups refresh its duration.</p></details>
+          <details><summary>Grimoire abilities and evolution</summary><p>Choose Ashen Crown for fire, Hollow Winter for slowing ice, or Stormbound for piercing lightning. Q, E and R activate your family's three abilities with independent cooldowns. E creates a slowing field that lasts 1.25 seconds; enemies entering it are marked and slowed. Two specialization upgrades make your evolution eligible for a later boon.</p></details>
           <details><summary>Enemies and Archons</summary><p>Bats, imps, wraiths and cultists appear as circles progress. Defeat Vaelith, Mordrath, Elyndra, Tharos and Aurex at circles 10, 20, 30, 40 and 50.</p></details>
           <details><summary>Scores and achievements</summary><p>Sign in to save runs and earn titles. Guests can preview their ranking after victory.</p></details>
         </div>
@@ -102,20 +145,20 @@
     </section>
   </section>
 
-  <section id="paused" class="overlay" hidden>
+  <section id="paused" class="overlay" role="dialog" aria-modal="true" aria-labelledby="pause-title" hidden>
     <div class="card">
-      <h2>Held</h2>
-      <p>The storm waits.</p>
-      <button id="audio-toggle" class="secondary-action" type="button" aria-pressed="false">Sound: on</button>
-      <div class="result-actions"><button id="resume" type="button">Resume</button><button id="quit-menu" class="secondary-action" type="button">Quit to menu</button></div>
+      <h2 id="pause-title">Vigil paused</h2>
+      <div class="pause-actions"><button id="resume" type="button">Resume</button><button id="audio-toggle" class="secondary-action" type="button" aria-pressed="false">Sound: on</button><button id="shot-guides-toggle" class="secondary-action" type="button" aria-pressed="true" title="Toggle regular enemy attack trajectory guides. Archon danger warnings remain visible.">Shot guides: on</button></div>
+      <div id="pause-profile-slot"></div>
+      <button id="quit-menu" class="secondary-action" type="button">Quit to menu</button>
     </div>
   </section>
 
-  <section id="upgrades" class="overlay" hidden>
+  <section id="upgrades" class="overlay" role="dialog" aria-modal="true" aria-labelledby="upgrade-title" hidden>
     <div class="card upgrade-card">
       <p class="eyebrow">Between circles</p>
-      <h2>Choose an aspect</h2>
-      <p>Select one boon for this vigil.</p>
+      <h2 id="upgrade-title">Choose a boon</h2>
+      <p id="upgrade-description">Choose one upgrade for this vigil.</p>
       <div id="upgrade-choices" class="upgrade-choices"></div>
     </div>
   </section>
@@ -127,7 +170,7 @@
       <p id="best-over"></p>
       <p id="run-details"></p>
       <p id="run-sync-status" aria-live="polite"></p>
-      <div class="result-actions"><button id="again" type="button">Retry</button><button id="show-result-leaderboard" class="secondary-action" type="button" hidden>Show leaderboard</button><button id="back-menu" class="secondary-action" type="button">Back to menu</button></div>
+      <div class="result-actions d-flex flex-wrap justify-content-center"><button id="again" type="button">Retry</button><button id="show-result-leaderboard" class="secondary-action" type="button" hidden>Show leaderboard</button><button id="back-menu" class="secondary-action" type="button">Back to menu</button></div>
       <section id="result-leaderboard" hidden aria-live="polite"><h3>Leaderboard</h3><p id="result-rank"></p><ol id="result-ranking-list"></ol><button id="close-result-leaderboard" type="button" class="secondary-action">Close leaderboard</button></section>
       <p id="guest-progress" hidden>Playing as guest. <a href="register.php">Create an account</a> to save future progress.</p>
     </div>

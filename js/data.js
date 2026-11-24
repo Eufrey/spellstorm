@@ -1,9 +1,10 @@
 const BALANCE = {
   simulationStep: 1 / 120, maxFrameTime: 0.1, minimumSpellInterval: 0.045,
+  surgeIntervalMultiplier: 0.55, surgeMinimumSpellInterval: 0.035, surgeDuration: 4.5,
   firstXpTarget: 2700, xpPerQueuedEnemy: 650,
   maxOrdinaryEnemies: 14, maxRangedEnemies: 6,
   reinforcementLimit: 4, reinforcementFodderCap: 3, reinforcementInterval: 1.2,
-  bossHealth: [240, 420, 650, 900, 1200],
+  bossHealth: [620, 1150, 1900, 2900, 4200],
 };
 
 const GRIMOIRES = {
@@ -74,6 +75,29 @@ const GRIMOIRES = {
     projectileSpeed: 900,
   },
 };
+
+const GRIMOIRE_ART = { basic: '', ashen: '-1', hollowWinter: '-2', stormbound: '-3', infernal: '-4', glacial: '-5', thunderous: '-6' };
+function grimoireEmblem(id) {
+  const names = { basic: 'basic-grimoire', ashen: 'ashen-crown', hollowWinter: 'hollow-winter', stormbound: 'stormbound', infernal: 'infernal-testament', glacial: 'glacial-sovereign', thunderous: 'tempest-ascendant' };
+  return `assets/grimoire/ss-emblem-${names[id] || names.basic}.png`;
+}
+const ABILITY_ART = {
+  'ashen-nova': 'ember-nova', 'ashen-cinders': 'cinders', 'ashen-infernal': 'infernal-pyre',
+  'hollow-frostbite': 'frostbite', 'hollow-deeprime': 'deep-rime', 'hollow-hail': 'sovereign-hail',
+  'storm-thunderclap': 'thunderclap', 'storm-static': 'static', 'storm-breaker': 'stormbreaker',
+};
+function bookArt(id, state) {
+  return `assets/grimoire/State=${state}${GRIMOIRE_ART[id]}.png`;
+}
+function spellArt(id) {
+  const element = { ashen: 'fire', infernal: 'fire', hollowWinter: 'ice', glacial: 'ice', stormbound: 'lightning', thunderous: 'lightning' }[id];
+  return element ? { element, tier: ['infernal', 'glacial', 'thunderous'].includes(id) ? 'evolved' : 'base' } : null;
+}
+function abilityArt(id, platform, state) {
+  const label = platform[0].toUpperCase() + platform.slice(1);
+  const status = state[0].toUpperCase() + state.slice(1);
+  return `assets/grimoire/Platform=${label}, State=${status}-${ABILITY_ART[id]}-${platform}-${state}.png`;
+}
 
 const GRIMOIRE_OPTIONS = [
   {
@@ -205,7 +229,7 @@ const GRIMOIRE_ABILITY_KITS = {
     icon: "🔥",
     abilities: [
       { id: "ashen-nova", name: "Ember Nova", icon: "🔥", type: "damage", description: "Nova of flame burns through nearby foes.", cooldown: 8, radius: 70, damage: 5 },
-      { id: "ashen-cinders", name: "Cinders", icon: "🕯️", type: "debuff", description: "Coat nearby foes in cinders.", cooldown: 10, radius: 90, slow: 1.6 },
+      { id: "ashen-cinders", name: "Cinders", icon: "🕯️", type: "debuff", description: "Create a cinder field that slows enemies.", cooldown: 10, radius: 150, slow: 1.6 },
       { id: "ashen-infernal", name: "Infernal Pyre", icon: "☄️", type: "ultimate", description: "Devastating infernal pyre.", cooldown: 15, radius: 110, damage: 12 },
     ],
   },
@@ -214,7 +238,7 @@ const GRIMOIRE_ABILITY_KITS = {
     icon: "❄️",
     abilities: [
       { id: "hollow-frostbite", name: "Frostbite", icon: "❄️", type: "damage", description: "Frost shard burst.", cooldown: 8, radius: 70, damage: 4.5 },
-      { id: "hollow-deeprime", name: "Deep Rime", icon: "🧊", type: "debuff", description: "Deep freeze slows nearby foes.", cooldown: 10, radius: 90, slow: 2.0 },
+      { id: "hollow-deeprime", name: "Deep Rime", icon: "🧊", type: "debuff", description: "Create a freezing field that slows enemies.", cooldown: 10, radius: 150, slow: 2.0 },
       { id: "hollow-hail", name: "Sovereign Hail", icon: "🌨️", type: "ultimate", description: "Sovereign hail of ice.", cooldown: 15, radius: 110, damage: 11 },
     ],
   },
@@ -223,7 +247,7 @@ const GRIMOIRE_ABILITY_KITS = {
     icon: "⚡",
     abilities: [
       { id: "storm-thunderclap", name: "Thunderclap", icon: "⚡", type: "damage", description: "Thunderous clap of lightning.", cooldown: 8, radius: 70, damage: 4.5 },
-      { id: "storm-static", name: "Static", icon: "🌩️", type: "debuff", description: "Static buildup slows nearby foes.", cooldown: 10, radius: 90, slow: 1.8 },
+      { id: "storm-static", name: "Static", icon: "🌩️", type: "debuff", description: "Create a static field that slows enemies.", cooldown: 10, radius: 150, slow: 1.8 },
       { id: "storm-breaker", name: "Stormbreaker", icon: "🌩️", type: "ultimate", description: "Stormbreaker unleashes lightning.", cooldown: 15, radius: 110, damage: 11 },
     ],
   },

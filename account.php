@@ -1,15 +1,18 @@
 <?php
-require __DIR__.'/includes/session.php'; require __DIR__.'/includes/account-layout.php';
+require __DIR__.'/includes/session.php'; require __DIR__.'/includes/account-layout.php'; require __DIR__.'/includes/avatar.php';
 require __DIR__.'/includes/achievement-tiers.php'; require __DIR__.'/includes/achievement-view.php'; require __DIR__.'/includes/profile.php';
 $account=require_account(); $progress=null; $record=null;
 try { $db=spellstorm_database(); $record=player_profile_record($db,$account['id']); $progress=achievement_progress(player_achievement_rows($db,$account['id'])); } catch(Throwable $e) {}
 $stats=$record['stats']??[]; $grimoires=$record['grimoires']??[]; $recent=$record['recent']??[];
 account_header('Mage profile',true,true); ?>
+<?php if(isset($_SESSION['avatar_notice'])): ?><p role="status"><?=escape($_SESSION['avatar_notice'])?></p><?php unset($_SESSION['avatar_notice']); endif; ?>
 <div class="profile-hero">
   <div class="mage-emblem"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="43" fill="none" stroke="currentColor" stroke-width="1"/><path d="M50 11 72 47 91 50 72 53 50 89 28 53 9 50 28 47Z" fill="none" opacity=".45" stroke="currentColor"/><path d="M26 66 39 44 50 23 63 44 76 66 65 72 35 72Z" fill="#322047" stroke="currentColor" stroke-width="2"/><path d="M35 60 50 42 65 60 59 69 41 69Z" fill="#0b0614"/><path d="M43 60h4m6 0h4" stroke="#f0c56a" stroke-width="2"/><path d="M50 15v10m-5-5h10" stroke="currentColor"/></svg></div>
   <div class="mage-identity"><span class="profile-kicker">THE VIGIL RECORD</span><h2><?=escape($account['username'])?></h2><?php if($progress['title']??null): achievement_badge($progress['title']); else: ?><span class="unranked-title">Unranked mage</span><?php endif; ?><p><?php if(!empty($record['identity']['created_at'])): ?>Member since <?=escape(profile_date($record['identity']['created_at']))?><?php endif; ?></p></div>
   <div class="profile-actions"><a class="profile-play" href="index.html">Begin the vigil <span aria-hidden="true">→</span></a><a class="profile-link" href="leaderboard.php">Global leaderboard</a><?php if($account['role']==='admin'): ?><a class="profile-link" href="admin.php">Control panel</a><?php endif; ?></div>
 </div>
+<section class="profile-panel mt-3"><?php avatar_form(); ?></section>
+<?php if(!empty($record['identity']['avatar_url'])): ?><style>.mage-emblem svg{display:none}.mage-emblem{background-image:url('avatar.php?id=<?=rawurlencode($account['id'])?>');background-size:cover;background-position:center}</style><?php endif; ?>
 <?php if(!$record): ?><p class="error" role="alert">Vigil statistics are temporarily unavailable.</p><?php endif; ?>
 <div class="profile-section-heading"><div><span class="profile-kicker">PERSONAL RECORD</span><h2>Vigil statistics</h2></div></div>
 <div class="profile-stat-grid"><?php foreach(['best_score'=>['Best score','◆'],'highest_circle'=>['Highest circle','◎'],'runs'=>['Total runs','✧'],'wins'=>['Victories','♜']] as $id=>[$label,$icon]): ?><div class="profile-stat"><span class="stat-symbol" aria-hidden="true"><?=escape($icon)?></span><small><?=escape($label)?></small><strong><?=isset($stats[$id])?number_format((int)$stats[$id]):'—'?></strong></div><?php endforeach; ?></div>

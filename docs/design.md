@@ -24,13 +24,13 @@ This section records the current gameplay implementation in `js/data.js`, `js/co
 | Family | Key | Ability | Type | Cooldown | Radius | Effect |
 | --- | --- | --- | --- | ---: | ---: | --- |
 | Ashen Crown | Q | Ember Nova | Damage | 8 s | 70 | 5 damage per projectile |
-| Ashen Crown | E | Cinders | Slow | 10 s | 90 | 1.6 s slow |
+| Ashen Crown | E | Cinders | Slow field | 10 s | 150 | 1.6 s slow |
 | Ashen Crown | R | Infernal Pyre | Ultimate | 15 s | 110 | 12 damage per piercing projectile |
 | Hollow Winter | Q | Frostbite | Damage | 8 s | 70 | 4.5 damage per projectile |
-| Hollow Winter | E | Deep Rime | Slow | 10 s | 90 | 2.0 s slow |
+| Hollow Winter | E | Deep Rime | Slow field | 10 s | 150 | 2.0 s slow |
 | Hollow Winter | R | Sovereign Hail | Ultimate | 15 s | 110 | 11 damage per piercing projectile |
 | Stormbound | Q | Thunderclap | Damage | 8 s | 70 | 4.5 damage per projectile |
-| Stormbound | E | Static | Slow | 10 s | 90 | 1.8 s slow |
+| Stormbound | E | Static | Slow field | 10 s | 150 | 1.8 s slow |
 | Stormbound | R | Stormbreaker | Ultimate | 15 s | 110 | 11 damage per piercing projectile |
 
 ### Effect art direction and handoff
@@ -117,7 +117,21 @@ Create mobile and desktop layouts from the same reusable components. Preserve th
 - Show experience as a segmented amber gauge with an inset border. Make the segment pattern visually distinct from boss health.
 - Accommodate the initial three lives and the current maximum of seven after upgrades. Avoid overlapping the score at maximum health.
 
+### Regular enemy encounter progression
+
+The 45 regular circles use randomized enemy types, positions, and burst-and-gap arrival intervals, with weighted enemy mixtures that grow more demanding across chapters. Circles 1–9 are a fast-paced prototype introduction: 16 to 28 queued enemies, 11.3–13.7 seconds of scheduled arrivals before cleanup, and up to 136% base enemy health. Bats introduce movement, imps introduce dodging, wraiths introduce aimed shots, and cultists introduce spread attacks by Circle 4. Circle 5 unlocks the chosen grimoire; Circle 10 culminates in the first Archon. Later circles increase to 50 queued enemies (1,624 total across the campaign before reinforcements), 20 simultaneous enemies, 7 ranged enemies, and 44 hostile projectiles. Imps telegraph locked dives; wraiths and cultists occupy varied firing stations, warn before firing, and retreat after a bounded encounter window. Regular enemy projectile speed increases gradually, capped at 275 logical pixels per second. Health scales from 100% to 264%; movement is capped at 165%. Later regular arrival schedules range from 15.4 to 21.1 seconds before cleanup and upgrades. Experience targets continue to follow queued enemy counts. The full campaign target remains 20–25 minutes, pending playtesting.
+
+The pause menu includes a Shot guides toggle, enabled by default and remembered locally across sessions. Disabling it hides regular enemy trajectory lines while retaining their pre-attack rings and essential Archon danger warnings. Attack timing, aim, damage, and scoring are unchanged by this visual preference.
+
+All five Archons also use Rune Rain (staggered downward projectile rows with alternating openings), Twin Crossfire (opposing horizontal waves with shifted gaps), and Arcane Spiral (successive rotated aimed fans). Vaelith introduces all three alongside Dusk Fan and Crown Strike. Later bosses increase wave count, density, and speed; Phase II adds another wave and shortens the interval. Existing projectiles persist between these patterns, and Ward clears nearby projectiles without cancelling subsequent scheduled waves. Visible warnings preview the first volley and show upcoming batches during release.
+
+The Archon arrival sprite sheet plays once during the first 0.9 seconds of each boss encounter. Confirmed grimoire and boon selections play the six-frame boon effect around the mage for 0.48 seconds. The equipped grimoire emblem updates with the current book and its evolution; desktop ability art briefly shows the pressed state before activation and cooldown. These visual effects do not delay gameplay or change ability balance.
+
+Before reward choices appear, combat freezes while golden motes gather around the mage and the boon sprite sheet plays over a gently darkening arena. The gathering lasts 0.42 seconds for boons and 0.55 seconds for the first grimoire, followed by a short staggered card entrance. A soft ascending tone marks the reward. Choice input is accepted once the cards appear; reduced-motion preferences skip the gathering and entrance animations.
+
 ### Archon encounter
+
+Bosses use a named, visible warning, a release, and a recovery period. Health increases across the five encounters: 620, 1150, 1900, 2900 and 4200. Each transitions at half health, clearing pending hazards and receiving 0.65 seconds of transition protection so phase two cannot be skipped. Recovery shortens from 1.0 seconds to 0.6 seconds across bosses, with another 0.28-second reduction in phase two (minimum 0.32 seconds); curtain attacks retain extra travel time. Ordinary projectiles remain during subsequent warnings, while explicitly advertised safe lanes and sweeps clear old hazards. Vaelith uses denser aimed fans and locked three/five-shot bursts; Mordrath combines marked areas with aimed volleys; Elyndra combines faster frost curtains with marked attacks; Tharos introduces safe lanes and denser transverse sweeps. Aurex combines these concepts, adds a second lightning-lane warning in phase two, and sends closing curtains with a central opening. The HUD displays live health percentage, a halfway phase marker, and a separate phase badge on both layouts. The timing and spacing remain subject to human playtesting.
 
 - Use the actual boss name and a broad, recessed red health gauge. Scale the frame to fit the longest supported name.
 - Give the arrival a brief stepped frame expansion and restrained color flash, then settle into a quiet combat state.
@@ -128,7 +142,7 @@ Create mobile and desktop layouts from the same reusable components. Preserve th
 
 - Use a small spellbook emblem and compact name near the edge of the playfield. Reserve long descriptions for help or upgrade selection.
 - Give Ashen Crown a crown/flame silhouette, Hollow Winter a crystal/frost silhouette, and Stormbound a split lightning silhouette.
-- Show Surge with a lightning marker and a subtle animated casting accent. Show Aegis with a shield rune and a blue shell around the mage.
+- Show Surge with gold orbiting motes, a temporary duration strip beneath the mage and a separate profile countdown; never append Surge to the grimoire name. Surge lowers automatic cast intervals by 45% for 4.5 seconds, with a 35ms minimum interval during Surge and 45ms normally. Repeated pickups refresh duration without stacking. Show Aegis with a shield rune and a blue shell around the mage. All pickups use distinct colored pixel frames, particles, an expanding collection ring and a distinct activation chime.
 - When Aegis breaks, remove its HUD marker and scatter a few crisp shards around the mage. Keep health intact when the shield absorbs the hit.
 
 ### Ward and touch controls

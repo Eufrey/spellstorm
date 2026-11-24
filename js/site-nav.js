@@ -1,4 +1,4 @@
-(() => {
+﻿(() => {
   const slot = document.getElementById('play-site-nav');
   if (!slot) return;
   if (location.protocol === 'file:') { slot.hidden = true; return; }
