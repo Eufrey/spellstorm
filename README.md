@@ -47,6 +47,24 @@ The game is split into ordered scripts in `js/`. `js/game.js` is the small loade
 
 ## Static hosting
 
+## Full deployment on Vercel
+
+The GitHub production branch is `spellstorm-prototype`. Import the repository with the **Other** preset and root directory `./`. Keep the build and output settings at their repository defaults (`node tools/build-static.cjs`, `public-build`). Select Node.js 22.x where the project offers a runtime setting. `vercel.json` uses the community PHP runtime `vercel-php@0.9.0`; only the game's static assets are publicly copied by the build. The PHP router handles the named application endpoints.
+
+In Supabase, open the Spellstorm project, click **Connect**, and select the **Session pooler** connection (port 5432). For an existing database, apply `database/sessions.sql` if the session table has not already been created. For a new database, apply `database/database.sql`, `database/challenges.sql`, `database/achievement-tiers.sql`, then `database/sessions.sql` in that order.
+
+Set these server-only Vercel environment variables for Production (and a separate database for Preview if needed):
+
+| Variable | Value from Supabase Session pooler |
+| --- | --- |
+| `SPELLSTORM_DB_HOST` | Exact pooler host from Connect |
+| `SPELLSTORM_DB_PORT` | `5432` |
+| `SPELLSTORM_DB_DATABASE` | `postgres` |
+| `SPELLSTORM_DB_USERNAME` | Pooler username, usually `postgres.<project-ref>` |
+| `SPELLSTORM_DB_PASSWORD` | Database password (Secret) |
+
+Use the database password, not the Supabase API key. Never commit it. Database-backed PHP sessions are automatically enabled on Vercel; local PHP continues to use normal file sessions unless `SPELLSTORM_DB_SESSIONS=1` is set. Session pooler mode is required for the PostgreSQL session locks. After deployment, verify login, logout, direct access permissions, profile image upload, game run saving and the leaderboard over HTTPS.
+
 The planned full application deployment is Vercel. Profile pictures can be uploaded from the mage profile or administrator settings (PNG, JPEG or WebP, up to 512 KB and 2048 × 2048 pixels). Images are validated by PHP and stored in the existing database profile field, rather than on a temporary hosting filesystem. They appear on the leaderboard and navigation.
 
 `index.html` and the game scripts run on any static host, including GitHub Pages. Account, leaderboard, and run-saving features depend on the PHP entry points (`login.php`, `register.php`, `run-api.php`, `rank-preview.php`, `site-nav.php`) plus the database configuration in `config/`. Those features are unavailable on a static host; the game remains playable as a guest with local best-score storage.

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "node tools/build-static.cjs",
+  "outputDirectory": "public-build",
+  "functions": {
+    "api/index.php": { "runtime": "vercel-php@0.9.0" }
+  },
+  "routes": [
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/(account|achievements|admin|admin-analytics|admin-challenges|admin-codex|admin-leaderboard|admin-players|admin-settings|avatar|avatar-upload|guide|leaderboard|login|logout|rank-preview|register|run-api|site-nav)\\.php", "dest": "/api/index.php" },
+    { "handle": "filesystem" }
+  ]
+}

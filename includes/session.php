@@ -3,8 +3,16 @@ declare(strict_types=1);
 require_once __DIR__.'/database.php';
 require_once __DIR__.'/accounts.php';
 ini_set('session.use_strict_mode','1');
-session_set_cookie_params(['httponly'=>true,'secure'=>!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS']!=='off','samesite'=>'Lax']);
-session_start();
+$cloud=getenv('VERCEL')==='1';
+session_set_cookie_params(['httponly'=>true,'secure'=>$cloud || (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS']!=='off'),'samesite'=>'Lax']);
+try {
+    if ($cloud || getenv('SPELLSTORM_DB_SESSIONS')==='1') {
+        require_once __DIR__.'/session-store.php';
+        ini_set('session.gc_maxlifetime','86400');
+        session_set_save_handler(new DatabaseSessionStore(spellstorm_database()),true);
+    }
+    if (!session_start()) throw new RuntimeException('Session unavailable');
+} catch (Throwable $e) { http_response_code(503); exit('Account session service unavailable.'); }
 header('Cache-Control: no-store');
 function csrf_token(): string { return $_SESSION['csrf'] ??= bin2hex(random_bytes(32)); }
 function verify_csrf(): void { if (!hash_equals(csrf_token(),is_string($_POST['csrf']??null)?$_POST['csrf']:'')) { http_response_code(403); exit('Invalid request.'); } }

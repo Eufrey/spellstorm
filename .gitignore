@@ -9,3 +9,5 @@ config.pooler.local.php
 .env.*
 *.pem
 *.key
+.vercel/
+/public-build/

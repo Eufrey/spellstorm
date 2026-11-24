@@ -1,0 +1,12 @@
+.backup/
+.git/
+.superpowers/
+.taste-skill/
+config/
+.env*
+docs/
+tests/
+database/
+public-build/
+*.pem
+*.key
